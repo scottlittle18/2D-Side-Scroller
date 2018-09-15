@@ -18,171 +18,171 @@ TextureImporter:
     21300026: Grass_LeftLedge
     21300028: Grass_Hill_LeftTop
     21300030: Grass_Plain
-    21300032: tiles_spritesheet_0
-    21300034: tiles_spritesheet_1
-    21300036: tiles_spritesheet_2
-    21300038: tiles_spritesheet_3
-    21300040: tiles_spritesheet_4
-    21300042: tiles_spritesheet_5
-    21300044: tiles_spritesheet_6
-    21300046: tiles_spritesheet_7
-    21300048: tiles_spritesheet_8
-    21300050: tiles_spritesheet_9
-    21300052: tiles_spritesheet_10
-    21300054: tiles_spritesheet_11
+    21300032: Box_Pickup
+    21300034: Window_0
+    21300036: P_Stone_Mid
+    21300038: Brick_Reg
+    21300040: G_Snow_LeftLedge
+    21300042: G_Sand_Hill_Left
+    21300044: Rope_1
+    21300046: H_Lava_Reg
+    21300048: G_Grass_Hill_Left
+    21300050: G_Grass_Reg
+    21300052: G_Dirt_Hill_Left
+    21300054: G_Dirt_Single
     21300056: tiles_spritesheet_12
-    21300058: tiles_spritesheet_13
-    21300060: tiles_spritesheet_14
-    21300062: tiles_spritesheet_15
-    21300064: tiles_spritesheet_16
-    21300066: tiles_spritesheet_17
-    21300068: tiles_spritesheet_18
-    21300070: tiles_spritesheet_19
-    21300072: tiles_spritesheet_20
-    21300074: tiles_spritesheet_21
-    21300076: tiles_spritesheet_22
-    21300078: tiles_spritesheet_23
-    21300080: tiles_spritesheet_24
-    21300082: tiles_spritesheet_25
-    21300084: tiles_spritesheet_26
-    21300086: tiles_spritesheet_27
-    21300088: tiles_spritesheet_28
-    21300090: tiles_spritesheet_29
-    21300092: tiles_spritesheet_30
-    21300094: tiles_spritesheet_31
-    21300096: tiles_spritesheet_32
-    21300098: tiles_spritesheet_33
-    21300100: tiles_spritesheet_34
-    21300102: tiles_spritesheet_35
-    21300104: tiles_spritesheet_36
-    21300106: tiles_spritesheet_37
+    21300058: Box_Exclaim_Used
+    21300060: Torch_NotLit
+    21300062: P_Stone_Left
+    21300064: P_Wood_Bridge
+    21300066: G_Snow_0
+    21300068: G_Sand_Hill_Right_Top
+    21300070: Rope_0
+    21300072: Fence_Tall1
+    21300074: G_Grass_Hill_Right_Top
+    21300076: Fence_Short_Broken
+    21300078: G_Dirt_Hill_RighTop
+    21300080: G_Castle_Right
+    21300082: F_TallBush
+    21300084: Box_Exclaim
+    21300086: Torch_Lit_Left
+    21300088: P_Stone_Single
+    21300090: G_Snow_Hill_LeftTop
+    21300092: G_Snow_Reg
+    21300094: G_Sand_Hill_Right
+    21300096: G_Stone_Hill_Left
+    21300098: Fence_Tall0
+    21300100: G_Grass_Hill_Right
+    21300102: Fence_Short
+    21300104: G_Dirt_Hill_Right
+    21300106: G_Castle_Mid
     21300108: tiles_spritesheet_38
-    21300110: tiles_spritesheet_39
-    21300112: tiles_spritesheet_40
-    21300114: tiles_spritesheet_41
-    21300116: tiles_spritesheet_42
-    21300118: tiles_spritesheet_43
-    21300120: tiles_spritesheet_44
-    21300122: tiles_spritesheet_45
-    21300124: tiles_spritesheet_46
-    21300126: tiles_spritesheet_47
-    21300128: tiles_spritesheet_48
-    21300130: tiles_spritesheet_49
-    21300132: tiles_spritesheet_50
+    21300110: WarningBox2
+    21300112: Torch_Lit_Right
+    21300114: G_Stone_RightCliff
+    21300116: G_Snow_Hill_Left
+    21300118: Sign_Arr_Right
+    21300120: P_Sand_Right
+    21300122: G_Stone_Hill_Right
+    21300124: H_Water_Mid
+    21300126: P_Grass_Right
+    21300128: Door_OpenTop
+    21300130: P_Dirt_Right
+    21300132: G_Castle_Left
     21300134: tiles_spritesheet_51
-    21300136: tiles_spritesheet_52
-    21300138: tiles_spritesheet_53
-    21300140: tiles_spritesheet_54
-    21300142: tiles_spritesheet_55
-    21300144: tiles_spritesheet_56
-    21300146: tiles_spritesheet_57
-    21300148: tiles_spritesheet_58
+    21300136: WarningBox1
+    21300138: G_Castle_Reg
+    21300140: G_Stone_RightLedge
+    21300142: G_Snow_Hill_RightTop
+    21300144: Sign_Arr_Left
+    21300146: P_Sand_Mid
+    21300148: KeyHole_Yellow
     21300150: tiles_spritesheet_59
-    21300152: tiles_spritesheet_60
-    21300154: tiles_spritesheet_61
-    21300156: tiles_spritesheet_62
-    21300158: tiles_spritesheet_63
+    21300152: P_Grass_Mid
+    21300154: Door_OpenBody
+    21300156: P_Dirt_Mid
+    21300158: G_Castle_RightCliff
     21300160: tiles_spritesheet_64
-    21300162: tiles_spritesheet_65
-    21300164: tiles_spritesheet_66
-    21300166: tiles_spritesheet_67
-    21300168: tiles_spritesheet_68
-    21300170: tiles_spritesheet_69
-    21300172: tiles_spritesheet_70
-    21300174: tiles_spritesheet_71
-    21300176: tiles_spritesheet_72
-    21300178: tiles_spritesheet_73
-    21300180: tiles_spritesheet_74
-    21300182: tiles_spritesheet_75
-    21300184: tiles_spritesheet_76
+    21300162: WarningBox0
+    21300164: G_Stone_Right
+    21300166: G_Stone_LeftCliff
+    21300168: G_Snow_Hill_Right
+    21300170: Sign_Exit
+    21300172: P_Sand_Left
+    21300174: Keyhole_Orange
+    21300176: G_Dirt_Mid
+    21300178: P_Grass_Left
+    21300180: Door_ClosedTop
+    21300182: P_Dirt_Left
+    21300184: P_Castle_Single
     21300186: tiles_spritesheet_77
-    21300188: tiles_spritesheet_78
-    21300190: tiles_spritesheet_79
-    21300192: tiles_spritesheet_80
-    21300194: tiles_spritesheet_81
-    21300196: tiles_spritesheet_82
-    21300198: tiles_spritesheet_83
-    21300200: tiles_spritesheet_84
-    21300202: tiles_spritesheet_85
-    21300204: tiles_spritesheet_86
-    21300206: tiles_spritesheet_87
-    21300208: tiles_spritesheet_88
-    21300210: tiles_spritesheet_89
+    21300188: Box_Blank
+    21300190: G_Stone_Mid
+    21300192: G_Stone_LedgeLeft
+    21300194: P_Snow_Right
+    21300196: Sign_Blank
+    21300198: P_Sand_Single
+    21300200: Box_Pickup_Used
+    21300202: G_Dirt_Left
+    21300204: P_Grass_Single
+    21300206: Door_ClosedBody
+    21300208: P_Dirt_Single
+    21300210: G_Castle_Hill_RightTop
     21300212: tiles_spritesheet_90
-    21300214: tiles_spritesheet_91
-    21300216: tiles_spritesheet_92
-    21300218: tiles_spritesheet_93
-    21300220: tiles_spritesheet_94
-    21300222: tiles_spritesheet_95
-    21300224: tiles_spritesheet_96
-    21300226: tiles_spritesheet_97
-    21300228: tiles_spritesheet_98
-    21300230: tiles_spritesheet_99
-    21300232: tiles_spritesheet_100
-    21300234: tiles_spritesheet_101
-    21300236: tiles_spritesheet_102
+    21300214: Box_CoinUsed
+    21300216: G_Stone_Left
+    21300218: G_Stone_Single
+    21300220: P_Snow_Mid
+    21300222: G_Sand_Right
+    21300224: G_Sand_RightCliff
+    21300226: KeyHole_Blue
+    21300228: G_Grass_Right
+    21300230: G_Grass_RightCliff
+    21300232: G_Dirt_Right
+    21300234: G_Dirt_RightCliff
+    21300236: G_Castle_Hill_Left
     21300238: tiles_spritesheet_103
-    21300240: tiles_spritesheet_104
-    21300242: tiles_spritesheet_105
-    21300244: tiles_spritesheet_106
-    21300246: tiles_spritesheet_107
-    21300248: tiles_spritesheet_108
-    21300250: tiles_spritesheet_109
-    21300252: tiles_spritesheet_110
-    21300254: tiles_spritesheet_111
-    21300256: tiles_spritesheet_112
-    21300258: tiles_spritesheet_113
-    21300260: tiles_spritesheet_114
-    21300262: tiles_spritesheet_115
+    21300240: Box_Coin
+    21300242: KeyHole_Green
+    21300244: G_Stone_Fill
+    21300246: P_Snow_Left
+    21300248: G_Sand_Mid
+    21300250: G_Sand_RightLedge
+    21300252: H_Water0
+    21300254: G_Grass_Mid
+    21300256: G_Grass_RightLedge
+    21300258: G_Castle_Hill_Right
+    21300260: G_Dirt_RightLedge
+    21300262: G_Castle_Hill_LeftTop
     21300264: tiles_spritesheet_116
-    21300266: tiles_spritesheet_117
-    21300268: tiles_spritesheet_118
+    21300266: FloatingBox_CoinUsed
+    21300268: Box_0
     21300270: tiles_spritesheet_119
-    21300272: tiles_spritesheet_120
-    21300274: tiles_spritesheet_121
+    21300272: P_Snow_Single
+    21300274: G_Sand_Left
     21300276: tiles_spritesheet_122
-    21300278: tiles_spritesheet_123
-    21300280: tiles_spritesheet_124
-    21300282: tiles_spritesheet_125
-    21300284: tiles_spritesheet_126
-    21300286: tiles_spritesheet_127
-    21300288: tiles_spritesheet_128
-    21300290: tiles_spritesheet_130
-    21300292: tiles_spritesheet_131
-    21300294: tiles_spritesheet_132
-    21300296: tiles_spritesheet_133
-    21300298: tiles_spritesheet_134
-    21300300: tiles_spritesheet_135
-    21300302: tiles_spritesheet_136
-    21300304: tiles_spritesheet_137
-    21300306: tiles_spritesheet_138
-    21300308: tiles_spritesheet_139
-    21300310: tiles_spritesheet_140
-    21300312: tiles_spritesheet_141
-    21300314: tiles_spritesheet_143
-    21300316: tiles_spritesheet_144
-    21300318: tiles_spritesheet_145
-    21300320: tiles_spritesheet_146
-    21300322: tiles_spritesheet_147
-    21300324: tiles_spritesheet_148
-    21300326: tiles_spritesheet_149
-    21300328: tiles_spritesheet_150
-    21300330: tiles_spritesheet_151
-    21300332: tiles_spritesheet_152
-    21300334: tiles_spritesheet_153
-    21300336: tiles_spritesheet_155
-    21300338: tiles_spritesheet_156
-    21300340: tiles_spritesheet_157
-    21300342: tiles_spritesheet_158
-    21300344: tiles_spritesheet_159
-    21300346: tiles_spritesheet_160
-    21300348: tiles_spritesheet_161
-    21300350: tiles_spritesheet_162
-    21300352: tiles_spritesheet_163
-    21300354: tiles_spritesheet_164
-    21300356: tiles_spritesheet_165
-    21300358: tiles_spritesheet_166
-    21300360: tiles_spritesheet_167
+    21300278: H_Water1
+    21300280: G_Grass_Left
+    21300282: G_Grass_LeftCliff
+    21300284: P_Castle_Mid
+    21300286: G_Sand_LeftCliff
+    21300288: P_Castle_Right
+    21300290: FloatingBox_Coin
+    21300292: G_Stone_Hill_LeftTop
+    21300294: G_Snow_Right
+    21300296: G_Snow_RightCliff
+    21300298: P_Wood_Bridge_Logs
+    21300300: G_Sand_LeftLedge
+    21300302: P_Castle_Left
+    21300304: G_Castle_Plain
+    21300306: G_Grass_LeftLedge
+    21300308: G_Castle_LeftCliff
+    21300310: G_Dirt_LeftLedge
+    21300312: F_ShortBush
+    21300314: Crate0
+    21300316: G_Stone_Hill_RightTop
+    21300318: G_Snow_Mid
+    21300320: G_Snow_RightLedge
+    21300322: G_Castle_Single
+    21300324: G_Sand_Single
+    21300326: H_Lava0
+    21300328: G_Castle_LeftLedge
+    21300330: G_Grass_Plain
+    21300332: G_Castle_RightLedge
+    21300334: G_Dirt_Plain
+    21300336: F_TallBush_Smile
+    21300338: Crate01
+    21300340: P_Stone_Right
+    21300342: G_Snow_Left
+    21300344: G_Snow_LeftCliff
+    21300346: G_Sand_Hill_LeftTop
+    21300348: Rope2
+    21300350: H_Lava1
+    21300352: G_Grass_Hill_LeftTop
+    21300354: G_Grass_Fill
+    21300356: G_Dirt_Hill_LeftTop
+    21300358: G_Dirt_Fill
+    21300360: F_ShortBush_Smile
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -263,15 +263,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tiles_spritesheet_0
+      name: Box_Pickup
       rect:
         serializedVersion: 2
         x: 0
-        y: 996.9231
-        width: 83.07692
-        height: 83.07692
+        y: 999
+        width: 83
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -283,15 +283,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_1
+      name: Window_0
       rect:
         serializedVersion: 2
-        x: 83
-        y: 996.9231
-        width: 83.07692
-        height: 83.07692
+        x: 90
+        y: 1002
+        width: 71
+        height: 74
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -303,15 +303,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_2
+      name: P_Stone_Mid
       rect:
         serializedVersion: 2
-        x: 166
-        y: 996.9231
-        width: 83.07692
-        height: 83.07692
+        x: 171
+        y: 1034
+        width: 81
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -323,15 +323,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_3
+      name: Brick_Reg
       rect:
         serializedVersion: 2
-        x: 249
-        y: 996.9231
-        width: 83.07692
-        height: 83.07692
+        x: 255
+        y: 999
+        width: 83
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -343,15 +343,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_4
+      name: G_Snow_LeftLedge
       rect:
         serializedVersion: 2
-        x: 332
-        y: 996.9231
-        width: 83.07692
-        height: 83.07692
+        x: 340
+        y: 999
+        width: 83
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -363,15 +363,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_5
+      name: G_Sand_Hill_Left
       rect:
         serializedVersion: 2
-        x: 415
-        y: 996.9231
-        width: 83.07692
-        height: 83.07692
+        x: 426
+        y: 1000
+        width: 82
+        height: 78
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -383,15 +383,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_6
+      name: Rope_1
       rect:
         serializedVersion: 2
-        x: 498
-        y: 996.9231
-        width: 83.07692
-        height: 83.07692
+        x: 511
+        y: 1033
+        width: 82
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -403,15 +403,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_7
+      name: H_Lava_Reg
       rect:
         serializedVersion: 2
-        x: 581
-        y: 996.9231
-        width: 83.07692
-        height: 83.07692
+        x: 596
+        y: 999
+        width: 82
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -423,15 +423,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_8
+      name: G_Grass_Hill_Left
       rect:
         serializedVersion: 2
-        x: 664
-        y: 996.9231
-        width: 83.07692
-        height: 83.07692
+        x: 681
+        y: 1000
+        width: 82
+        height: 78
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -443,15 +443,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_9
+      name: G_Grass_Reg
       rect:
         serializedVersion: 2
-        x: 747
-        y: 996.9231
-        width: 83.07692
-        height: 83.07692
+        x: 766
+        y: 1000
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -463,15 +463,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_10
+      name: G_Dirt_Hill_Left
       rect:
         serializedVersion: 2
-        x: 830
-        y: 996.9231
-        width: 83.07692
-        height: 83.07692
+        x: 851
+        y: 1000
+        width: 82
+        height: 79
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -483,15 +483,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_11
+      name: G_Dirt_Single
       rect:
         serializedVersion: 2
-        x: 913
-        y: 996.9231
-        width: 83.07692
-        height: 83.07692
+        x: 936
+        y: 1000
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -503,35 +503,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_12
-      rect:
-        serializedVersion: 2
-        x: 996
-        y: 996.9231
-        width: 83.07692
-        height: 83.07692
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff9729d500699784694598aa323af3aa
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tiles_spritesheet_13
+      name: Box_Exclaim_Used
       rect:
         serializedVersion: 2
         x: 0
-        y: 913.9231
-        width: 83.07692
-        height: 83.07692
+        y: 916
+        width: 83
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -543,15 +523,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_14
+      name: Torch_NotLit
       rect:
         serializedVersion: 2
-        x: 83
-        y: 913.9231
-        width: 83.07692
-        height: 83.07692
+        x: 110
+        y: 918
+        width: 32
+        height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -563,15 +543,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_15
+      name: P_Stone_Left
       rect:
         serializedVersion: 2
-        x: 166
-        y: 913.9231
-        width: 83.07692
-        height: 83.07692
+        x: 170
+        y: 951
+        width: 82
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -583,15 +563,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_16
+      name: P_Wood_Bridge
       rect:
         serializedVersion: 2
-        x: 249
-        y: 913.9231
-        width: 83.07692
-        height: 83.07692
+        x: 255
+        y: 916
+        width: 83
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -603,15 +583,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_17
+      name: G_Snow_0
       rect:
         serializedVersion: 2
-        x: 332
-        y: 913.9231
-        width: 83.07692
-        height: 83.07692
+        x: 341
+        y: 916
+        width: 81
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -623,15 +603,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_18
+      name: G_Sand_Hill_Right_Top
       rect:
         serializedVersion: 2
-        x: 415
-        y: 913.9231
-        width: 83.07692
-        height: 83.07692
+        x: 426
+        y: 916
+        width: 82
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -643,15 +623,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_19
+      name: Rope_0
       rect:
         serializedVersion: 2
-        x: 498
-        y: 913.9231
-        width: 83.07692
-        height: 83.07692
+        x: 542
+        y: 916
+        width: 20
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -663,15 +643,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_20
+      name: Fence_Tall1
       rect:
         serializedVersion: 2
-        x: 581
-        y: 913.9231
-        width: 83.07692
-        height: 83.07692
+        x: 596
+        y: 916
+        width: 82
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -683,15 +663,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_21
+      name: G_Grass_Hill_Right_Top
       rect:
         serializedVersion: 2
-        x: 664
-        y: 913.9231
-        width: 83.07692
-        height: 83.07692
+        x: 681
+        y: 916
+        width: 82
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -703,15 +683,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_22
+      name: Fence_Short_Broken
       rect:
         serializedVersion: 2
-        x: 747
-        y: 913.9231
-        width: 83.07692
-        height: 83.07692
+        x: 766
+        y: 917
+        width: 82
+        height: 70
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -723,15 +703,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_23
+      name: G_Dirt_Hill_RighTop
       rect:
         serializedVersion: 2
-        x: 830
-        y: 913.9231
-        width: 83.07692
-        height: 83.07692
+        x: 851
+        y: 916
+        width: 82
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -743,15 +723,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_24
+      name: G_Castle_Right
       rect:
         serializedVersion: 2
-        x: 913
-        y: 913.9231
-        width: 83.07692
-        height: 83.07692
+        x: 936
+        y: 916
+        width: 82
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -763,15 +743,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_25
+      name: F_TallBush
       rect:
         serializedVersion: 2
-        x: 996
-        y: 913.9231
-        width: 83.07692
-        height: 83.07692
+        x: 1021
+        y: 912
+        width: 56
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -783,15 +763,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_26
+      name: Box_Exclaim
       rect:
         serializedVersion: 2
         x: 0
-        y: 830.9231
-        width: 83.07692
-        height: 83.07692
+        y: 833
+        width: 83
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -803,15 +783,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_27
+      name: Torch_Lit_Left
       rect:
         serializedVersion: 2
-        x: 83
-        y: 830.9231
-        width: 83.07692
-        height: 83.07692
+        x: 108
+        y: 835
+        width: 34
+        height: 78
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -823,15 +803,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_28
+      name: P_Stone_Single
       rect:
         serializedVersion: 2
-        x: 166
-        y: 830.9231
-        width: 83.07692
-        height: 83.07692
+        x: 170
+        y: 867
+        width: 83
+        height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -843,15 +823,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_29
+      name: G_Snow_Hill_LeftTop
       rect:
         serializedVersion: 2
-        x: 249
-        y: 830.9231
-        width: 83.07692
-        height: 83.07692
+        x: 255
+        y: 833
+        width: 83
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -863,15 +843,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_30
+      name: G_Snow_Reg
       rect:
         serializedVersion: 2
-        x: 332
-        y: 830.9231
-        width: 83.07692
-        height: 83.07692
+        x: 341
+        y: 833
+        width: 81
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -883,15 +863,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_31
+      name: G_Sand_Hill_Right
       rect:
         serializedVersion: 2
-        x: 415
-        y: 830.9231
-        width: 83.07692
-        height: 83.07692
+        x: 426
+        y: 833
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -903,15 +883,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_32
+      name: G_Stone_Hill_Left
       rect:
         serializedVersion: 2
-        x: 498
-        y: 830.9231
-        width: 83.07692
-        height: 83.07692
+        x: 511
+        y: 833
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -923,15 +903,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_33
+      name: Fence_Tall0
       rect:
         serializedVersion: 2
-        x: 581
-        y: 830.9231
-        width: 83.07692
-        height: 83.07692
+        x: 595
+        y: 833
+        width: 83
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -943,15 +923,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_34
+      name: G_Grass_Hill_Right
       rect:
         serializedVersion: 2
-        x: 664
-        y: 830.9231
-        width: 83.07692
-        height: 83.07692
+        x: 681
+        y: 833
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -963,15 +943,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_35
+      name: Fence_Short
       rect:
         serializedVersion: 2
-        x: 747
-        y: 830.9231
-        width: 83.07692
-        height: 83.07692
+        x: 766
+        y: 833
+        width: 82
+        height: 71
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -983,15 +963,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_36
+      name: G_Dirt_Hill_Right
       rect:
         serializedVersion: 2
-        x: 830
-        y: 830.9231
-        width: 83.07692
-        height: 83.07692
+        x: 851
+        y: 833
+        width: 82
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1003,15 +983,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_37
+      name: G_Castle_Mid
       rect:
         serializedVersion: 2
-        x: 913
-        y: 830.9231
-        width: 83.07692
-        height: 83.07692
+        x: 936
+        y: 833
+        width: 82
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1023,35 +1003,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_38
-      rect:
-        serializedVersion: 2
-        x: 996
-        y: 830.9231
-        width: 83.07692
-        height: 83.07692
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 710baed3b49df734d8565c604c96833b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tiles_spritesheet_39
+      name: WarningBox2
       rect:
         serializedVersion: 2
         x: 0
-        y: 747.9231
-        width: 83.07692
-        height: 83.07692
+        y: 750
+        width: 83
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1063,15 +1023,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_40
+      name: Torch_Lit_Right
       rect:
         serializedVersion: 2
-        x: 83
-        y: 747.9231
-        width: 83.07692
-        height: 83.07692
+        x: 110
+        y: 752
+        width: 33
+        height: 78
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1083,15 +1043,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_41
+      name: G_Stone_RightCliff
       rect:
         serializedVersion: 2
-        x: 166
-        y: 747.9231
-        width: 83.07692
-        height: 83.07692
+        x: 170
+        y: 750
+        width: 83
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1103,15 +1063,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_42
+      name: G_Snow_Hill_Left
       rect:
         serializedVersion: 2
-        x: 249
-        y: 747.9231
-        width: 83.07692
-        height: 83.07692
+        x: 256
+        y: 750
+        width: 81
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1123,15 +1083,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_43
+      name: Sign_Arr_Right
       rect:
         serializedVersion: 2
-        x: 332
-        y: 747.9231
-        width: 83.07692
-        height: 83.07692
+        x: 345
+        y: 750
+        width: 75
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1143,15 +1103,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_44
+      name: P_Sand_Right
       rect:
         serializedVersion: 2
-        x: 415
-        y: 747.9231
-        width: 83.07692
-        height: 83.07692
+        x: 426
+        y: 784
+        width: 82
+        height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1163,15 +1123,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_45
+      name: G_Stone_Hill_Right
       rect:
         serializedVersion: 2
-        x: 498
-        y: 747.9231
-        width: 83.07692
-        height: 83.07692
+        x: 511
+        y: 750
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1183,15 +1143,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_46
+      name: H_Water_Mid
       rect:
         serializedVersion: 2
-        x: 581
-        y: 747.9231
-        width: 83.07692
-        height: 83.07692
+        x: 596
+        y: 750
+        width: 82
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1203,15 +1163,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_47
+      name: P_Grass_Right
       rect:
         serializedVersion: 2
-        x: 664
-        y: 747.9231
-        width: 83.07692
-        height: 83.07692
+        x: 681
+        y: 784
+        width: 82
+        height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1223,15 +1183,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_48
+      name: Door_OpenTop
       rect:
         serializedVersion: 2
-        x: 747
-        y: 747.9231
-        width: 83.07692
-        height: 83.07692
+        x: 766
+        y: 750
+        width: 82
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1243,15 +1203,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_49
+      name: P_Dirt_Right
       rect:
         serializedVersion: 2
-        x: 830
-        y: 747.9231
-        width: 83.07692
-        height: 83.07692
+        x: 851
+        y: 784
+        width: 82
+        height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1263,15 +1223,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_50
+      name: G_Castle_Left
       rect:
         serializedVersion: 2
-        x: 913
-        y: 747.9231
-        width: 83.07692
-        height: 83.07692
+        x: 936
+        y: 750
+        width: 82
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1283,27 +1243,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_51
-      rect:
-        serializedVersion: 2
-        x: 996
-        y: 747.9231
-        width: 83.07692
-        height: 83.07692
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d5e253763df16d4eb62931a01de1feb
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tiles_spritesheet_52
+      name: WarningBox1
       rect:
         serializedVersion: 2
         x: 0
@@ -1311,7 +1251,7 @@ TextureImporter:
         width: 83
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1323,15 +1263,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_53
+      name: G_Castle_Reg
       rect:
         serializedVersion: 2
         x: 85
         y: 667
         width: 83
-        height: 79
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1343,15 +1283,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_54
+      name: G_Stone_RightLedge
       rect:
         serializedVersion: 2
         x: 170
-        y: 665
-        width: 79
-        height: 83
+        y: 667
+        width: 83
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1363,15 +1303,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_55
+      name: G_Snow_Hill_RightTop
       rect:
         serializedVersion: 2
-        x: 249
-        y: 664.9231
-        width: 83.07692
-        height: 83.07692
+        x: 255
+        y: 667
+        width: 83
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1383,15 +1323,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_56
+      name: Sign_Arr_Left
       rect:
         serializedVersion: 2
-        x: 332
-        y: 664.9231
-        width: 83.07692
-        height: 83.07692
+        x: 345
+        y: 667
+        width: 74
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1403,15 +1343,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_57
+      name: P_Sand_Mid
       rect:
         serializedVersion: 2
-        x: 415
-        y: 664.9231
-        width: 83.07692
-        height: 83.07692
+        x: 426
+        y: 701
+        width: 82
+        height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1423,15 +1363,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_58
+      name: KeyHole_Yellow
       rect:
         serializedVersion: 2
-        x: 498
-        y: 664.9231
-        width: 83.07692
-        height: 83.07692
+        x: 510
+        y: 667
+        width: 84
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1446,12 +1386,12 @@ TextureImporter:
       name: tiles_spritesheet_59
       rect:
         serializedVersion: 2
-        x: 581
-        y: 664.9231
-        width: 83.07692
-        height: 83.07692
+        x: 596
+        y: 667
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1463,15 +1403,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_60
+      name: P_Grass_Mid
       rect:
         serializedVersion: 2
-        x: 664
-        y: 664.9231
-        width: 83.07692
-        height: 83.07692
+        x: 681
+        y: 701
+        width: 82
+        height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1483,15 +1423,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_61
+      name: Door_OpenBody
       rect:
         serializedVersion: 2
-        x: 747
-        y: 664.9231
-        width: 83.07692
-        height: 83.07692
+        x: 766
+        y: 667
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1503,15 +1443,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_62
+      name: P_Dirt_Mid
       rect:
         serializedVersion: 2
-        x: 830
-        y: 664.9231
-        width: 83.07692
-        height: 83.07692
+        x: 851
+        y: 701
+        width: 82
+        height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1523,15 +1463,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_63
+      name: G_Castle_RightCliff
       rect:
         serializedVersion: 2
-        x: 913
-        y: 664.9231
-        width: 83.07692
-        height: 83.07692
+        x: 936
+        y: 667
+        width: 83
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1543,27 +1483,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_64
-      rect:
-        serializedVersion: 2
-        x: 996
-        y: 664.9231
-        width: 83.07692
-        height: 83.07692
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: db010ed7403da5a4496165c2d760ca1b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tiles_spritesheet_65
+      name: WarningBox0
       rect:
         serializedVersion: 2
         x: 0
@@ -1571,7 +1491,7 @@ TextureImporter:
         width: 83
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1583,15 +1503,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_66
+      name: G_Stone_Right
       rect:
         serializedVersion: 2
-        x: 83
-        y: 581.9231
-        width: 83.07692
-        height: 83.07692
+        x: 85
+        y: 584
+        width: 83
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1603,15 +1523,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_67
+      name: G_Stone_LeftCliff
       rect:
         serializedVersion: 2
-        x: 166
-        y: 581.9231
-        width: 83.07692
-        height: 83.07692
+        x: 170
+        y: 584
+        width: 83
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1623,15 +1543,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_68
+      name: G_Snow_Hill_Right
       rect:
         serializedVersion: 2
-        x: 249
-        y: 581.9231
-        width: 83.07692
-        height: 83.07692
+        x: 256
+        y: 585
+        width: 82
+        height: 79
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1643,15 +1563,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_69
+      name: Sign_Exit
       rect:
         serializedVersion: 2
-        x: 332
-        y: 581.9231
-        width: 83.07692
-        height: 83.07692
+        x: 340
+        y: 584
+        width: 83
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1663,15 +1583,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_70
+      name: P_Sand_Left
       rect:
         serializedVersion: 2
-        x: 415
-        y: 581.9231
-        width: 83.07692
-        height: 83.07692
+        x: 425
+        y: 618
+        width: 83
+        height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1683,15 +1603,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_71
+      name: Keyhole_Orange
       rect:
         serializedVersion: 2
-        x: 498
-        y: 581.9231
-        width: 83.07692
-        height: 83.07692
+        x: 510
+        y: 584
+        width: 84
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1703,15 +1623,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_72
+      name: G_Dirt_Mid
       rect:
         serializedVersion: 2
-        x: 581
-        y: 581.9231
-        width: 83.07692
-        height: 83.07692
+        x: 596
+        y: 584
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1723,15 +1643,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_73
+      name: P_Grass_Left
       rect:
         serializedVersion: 2
-        x: 664
-        y: 581.9231
-        width: 83.07692
-        height: 83.07692
+        x: 680
+        y: 618
+        width: 83
+        height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1743,15 +1663,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_74
+      name: Door_ClosedTop
       rect:
         serializedVersion: 2
-        x: 747
-        y: 581.9231
-        width: 83.07692
-        height: 83.07692
+        x: 766
+        y: 584
+        width: 82
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1763,15 +1683,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_75
+      name: P_Dirt_Left
       rect:
         serializedVersion: 2
-        x: 830
-        y: 581.9231
-        width: 83.07692
-        height: 83.07692
+        x: 850
+        y: 618
+        width: 83
+        height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1783,15 +1703,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_76
+      name: P_Castle_Single
       rect:
         serializedVersion: 2
-        x: 913
-        y: 581.9231
-        width: 83.07692
-        height: 83.07692
+        x: 935
+        y: 618
+        width: 84
+        height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1803,27 +1723,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_77
-      rect:
-        serializedVersion: 2
-        x: 996
-        y: 581.9231
-        width: 83.07692
-        height: 83.07692
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5220f8c23ce6e1d47a5e1d0699104fdd
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tiles_spritesheet_78
+      name: Box_Blank
       rect:
         serializedVersion: 2
         x: 0
@@ -1831,7 +1731,7 @@ TextureImporter:
         width: 83
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1843,15 +1743,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_79
+      name: G_Stone_Mid
       rect:
         serializedVersion: 2
-        x: 83
-        y: 498.9231
-        width: 83.07692
-        height: 83.07692
+        x: 85
+        y: 501
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1863,15 +1763,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_80
+      name: G_Stone_LedgeLeft
       rect:
         serializedVersion: 2
-        x: 166
-        y: 498.9231
-        width: 83.07692
-        height: 83.07692
+        x: 169
+        y: 501
+        width: 83
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1883,15 +1783,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_81
+      name: P_Snow_Right
       rect:
         serializedVersion: 2
-        x: 249
-        y: 498.9231
-        width: 83.07692
-        height: 83.07692
+        x: 255
+        y: 536
+        width: 84
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1903,15 +1803,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_82
+      name: Sign_Blank
       rect:
         serializedVersion: 2
-        x: 332
-        y: 498.9231
-        width: 83.07692
-        height: 83.07692
+        x: 340
+        y: 501
+        width: 83
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1923,15 +1823,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_83
+      name: P_Sand_Single
       rect:
         serializedVersion: 2
-        x: 415
-        y: 498.9231
-        width: 83.07692
-        height: 83.07692
+        x: 425
+        y: 535
+        width: 83
+        height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1943,15 +1843,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_84
+      name: Box_Pickup_Used
       rect:
         serializedVersion: 2
-        x: 498
-        y: 498.9231
-        width: 83.07692
-        height: 83.07692
+        x: 511
+        y: 501
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1963,15 +1863,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_85
+      name: G_Dirt_Left
       rect:
         serializedVersion: 2
-        x: 581
-        y: 498.9231
-        width: 83.07692
-        height: 83.07692
+        x: 596
+        y: 501
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1983,15 +1883,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_86
+      name: P_Grass_Single
       rect:
         serializedVersion: 2
-        x: 664
-        y: 498.9231
-        width: 83.07692
-        height: 83.07692
+        x: 681
+        y: 535
+        width: 82
+        height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2003,15 +1903,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_87
+      name: Door_ClosedBody
       rect:
         serializedVersion: 2
-        x: 747
-        y: 498.9231
-        width: 83.07692
-        height: 83.07692
+        x: 766
+        y: 501
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2023,15 +1923,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_88
+      name: P_Dirt_Single
       rect:
         serializedVersion: 2
-        x: 830
-        y: 498.9231
-        width: 83.07692
-        height: 83.07692
+        x: 851
+        y: 535
+        width: 83
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2043,15 +1943,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_89
+      name: G_Castle_Hill_RightTop
       rect:
         serializedVersion: 2
-        x: 913
-        y: 498.9231
-        width: 83.07692
-        height: 83.07692
+        x: 936
+        y: 501
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2063,27 +1963,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_90
-      rect:
-        serializedVersion: 2
-        x: 996
-        y: 498.9231
-        width: 83.07692
-        height: 83.07692
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5272716cd342f6045ae62f70832de898
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tiles_spritesheet_91
+      name: Box_CoinUsed
       rect:
         serializedVersion: 2
         x: 0
@@ -2091,7 +1971,7 @@ TextureImporter:
         width: 83
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2103,15 +1983,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_92
+      name: G_Stone_Left
       rect:
         serializedVersion: 2
-        x: 83
-        y: 415.9231
-        width: 83.07692
-        height: 83.07692
+        x: 85
+        y: 418
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2123,15 +2003,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_93
+      name: G_Stone_Single
       rect:
         serializedVersion: 2
-        x: 166
-        y: 415.9231
-        width: 83.07692
-        height: 83.07692
+        x: 170
+        y: 418
+        width: 83
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2143,15 +2023,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_94
+      name: P_Snow_Mid
       rect:
         serializedVersion: 2
-        x: 249
-        y: 415.9231
-        width: 83.07692
-        height: 83.07692
+        x: 255
+        y: 453
+        width: 83
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2163,15 +2043,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_95
+      name: G_Sand_Right
       rect:
         serializedVersion: 2
-        x: 332
-        y: 415.9231
-        width: 83.07692
-        height: 83.07692
+        x: 340
+        y: 418
+        width: 83
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2183,15 +2063,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_96
+      name: G_Sand_RightCliff
       rect:
         serializedVersion: 2
-        x: 415
-        y: 415.9231
-        width: 83.07692
-        height: 83.07692
+        x: 426
+        y: 418
+        width: 83
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2203,15 +2083,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_97
+      name: KeyHole_Blue
       rect:
         serializedVersion: 2
-        x: 498
-        y: 415.9231
-        width: 83.07692
-        height: 83.07692
+        x: 510
+        y: 418
+        width: 83
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2223,15 +2103,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_98
+      name: G_Grass_Right
       rect:
         serializedVersion: 2
-        x: 581
-        y: 415.9231
-        width: 83.07692
-        height: 83.07692
+        x: 596
+        y: 418
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2243,15 +2123,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_99
+      name: G_Grass_RightCliff
       rect:
         serializedVersion: 2
-        x: 664
-        y: 415.9231
-        width: 83.07692
-        height: 83.07692
+        x: 681
+        y: 418
+        width: 83
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2263,15 +2143,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_100
+      name: G_Dirt_Right
       rect:
         serializedVersion: 2
-        x: 747
-        y: 415.9231
-        width: 83.07692
-        height: 83.07692
+        x: 766
+        y: 418
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2283,15 +2163,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_101
+      name: G_Dirt_RightCliff
       rect:
         serializedVersion: 2
-        x: 830
-        y: 415.9231
-        width: 83.07692
-        height: 83.07692
+        x: 851
+        y: 418
+        width: 83
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2303,15 +2183,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_102
+      name: G_Castle_Hill_Left
       rect:
         serializedVersion: 2
-        x: 913
-        y: 415.9231
-        width: 83.07692
-        height: 83.07692
+        x: 936
+        y: 418
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2323,27 +2203,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_103
-      rect:
-        serializedVersion: 2
-        x: 996
-        y: 415.9231
-        width: 83.07692
-        height: 83.07692
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 904f18c08c09f284087dc7dce8280f41
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tiles_spritesheet_104
+      name: Box_Coin
       rect:
         serializedVersion: 2
         x: 0
@@ -2351,7 +2211,7 @@ TextureImporter:
         width: 83
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2363,15 +2223,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_105
+      name: KeyHole_Green
       rect:
         serializedVersion: 2
-        x: 83
-        y: 332.9231
-        width: 83.07692
-        height: 83.07692
+        x: 85
+        y: 335
+        width: 83
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2383,15 +2243,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_106
+      name: G_Stone_Fill
       rect:
         serializedVersion: 2
-        x: 166
-        y: 332.9231
-        width: 83.07692
-        height: 83.07692
+        x: 170
+        y: 335
+        width: 83
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2403,15 +2263,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_107
+      name: P_Snow_Left
       rect:
         serializedVersion: 2
-        x: 249
-        y: 332.9231
-        width: 83.07692
-        height: 83.07692
+        x: 255
+        y: 369
+        width: 83
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2423,15 +2283,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_108
+      name: G_Sand_Mid
       rect:
         serializedVersion: 2
-        x: 332
-        y: 332.9231
-        width: 83.07692
-        height: 83.07692
+        x: 341
+        y: 335
+        width: 81
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2443,15 +2303,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_109
+      name: G_Sand_RightLedge
       rect:
         serializedVersion: 2
-        x: 415
-        y: 332.9231
-        width: 83.07692
-        height: 83.07692
+        x: 426
+        y: 335
+        width: 83
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2463,15 +2323,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_110
+      name: H_Water0
       rect:
         serializedVersion: 2
-        x: 498
-        y: 332.9231
-        width: 83.07692
-        height: 83.07692
+        x: 510
+        y: 335
+        width: 83
+        height: 52
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2483,15 +2343,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_111
+      name: G_Grass_Mid
       rect:
         serializedVersion: 2
-        x: 581
-        y: 332.9231
-        width: 83.07692
-        height: 83.07692
+        x: 596
+        y: 335
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2503,15 +2363,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_112
+      name: G_Grass_RightLedge
       rect:
         serializedVersion: 2
-        x: 664
-        y: 332.9231
-        width: 83.07692
-        height: 83.07692
+        x: 681
+        y: 335
+        width: 83
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2523,15 +2383,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_113
+      name: G_Castle_Hill_Right
       rect:
         serializedVersion: 2
-        x: 747
-        y: 332.9231
-        width: 83.07692
-        height: 83.07692
+        x: 766
+        y: 335
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2543,15 +2403,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_114
+      name: G_Dirt_RightLedge
       rect:
         serializedVersion: 2
-        x: 830
-        y: 332.9231
-        width: 83.07692
-        height: 83.07692
+        x: 851
+        y: 335
+        width: 83
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2563,15 +2423,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_115
+      name: G_Castle_Hill_LeftTop
       rect:
         serializedVersion: 2
-        x: 913
-        y: 332.9231
-        width: 83.07692
-        height: 83.07692
+        x: 936
+        y: 335
+        width: 82
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2583,27 +2443,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_116
-      rect:
-        serializedVersion: 2
-        x: 996
-        y: 332.9231
-        width: 83.07692
-        height: 83.07692
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3fed0e072f7a3e4f825f4bac5d1c86a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tiles_spritesheet_117
+      name: FloatingBox_CoinUsed
       rect:
         serializedVersion: 2
         x: 0
@@ -2611,7 +2451,7 @@ TextureImporter:
         width: 83
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2623,7 +2463,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_118
+      name: Box_0
       rect:
         serializedVersion: 2
         x: 85
@@ -2631,7 +2471,7 @@ TextureImporter:
         width: 83
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2651,7 +2491,7 @@ TextureImporter:
         width: 83
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2663,7 +2503,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_120
+      name: P_Snow_Single
       rect:
         serializedVersion: 2
         x: 255
@@ -2671,7 +2511,7 @@ TextureImporter:
         width: 83
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2683,7 +2523,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_121
+      name: G_Sand_Left
       rect:
         serializedVersion: 2
         x: 341
@@ -2691,7 +2531,7 @@ TextureImporter:
         width: 81
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2711,7 +2551,7 @@ TextureImporter:
         width: 81
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2723,7 +2563,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_123
+      name: H_Water1
       rect:
         serializedVersion: 2
         x: 512
@@ -2731,7 +2571,7 @@ TextureImporter:
         width: 80
         height: 52
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2743,7 +2583,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_124
+      name: G_Grass_Left
       rect:
         serializedVersion: 2
         x: 596
@@ -2751,7 +2591,7 @@ TextureImporter:
         width: 82
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2763,7 +2603,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_125
+      name: G_Grass_LeftCliff
       rect:
         serializedVersion: 2
         x: 681
@@ -2771,7 +2611,7 @@ TextureImporter:
         width: 82
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2783,7 +2623,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_126
+      name: P_Castle_Mid
       rect:
         serializedVersion: 2
         x: 766
@@ -2791,7 +2631,7 @@ TextureImporter:
         width: 82
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2803,7 +2643,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_127
+      name: G_Sand_LeftCliff
       rect:
         serializedVersion: 2
         x: 851
@@ -2811,7 +2651,7 @@ TextureImporter:
         width: 82
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2823,7 +2663,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_128
+      name: P_Castle_Right
       rect:
         serializedVersion: 2
         x: 936
@@ -2831,7 +2671,7 @@ TextureImporter:
         width: 82
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2843,7 +2683,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_130
+      name: FloatingBox_Coin
       rect:
         serializedVersion: 2
         x: 0
@@ -2851,7 +2691,7 @@ TextureImporter:
         width: 83
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2863,7 +2703,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_131
+      name: G_Stone_Hill_LeftTop
       rect:
         serializedVersion: 2
         x: 86
@@ -2871,7 +2711,7 @@ TextureImporter:
         width: 81
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2883,7 +2723,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_132
+      name: G_Snow_Right
       rect:
         serializedVersion: 2
         x: 171
@@ -2891,7 +2731,7 @@ TextureImporter:
         width: 82
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2903,7 +2743,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_133
+      name: G_Snow_RightCliff
       rect:
         serializedVersion: 2
         x: 256
@@ -2911,7 +2751,7 @@ TextureImporter:
         width: 83
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2923,7 +2763,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_134
+      name: P_Wood_Bridge_Logs
       rect:
         serializedVersion: 2
         x: 340
@@ -2931,7 +2771,7 @@ TextureImporter:
         width: 83
         height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2943,7 +2783,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_135
+      name: G_Sand_LeftLedge
       rect:
         serializedVersion: 2
         x: 425
@@ -2951,7 +2791,7 @@ TextureImporter:
         width: 83
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2963,7 +2803,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_136
+      name: P_Castle_Left
       rect:
         serializedVersion: 2
         x: 510
@@ -2971,7 +2811,7 @@ TextureImporter:
         width: 83
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2983,7 +2823,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_137
+      name: G_Castle_Plain
       rect:
         serializedVersion: 2
         x: 596
@@ -2991,7 +2831,7 @@ TextureImporter:
         width: 81
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3003,7 +2843,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_138
+      name: G_Grass_LeftLedge
       rect:
         serializedVersion: 2
         x: 681
@@ -3011,7 +2851,7 @@ TextureImporter:
         width: 82
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3023,7 +2863,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_139
+      name: G_Castle_LeftCliff
       rect:
         serializedVersion: 2
         x: 765
@@ -3031,7 +2871,7 @@ TextureImporter:
         width: 83
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3043,7 +2883,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_140
+      name: G_Dirt_LeftLedge
       rect:
         serializedVersion: 2
         x: 851
@@ -3051,7 +2891,7 @@ TextureImporter:
         width: 83
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3063,7 +2903,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_141
+      name: F_ShortBush
       rect:
         serializedVersion: 2
         x: 936
@@ -3071,7 +2911,7 @@ TextureImporter:
         width: 56
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3083,7 +2923,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_143
+      name: Crate0
       rect:
         serializedVersion: 2
         x: 0
@@ -3091,7 +2931,7 @@ TextureImporter:
         width: 83
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3103,7 +2943,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_144
+      name: G_Stone_Hill_RightTop
       rect:
         serializedVersion: 2
         x: 85
@@ -3111,7 +2951,7 @@ TextureImporter:
         width: 82
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3123,7 +2963,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_145
+      name: G_Snow_Mid
       rect:
         serializedVersion: 2
         x: 171
@@ -3131,7 +2971,7 @@ TextureImporter:
         width: 82
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3143,7 +2983,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_146
+      name: G_Snow_RightLedge
       rect:
         serializedVersion: 2
         x: 256
@@ -3151,7 +2991,7 @@ TextureImporter:
         width: 82
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3163,7 +3003,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_147
+      name: G_Castle_Single
       rect:
         serializedVersion: 2
         x: 341
@@ -3171,7 +3011,7 @@ TextureImporter:
         width: 81
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3183,7 +3023,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_148
+      name: G_Sand_Single
       rect:
         serializedVersion: 2
         x: 426
@@ -3191,7 +3031,7 @@ TextureImporter:
         width: 81
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3203,7 +3043,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_149
+      name: H_Lava0
       rect:
         serializedVersion: 2
         x: 511
@@ -3211,7 +3051,7 @@ TextureImporter:
         width: 81
         height: 51
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3223,7 +3063,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_150
+      name: G_Castle_LeftLedge
       rect:
         serializedVersion: 2
         x: 595
@@ -3231,7 +3071,7 @@ TextureImporter:
         width: 82
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3243,7 +3083,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_151
+      name: G_Grass_Plain
       rect:
         serializedVersion: 2
         x: 681
@@ -3251,7 +3091,7 @@ TextureImporter:
         width: 81
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3263,7 +3103,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_152
+      name: G_Castle_RightLedge
       rect:
         serializedVersion: 2
         x: 766
@@ -3271,7 +3111,7 @@ TextureImporter:
         width: 83
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3283,7 +3123,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_153
+      name: G_Dirt_Plain
       rect:
         serializedVersion: 2
         x: 851
@@ -3291,7 +3131,7 @@ TextureImporter:
         width: 82
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3303,7 +3143,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_155
+      name: F_TallBush_Smile
       rect:
         serializedVersion: 2
         x: 995
@@ -3311,7 +3151,7 @@ TextureImporter:
         width: 56
         height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3323,7 +3163,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_156
+      name: Crate01
       rect:
         serializedVersion: 2
         x: 0
@@ -3331,7 +3171,7 @@ TextureImporter:
         width: 83
         height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3343,7 +3183,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_157
+      name: P_Stone_Right
       rect:
         serializedVersion: 2
         x: 85
@@ -3351,7 +3191,7 @@ TextureImporter:
         width: 83
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3363,7 +3203,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_158
+      name: G_Snow_Left
       rect:
         serializedVersion: 2
         x: 170
@@ -3371,7 +3211,7 @@ TextureImporter:
         width: 83
         height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3383,7 +3223,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_159
+      name: G_Snow_LeftCliff
       rect:
         serializedVersion: 2
         x: 255
@@ -3391,7 +3231,7 @@ TextureImporter:
         width: 82
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3403,7 +3243,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_160
+      name: G_Sand_Hill_LeftTop
       rect:
         serializedVersion: 2
         x: 340
@@ -3411,7 +3251,7 @@ TextureImporter:
         width: 83
         height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3423,7 +3263,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_161
+      name: Rope2
       rect:
         serializedVersion: 2
         x: 462
@@ -3431,7 +3271,7 @@ TextureImporter:
         width: 11
         height: 83
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3443,7 +3283,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_162
+      name: H_Lava1
       rect:
         serializedVersion: 2
         x: 511
@@ -3451,7 +3291,7 @@ TextureImporter:
         width: 82
         height: 52
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3463,7 +3303,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_163
+      name: G_Grass_Hill_LeftTop
       rect:
         serializedVersion: 2
         x: 596
@@ -3471,7 +3311,7 @@ TextureImporter:
         width: 82
         height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3483,7 +3323,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_164
+      name: G_Grass_Fill
       rect:
         serializedVersion: 2
         x: 681
@@ -3491,7 +3331,7 @@ TextureImporter:
         width: 82
         height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3503,7 +3343,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_165
+      name: G_Dirt_Hill_LeftTop
       rect:
         serializedVersion: 2
         x: 766
@@ -3511,7 +3351,7 @@ TextureImporter:
         width: 82
         height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3523,7 +3363,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_166
+      name: G_Dirt_Fill
       rect:
         serializedVersion: 2
         x: 851
@@ -3531,7 +3371,7 @@ TextureImporter:
         width: 82
         height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3543,7 +3383,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles_spritesheet_167
+      name: F_ShortBush_Smile
       rect:
         serializedVersion: 2
         x: 936
@@ -3551,7 +3391,7 @@ TextureImporter:
         width: 56
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
