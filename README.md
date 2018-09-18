@@ -1,2 +1,2 @@
-# ges-2d-project-demo
+# 2D Side-Scroller
 2D Project Demo
