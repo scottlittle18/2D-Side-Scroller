@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour {
 
     public void RespawnPlayer()
     {
+        //Used to Print to the Console in Unity
         Debug.Log("Player has Respawned");
     }
 }

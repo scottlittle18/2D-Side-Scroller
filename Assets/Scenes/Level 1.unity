@@ -341,6 +341,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5a29401452ba0714e879da2d378abf40, type: 2}
   m_IsPrefabParent: 0
+--- !u!50 &675600022 stripped
+Rigidbody2D:
+  m_PrefabParentObject: {fileID: 50262733671865910, guid: 61e289f3f79ae5c4da3671051f66c3a3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1253369054}
 --- !u!1 &951694400
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +532,11 @@ Prefab:
       propertyPath: m_GravityScale
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114408999343313396, guid: 61e289f3f79ae5c4da3671051f66c3a3,
+        type: 2}
+      propertyPath: myRigidBody
+      value: 
+      objectReference: {fileID: 675600022}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 61e289f3f79ae5c4da3671051f66c3a3, type: 2}
   m_IsPrefabParent: 0

@@ -15,10 +15,13 @@ public class PlayerController : MonoBehaviour
     //creates the doubleJumped variable
     private bool doubleJumped;
 
+    //Makes it so that you dont have to Prefix it with GetComponent2d<>
+    public Rigidbody2D myRigidBody;
+
     // Use this for initialization
     void Start()
     {
-
+        Debug.Log("This is Start");
     }
 
     //Ground Check
@@ -37,26 +40,29 @@ public class PlayerController : MonoBehaviour
         //Enables Jump
         if (Input.GetKeyDown(KeyCode.W) && grounded)
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(0, jumpHeight);
+            myRigidBody.velocity = new Vector2(0, jumpHeight);
         }
 
         //Allows Double Jumping
         if (Input.GetKeyDown(KeyCode.W) && !doubleJumped && !grounded)
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(0, jumpHeight);
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(0, jumpHeight);
+            myRigidBody.velocity = new Vector2(0, jumpHeight);
             doubleJumped = true;
         }
 
         //Controls Player's horizontal forward movement
         if (Input.GetKey (KeyCode.D))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, 0);
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, 0);
+            myRigidBody.velocity = new Vector2(moveSpeed, myRigidBody.velocity.y);
         }
 
         //Controls Player's horizontal backward movement
         if (Input.GetKey (KeyCode.A))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, 0);
+           // GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, 0);
+            myRigidBody.velocity = new Vector2(moveSpeed, myRigidBody.velocity.y);
         }
     }
 }
