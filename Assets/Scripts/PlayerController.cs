@@ -15,13 +15,17 @@ public class PlayerController : MonoBehaviour
     //creates the doubleJumped variable
     private bool doubleJumped;
 
+    //Added from class
+        
+    //End of Class Addition
+
     //Makes it so that you dont have to Prefix it with GetComponent2d<>
     public Rigidbody2D myRigidBody;
 
     // Use this for initialization
     void Start()
     {
-        Debug.Log("This is Start");
+        // Debug.Log("This is Start");
     }
 
     //Ground Check
@@ -47,7 +51,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && !doubleJumped && !grounded)
         {
             //GetComponent<Rigidbody2D>().velocity = new Vector2(0, jumpHeight);
-            myRigidBody.velocity = new Vector2(0, jumpHeight);
+            myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpHeight);
             doubleJumped = true;
         }
 
@@ -62,7 +66,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey (KeyCode.A))
         {
            // GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, 0);
-            myRigidBody.velocity = new Vector2(moveSpeed, myRigidBody.velocity.y);
+            myRigidBody.velocity = new Vector2(-moveSpeed, myRigidBody.velocity.y);
         }
     }
 }
