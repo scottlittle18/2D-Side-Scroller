@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour
     private Transform groundCheck;
     [SerializeField]
     private LayerMask whatIsGround;
+
+    //TODO: AFTER-DEBUG Make 'grounded' variable NON-Serialized
+    //Visible In Editor for Debugging
+    [SerializeField]
     private bool grounded;
 
     //creates the doubleJumped variable
@@ -19,9 +23,6 @@ public class PlayerController : MonoBehaviour
 
     //Added from class
     private float moveInput;
-
-    //End of Class Addition
-
     //Creates a new Rigidbody2D object for player
     [SerializeField]
     private Rigidbody2D myRigidBody;
@@ -35,18 +36,38 @@ public class PlayerController : MonoBehaviour
     //Ground Check
     void FixedUpdate()
     {
-        grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
         Move();
+
+        grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (grounded)
+            doubleJumped = false;        
         GetMovementInput();
     }
 
     private void GetMovementInput()
     {
+        
+        //resets the doubleJump variable when the player touches the ground
+        
+
+        //Enables Jump
+        if (Input.GetButton("Jump") && grounded)
+        {
+            Jump();
+        }
+        
+        if (Input.GetButton("Jump") && !doubleJumped && !grounded)
+        {
+            DoubleJump();
+            //myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpHeight);            
+        }
+
+        //Used for detecting and directing Left/Right movement
         moveInput = Input.GetAxis("Horizontal");
     }
 
@@ -60,7 +81,14 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        //TODO: make the character jump
-        myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpHeight)
+        //TODO: make the character JUMP
+        myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpHeight);        
+    }
+
+    private void DoubleJump()
+    {
+        //TODO: make character DOUBLE-JUMP
+        Jump();
+        doubleJumped = true;
     }
 }
