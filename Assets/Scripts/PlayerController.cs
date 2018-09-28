@@ -4,25 +4,27 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //Movement Variables
     [SerializeField]
     private float moveSpeed, jumpHeight, groundCheckRadius;
 
-    //Ground variables
+    private float moveInput;
+    private bool jumpInput;
+
+    //TODO: This is a test variable used to refresh the Jump button press state
+    private bool jumpRelease;
+
+    //Ground Establishment and Detection variables
     [SerializeField]
     private Transform groundCheck;
     [SerializeField]
     private LayerMask whatIsGround;
 
-    //TODO: AFTER-DEBUG Make 'grounded' variable NON-Serialized
-    //Visible In Editor for Debugging
+    //TODO: AFTER-DEBUG Make 'grounded' && 'doubleJumped' variables NON-Serialized
+    //Temporarily Visible In Editor for Debugging
     [SerializeField]
-    private bool grounded;
-
-    //creates the doubleJumped variable
-    private bool doubleJumped;
-
-    //Added from class
-    private float moveInput;
+    private bool grounded, doubleJumped;
+    
     //Creates a new Rigidbody2D object for player
     [SerializeField]
     private Rigidbody2D myRigidBody;
@@ -30,43 +32,51 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        // Debug.Log("This is Start");
+        
     }
 
     //Ground Check
     void FixedUpdate()
     {
         Move();
-
-        grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+        grounded = Physics2D.OverlapCircle(groundCheck.position, 
+            groundCheckRadius, whatIsGround);
+        
+        if (grounded)
+        {
+            doubleJumped = false;
+            Debug.Log("You are Grounded and Double Jump is now false");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (grounded)
-            doubleJumped = false;        
+              
         GetMovementInput();
     }
 
+    
+
     private void GetMovementInput()
     {
-        
-        //resets the doubleJump variable when the player touches the ground
-        
+        jumpInput = Input.GetButtonDown("Jump");// <--- THIS FUCKING CUNT MEISTER!!!!
 
+        jumpRelease = Input.GetButtonUp("Jump");
         //Enables Jump
-        if (Input.GetButton("Jump") && grounded)
+        if (jumpInput && grounded)
         {
             Jump();
+
         }
         
-        if (Input.GetButton("Jump") && !doubleJumped && !grounded)
+
+        // SUPPOSED to enable double jump
+        if(jumpInput && !grounded && !doubleJumped)
         {
             DoubleJump();
-            //myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpHeight);            
         }
-
+        //doubleJumped = false;
         //Used for detecting and directing Left/Right movement
         moveInput = Input.GetAxis("Horizontal");
     }
@@ -83,12 +93,17 @@ public class PlayerController : MonoBehaviour
     {
         //TODO: make the character JUMP
         myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpHeight);        
+        if (jumpInput && !doubleJumped && !grounded)
+        {
+            DoubleJump();                       
+        }
     }
 
     private void DoubleJump()
     {
         //TODO: make character DOUBLE-JUMP
-        Jump();
+        myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpHeight);
+        Debug.Log("You have Double Jumped");
         doubleJumped = true;
     }
 }
