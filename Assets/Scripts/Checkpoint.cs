@@ -10,19 +10,19 @@ public class Checkpoint : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        levelManager = FindObjectOfType<LevelManager>();
+        levelManager = FindObjectOfType<LevelManager>();        
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
-
-    private void OnTriggerEnter2D(Collider2D other)
+    
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.name == "Player")
+        if(other.tag == "Player")
         {
-            
+            levelManager.currentCheckpoint = gameObject;
             Debug.Log("You have reached a checkpoint");
         }
     }

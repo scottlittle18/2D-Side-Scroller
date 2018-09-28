@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         player = FindObjectOfType<PlayerController>();
+        currentCheckpoint = currentCheckpoint.gameObject;
     }
 	
 	// Update is called once per frame
@@ -21,7 +22,7 @@ public class LevelManager : MonoBehaviour {
     {
         //TODO: Handle player death and check for Respawn
         Debug.Log("Player has Respawned");
-        player.myRigidBody.transform.position = currentCheckpoint.transform.position;
+        player.transform.position = currentCheckpoint.transform.position;
     }
 }
 
