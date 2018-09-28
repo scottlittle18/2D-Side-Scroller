@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
 
-    
+    private PlayerController player;
+    public GameObject currentCheckpoint;
 
     // Use this for initialization
     void Start () {
-        
-	}
+        player = FindObjectOfType<PlayerController>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -18,7 +19,9 @@ public class LevelManager : MonoBehaviour {
 
     public void RespawnPlayer()
     {
-        //To check for Player Death and Respawn
+        //TODO: Handle player death and check for Respawn
         Debug.Log("Player has Respawned");
+        player.myRigidBody.transform.position = currentCheckpoint.transform.position;
     }
 }
+

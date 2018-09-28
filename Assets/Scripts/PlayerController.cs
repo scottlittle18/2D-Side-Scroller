@@ -26,8 +26,8 @@ public class PlayerController : MonoBehaviour
     private bool grounded, doubleJumped;
     
     //Creates a new Rigidbody2D object for player
-    [SerializeField]
-    private Rigidbody2D myRigidBody;
+    //[SerializeField]
+    public Rigidbody2D myRigidBody;
 
     // Use this for initialization
     void Start()
@@ -42,68 +42,58 @@ public class PlayerController : MonoBehaviour
         grounded = Physics2D.OverlapCircle(groundCheck.position, 
             groundCheckRadius, whatIsGround);
         
-        if (grounded)
-        {
-            doubleJumped = false;
-            Debug.Log("You are Grounded and Double Jump is now false");
-        }
+            if (grounded)
+            {
+                doubleJumped = false;            
+            }
     }
 
     // Update is called once per frame
     void Update()
-    {
-              
+    {              
         GetMovementInput();
-    }
-
-    
+    }    
 
     private void GetMovementInput()
     {
-        jumpInput = Input.GetButtonDown("Jump");// <--- THIS FUCKING CUNT MEISTER!!!!
-
-        jumpRelease = Input.GetButtonUp("Jump");
-        //Enables Jump
-        if (jumpInput && grounded)
-        {
-            Jump();
-
-        }
-        
-
-        // SUPPOSED to enable double jump
-        if(jumpInput && !grounded && !doubleJumped)
-        {
-            DoubleJump();
-        }
-        //doubleJumped = false;
-        //Used for detecting and directing Left/Right movement
+        //Movement Variables
         moveInput = Input.GetAxis("Horizontal");
+        jumpInput = Input.GetButtonDown("Jump");// <--- THIS FUCKING CUNT MEISTER!!!!
+        jumpRelease = Input.GetButtonUp("Jump");
+
+            //Enables Jump
+            if (jumpInput && grounded)
+            {
+                Jump();
+
+            }        
+
+            // SUPPOSED to enable double jump
+            if(jumpInput && !grounded && !doubleJumped)
+            {
+                DoubleJump();
+            }        
     }
 
     private void Move()
     {
-        //Don't use transform.Translate since this is a physics object
-        //transform.Translate(moveSpeed, jumpHeight, 0);
-
         myRigidBody.velocity = new Vector2(moveInput * moveSpeed, myRigidBody.velocity.y);
     }
 
     private void Jump()
-    {
-        //TODO: make the character JUMP
-        myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpHeight);        
-        if (jumpInput && !doubleJumped && !grounded)
-        {
-            DoubleJump();                       
-        }
+    {        
+        myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpHeight);
+        
+            //Check for Second jump input to allow Double Jumping
+            if (jumpInput && !doubleJumped && !grounded)
+            {
+                DoubleJump();                       
+            }
     }
 
     private void DoubleJump()
-    {
-        //TODO: make character DOUBLE-JUMP
-        myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpHeight);
-        Debug.Log("You have Double Jumped");
+    {        
+        myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpHeight);        
         doubleJumped = true;
     }
 }

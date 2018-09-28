@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour {
 
+    [SerializeField]
+    private LevelManager levelManager;
+    
+
 	// Use this for initialization
-	void Start () {        
-        
+	void Start () {
+        levelManager = FindObjectOfType<LevelManager>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.name == "Player")
+        {
+            
+            Debug.Log("You have reached a checkpoint");
+        }
+    }
 }
