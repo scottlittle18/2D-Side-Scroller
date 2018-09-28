@@ -556,7 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62128a7f5cf8f0242ba32a12dd0bb725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCheckpoint: {fileID: 0}
+  currentCheckpoint: {fileID: 1123849041}
 --- !u!4 &1720706222
 Transform:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     //TODO: This is a test variable used to refresh the Jump button press state
     private bool jumpRelease;
-
+    
     //Ground Establishment and Detection variables
     [SerializeField]
     private Transform groundCheck;
@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour
             if (jumpInput && grounded)
             {
                 Jump();
-
             }        
 
             // SUPPOSED to enable double jump
