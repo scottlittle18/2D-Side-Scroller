@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour
     private bool grounded, doubleJumped;
 
     [SerializeField]
-    private Animator anim;    
+    private Animator anim;
+    
     [SerializeField]
     private Rigidbody2D myRigidBody;
 
@@ -50,7 +51,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {              
         GetMovementInput();
-    }    
+        anim.SetFloat("Speed", Mathf.Abs(myRigidBody.velocity.x));
+
+    }
 
     private void GetMovementInput()
     {
@@ -75,6 +78,7 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         myRigidBody.velocity = new Vector2(moveInput * moveSpeed, myRigidBody.velocity.y);
+        
     }
 
     private void Jump()

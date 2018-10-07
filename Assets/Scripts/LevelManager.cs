@@ -19,9 +19,7 @@ public class LevelManager : MonoBehaviour {
 	}
 
     public void RespawnPlayer()
-    {
-        //TODO: Handle player death and check for Respawn
-        Debug.Log("Player has Respawned");
+    {        
         player.transform.position = currentCheckpoint.transform.position;
     }
 }
