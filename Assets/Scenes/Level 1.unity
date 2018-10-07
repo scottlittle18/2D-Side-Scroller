@@ -195,7 +195,7 @@ Prefab:
     - target: {fileID: 212938765485272138, guid: 61e289f3f79ae5c4da3671051f66c3a3,
         type: 2}
       propertyPath: m_SortingLayer
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 70914971339423908, guid: 61e289f3f79ae5c4da3671051f66c3a3,
         type: 2}
@@ -217,6 +217,11 @@ Prefab:
       propertyPath: m_Size.x
       value: 0.90569687
       objectReference: {fileID: 0}
+    - target: {fileID: 114408999343313396, guid: 61e289f3f79ae5c4da3671051f66c3a3,
+        type: 2}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 400324188}
     m_RemovedComponents:
     - {fileID: 61711999462242616, guid: 61e289f3f79ae5c4da3671051f66c3a3, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 61e289f3f79ae5c4da3671051f66c3a3, type: 2}
@@ -331,6 +336,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4559312468198730, guid: 44db513ee926ac64a909a0c0e67ffe68,
     type: 2}
   m_PrefabInternal: {fileID: 363444826}
+--- !u!95 &400324188 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95305357900586952, guid: 61e289f3f79ae5c4da3671051f66c3a3,
+    type: 2}
+  m_PrefabInternal: {fileID: 342453812}
 --- !u!1001 &485139657
 Prefab:
   m_ObjectHideFlags: 0
@@ -403,7 +413,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 512306008}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.57777405, y: 0.87299955, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1303347886}
@@ -436,7 +446,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3779,7 +3789,7 @@ GameObject:
   m_Layer: 0
   m_Name: KillZone
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private float moveInput;
     private bool jumpInput;
 
-    //TODO: This is a test variable used to refresh the Jump button press state
+    //refresh the Jump button press state
     private bool jumpRelease;
     
     //Ground Establishment and Detection variables
@@ -20,14 +20,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private LayerMask whatIsGround;
 
-    //TODO: AFTER-DEBUG Make 'grounded' && 'doubleJumped' variables NON-Serialized
-    //Temporarily Visible In Editor for Debugging
-    [SerializeField]
     private bool grounded, doubleJumped;
-    
-    //Creates a new Rigidbody2D object for player
-    //[SerializeField]
-    public Rigidbody2D myRigidBody;
+
+    [SerializeField]
+    private Animator anim;    
+    [SerializeField]
+    private Rigidbody2D myRigidBody;
 
     // Use this for initialization
     void Start()
