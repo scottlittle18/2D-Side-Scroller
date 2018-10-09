@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Rigidbody2D myRigidBody;
 
+    [SerializeField]
+    private Collider2D playerGroundCollider;
+
     // Use this for initialization
     void Start()
     {
@@ -40,6 +43,7 @@ public class PlayerController : MonoBehaviour
     //Ground Check
     void FixedUpdate()
     {
+        UpdatePhysicsMaterial();
         Move();
         grounded = Physics2D.OverlapCircle(groundCheck.position, 
             groundCheckRadius, whatIsGround);
@@ -55,13 +59,26 @@ public class PlayerController : MonoBehaviour
     {              
         GetMovementInput();
         anim.SetFloat("Speed", Mathf.Abs(myRigidBody.velocity.x));
+        
 
+    }
+
+    private void UpdatePhysicsMaterial()
+    {
+        if (Mathf.Abs(moveInput) > 0)
+        {
+            playerGroundCollider.sharedMaterial = playerMovingPM;
+        }
+        else
+        {
+            playerGroundCollider.sharedMaterial = playerStoppingPM;
+        }
     }
 
     private void GetMovementInput()
     {
         //Movement Variables
-        moveInput = Input.GetAxis("Horizontal");
+        moveInput = Input.GetAxisRaw("Horizontal");
         jumpInput = Input.GetButtonDown("Jump");// <--- THIS FUCKING CUNT MEISTER!!!!
         jumpRelease = Input.GetButtonUp("Jump");
 
