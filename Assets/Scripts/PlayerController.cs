@@ -76,16 +76,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Move()
-    {
-        /* TODO: Old Code
-        myRigidBody.velocity = new Vector2(moveInput * accelerationForce, myRigidBody.velocity.y);
-        if (myRigidBody.velocity.x > 0)
-            transform.localScale = new Vector3(1, 1, 1);
-        else if (myRigidBody.velocity.x < 0)
-            transform.localScale = new Vector3(-1, 1, 1);
-        */
-
-        //TODO: Update movement code from .velocity to .AddForce
+    {        
         myRigidBody.AddForce(Vector2.right * moveInput * accelerationForce);
         Vector2 clampedVelocity = myRigidBody.velocity;
         clampedVelocity.x = Mathf.Clamp(myRigidBody.velocity.x, -maxSpeed, maxSpeed);
@@ -97,8 +88,8 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Jump()
-    {        
-        myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpHeight);
+    {
+        myRigidBody.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
         
             //Check for Second jump input to allow Double Jumping
             if (jumpInput && !doubleJumped && !grounded)
@@ -108,8 +99,8 @@ public class PlayerController : MonoBehaviour
     }
 
     private void DoubleJump()
-    {        
-        myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpHeight);        
+    {
+        myRigidBody.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);        
         doubleJumped = true;
     }
 }
