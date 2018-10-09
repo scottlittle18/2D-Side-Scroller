@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
     private bool grounded, doubleJumped;
 
     [SerializeField]
+    private PhysicsMaterial2D playerMovingPM, playerStoppingPM;
+
+    [SerializeField]
     private Animator anim;
     
     [SerializeField]
