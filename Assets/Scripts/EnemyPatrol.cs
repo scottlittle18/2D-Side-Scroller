@@ -6,18 +6,18 @@ public class EnemyPatrol : MonoBehaviour
 {
 
     [SerializeField]
-    private float moveSpeed, wallCheckRadius;
+    private float moveSpeed, checkRadius;
 
-    public bool hittingWallLeft, hittingWallRight, LisLedge, RisLedge, moveRight;
+    public bool hittingWall, notEdge, moveRight;
 
     [SerializeField]
-    private Transform LwallCheck;
+    private Transform wallCheck;
+
+    
+
     [SerializeField]
-    private Transform RwallCheck;
-    [SerializeField]
-    private Transform LgroundCheck;
-    [SerializeField]
-    private Transform RgroundCheck;
+    private Transform edgeCheck;
+    
     [SerializeField]
     private LayerMask whatIsWall;
 
@@ -31,20 +31,29 @@ public class EnemyPatrol : MonoBehaviour
 
     private void FixedUpdate()
     {
-        hittingWallLeft = Physics2D.OverlapCircle(LwallCheck.position,
-            wallCheckRadius, whatIsWall);
-        hittingWallRight = Physics2D.OverlapCircle(RwallCheck.position,
-            wallCheckRadius, whatIsWall);
-
-
-        if (hittingWallLeft || hittingWallRight)
-            moveRight = !moveRight;
+        hittingWall = Physics2D.OverlapCircle(wallCheck.position,
+            checkRadius, whatIsWall);
+        
+        notEdge = Physics2D.OverlapCircle(edgeCheck.position,
+            checkRadius, whatIsWall);
         
 
+
+        if (hittingWall || notEdge)
+            moveRight = !moveRight;
+
+
+
         if (moveRight)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
             enemyRigidBody.velocity = new Vector2(moveSpeed, enemyRigidBody.velocity.y);
+        }
         else
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
             enemyRigidBody.velocity = new Vector2(-moveSpeed, enemyRigidBody.velocity.y);
+        }
 
 
 
