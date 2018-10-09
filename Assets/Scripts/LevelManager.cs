@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
 
-    private PlayerController player;
+    PlayerController player;
     public GameObject currentCheckpoint;
 
     // Use this for initialization

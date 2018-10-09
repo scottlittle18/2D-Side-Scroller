@@ -7,23 +7,13 @@ public class Checkpoint : MonoBehaviour {
     [SerializeField]
     private LevelManager levelManager;
     
-
-	// Use this for initialization
-	void Start () {
-        levelManager = FindObjectOfType<LevelManager>();        
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
     
-    public void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(other.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
-            levelManager.currentCheckpoint = gameObject;
-            Debug.Log("You have reached a checkpoint");
+            //Sets the currentCheckpoint to the object this script is attatched to
+            levelManager.currentCheckpoint = gameObject;            
         }
     }
 }
