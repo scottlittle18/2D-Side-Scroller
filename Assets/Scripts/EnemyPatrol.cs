@@ -8,29 +8,40 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField]
     private float moveSpeed, wallCheckRadius;
 
-    private bool hittingWall, moveRight;
+    public bool hittingWallLeft, hittingWallRight, moveRight;
 
     [SerializeField]
-    private Transform wallCheck;
+    private Transform LwallCheck;
+    [SerializeField]
+    private Transform RwallCheck;
     [SerializeField]
     private LayerMask whatIsWall;
 
     [SerializeField]
     private Rigidbody2D enemyRigidBody;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    // Use this for initialization
+    void Start() {
+
+    }
 
     private void FixedUpdate()
     {
-        Patrol();
-
-        hittingWall = Physics2D.OverlapCircle(wallCheck.position, 
+        hittingWallLeft = Physics2D.OverlapCircle(LwallCheck.position,
             wallCheckRadius, whatIsWall);
-
+        hittingWallRight = Physics2D.OverlapCircle(RwallCheck.position,
+            wallCheckRadius, whatIsWall);
+        if (hittingWallLeft || hittingWallRight)
+            moveRight = !moveRight;
         
+
+        if (moveRight)
+            enemyRigidBody.velocity = new Vector2(moveSpeed, enemyRigidBody.velocity.y);
+        else
+            enemyRigidBody.velocity = new Vector2(-moveSpeed, enemyRigidBody.velocity.y);
+
+
+
     }
 
     // Update is called once per frame
@@ -38,14 +49,5 @@ public class EnemyPatrol : MonoBehaviour
 		
 	}
 
-    public void Patrol()
-    {
-        if (hittingWall)
-            moveRight = !moveRight;
-
-        if (moveRight)
-            enemyRigidBody.velocity = new Vector2(moveSpeed, enemyRigidBody.velocity.y);
-        else
-            enemyRigidBody.velocity = new Vector2(-moveSpeed, enemyRigidBody.velocity.y);
-    }
+    
 }
