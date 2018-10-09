@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     //Movement Variables
     [SerializeField]
-    private float moveSpeed, jumpHeight, groundCheckRadius;
+    private float accelerationForce, maxSpeed,  jumpHeight, groundCheckRadius;
 
     private float moveInput;
     private bool jumpInput;
@@ -77,12 +77,23 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        myRigidBody.velocity = new Vector2(moveInput * moveSpeed, myRigidBody.velocity.y);
+        /* TODO: Old Code
+        myRigidBody.velocity = new Vector2(moveInput * accelerationForce, myRigidBody.velocity.y);
         if (myRigidBody.velocity.x > 0)
             transform.localScale = new Vector3(1, 1, 1);
         else if (myRigidBody.velocity.x < 0)
             transform.localScale = new Vector3(-1, 1, 1);
-        
+        */
+
+        //TODO: Update movement code from .velocity to .AddForce
+        myRigidBody.AddForce(Vector2.right * moveInput * accelerationForce);
+        Vector2 clampedVelocity = myRigidBody.velocity;
+        clampedVelocity.x = Mathf.Clamp(myRigidBody.velocity.x, -maxSpeed, maxSpeed);
+        myRigidBody.velocity = clampedVelocity;
+        if (myRigidBody.velocity.x > 0)
+            transform.localScale = new Vector3(1, 1, 1);
+        else if (myRigidBody.velocity.x < 0)
+            transform.localScale = new Vector3(-1, 1, 1);
     }
 
     private void Jump()
