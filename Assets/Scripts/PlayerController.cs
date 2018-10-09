@@ -78,6 +78,10 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         myRigidBody.velocity = new Vector2(moveInput * moveSpeed, myRigidBody.velocity.y);
+        if (myRigidBody.velocity.x > 0)
+            transform.localScale = new Vector3(1, 1, 1);
+        else if (myRigidBody.velocity.x < 0)
+            transform.localScale = new Vector3(-1, 1, 1);
         
     }
 
