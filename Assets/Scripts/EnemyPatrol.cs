@@ -8,12 +8,16 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField]
     private float moveSpeed, wallCheckRadius;
 
-    public bool hittingWallLeft, hittingWallRight, moveRight;
+    public bool hittingWallLeft, hittingWallRight, LisLedge, RisLedge, moveRight;
 
     [SerializeField]
     private Transform LwallCheck;
     [SerializeField]
     private Transform RwallCheck;
+    [SerializeField]
+    private Transform LgroundCheck;
+    [SerializeField]
+    private Transform RgroundCheck;
     [SerializeField]
     private LayerMask whatIsWall;
 
@@ -31,6 +35,8 @@ public class EnemyPatrol : MonoBehaviour
             wallCheckRadius, whatIsWall);
         hittingWallRight = Physics2D.OverlapCircle(RwallCheck.position,
             wallCheckRadius, whatIsWall);
+
+
         if (hittingWallLeft || hittingWallRight)
             moveRight = !moveRight;
         
