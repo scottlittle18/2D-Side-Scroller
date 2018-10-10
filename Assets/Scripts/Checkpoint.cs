@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour {
 
-    [SerializeField]
-    private LevelManager levelManager;
     
     
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            //Sets the currentCheckpoint to the object this script is attatched to
-            levelManager.currentCheckpoint = gameObject;            
+            //creates a variable that refers to the PlayerController
+            PlayerController player = collision.GetComponent<PlayerController>();
+            //Sends whatever object this script is attached to  to the PlayerController
+            player.SetCurrentCheckpoint(this);
         }
     }
 }

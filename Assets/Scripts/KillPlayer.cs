@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class KillPlayer : MonoBehaviour
 {
-    [SerializeField]
-    private LevelManager levelManager;
+    
 
     //Start() and Update() are not needed for this script 
     //  it is looking for a collision and doesnt need to update
@@ -13,7 +12,8 @@ public class KillPlayer : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            levelManager.RespawnPlayer();
+            PlayerController player = collision.GetComponent<PlayerController>();
+            player.Respawn();
         }
     }
 }

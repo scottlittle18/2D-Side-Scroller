@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
 
     //refresh the Jump button press state
     private bool jumpRelease;
+
+    //Checkpoint Variable
+    private Checkpoint currentCheckpoint;
     
     //Ground Establishment and Detection variables
     [SerializeField]
@@ -122,5 +125,16 @@ public class PlayerController : MonoBehaviour
     {
         myRigidBody.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);        
         doubleJumped = true;
+    }
+
+    public void SetCurrentCheckpoint(Checkpoint newCurrentCheckpoint)
+    {
+        currentCheckpoint = newCurrentCheckpoint;
+    }
+
+    public void Respawn()
+    {
+        myRigidBody.velocity = Vector2.zero;
+        transform.position = currentCheckpoint.transform.position;
     }
 }
