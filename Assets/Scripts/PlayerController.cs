@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -43,7 +44,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    //Ground Check
+    
     void FixedUpdate()
     {
         UpdatePhysicsMaterial();
@@ -57,14 +58,16 @@ public class PlayerController : MonoBehaviour
             }
     }
 
+
     // Update is called once per frame
     void Update()
     {              
         GetMovementInput();
-        anim.SetFloat("Speed", Mathf.Abs(myRigidBody.velocity.x));
-        
 
+        //Send the player's speed to the animator to let it play the run animation
+        anim.SetFloat("Speed", Mathf.Abs(myRigidBody.velocity.x));
     }
+
 
     private void UpdatePhysicsMaterial()
     {
@@ -78,6 +81,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     private void GetMovementInput()
     {
         //Movement Variables
@@ -85,18 +89,19 @@ public class PlayerController : MonoBehaviour
         jumpInput = Input.GetButtonDown("Jump");// <--- THIS FUCKING CUNT MEISTER!!!!
         jumpRelease = Input.GetButtonUp("Jump");
 
-            //Enables Jump
+            //Enables Jumping
             if (jumpInput && grounded)
             {
                 Jump();
             }        
 
-            // SUPPOSED to enable double jump
+            // Enables Double jumping
             if(jumpInput && !grounded && !doubleJumped)
             {
                 DoubleJump();
             }        
     }
+
 
     private void Move()
     {        
@@ -110,6 +115,7 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
     }
 
+    
     private void Jump()
     {
         myRigidBody.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
@@ -121,20 +127,28 @@ public class PlayerController : MonoBehaviour
             }
     }
 
+
     private void DoubleJump()
     {
         myRigidBody.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);        
         doubleJumped = true;
     }
 
+    
     public void SetCurrentCheckpoint(Checkpoint newCurrentCheckpoint)
     {
         currentCheckpoint = newCurrentCheckpoint;
     }
 
+
     public void Respawn()
     {
-        myRigidBody.velocity = Vector2.zero;
-        transform.position = currentCheckpoint.transform.position;
+        if (currentCheckpoint == null)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        else
+        {
+            myRigidBody.velocity = Vector2.zero;
+            transform.position = currentCheckpoint.transform.position;
+        }        
     }
 }
