@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour
         doubleJumped = true;
     }
 
-    
+    //Sets Current Checkpoint
     public void SetCurrentCheckpoint(Checkpoint newCurrentCheckpoint)
     {
         currentCheckpoint = newCurrentCheckpoint;
