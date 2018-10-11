@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
     {
         //Movement Variables
         moveInput = Input.GetAxisRaw("Horizontal");
-        jumpInput = Input.GetButtonDown("Jump");// <--- THIS FUCKING CUNT MEISTER!!!!
+        jumpInput = Input.GetButtonDown("Jump");
         jumpRelease = Input.GetButtonUp("Jump");
 
             //Enables Jumping
@@ -106,12 +106,16 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {        
         myRigidBody.AddForce(Vector2.right * moveInput * accelerationForce);
+
         Vector2 clampedVelocity = myRigidBody.velocity;
+
         clampedVelocity.x = Mathf.Clamp(myRigidBody.velocity.x, -maxSpeed, maxSpeed);
+
         myRigidBody.velocity = clampedVelocity;
-        if (myRigidBody.velocity.x > 0)
+
+        if (myRigidBody.velocity.x > 0.1)
             transform.localScale = new Vector3(1, 1, 1);
-        else if (myRigidBody.velocity.x < 0)
+        else if (myRigidBody.velocity.x < -0.1)
             transform.localScale = new Vector3(-1, 1, 1);
     }
 
@@ -130,14 +134,22 @@ public class PlayerController : MonoBehaviour
 
     private void DoubleJump()
     {
-        myRigidBody.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);        
+        //Changed from AddForce() due the double jump becoming unreliable and varying depending on when the player doubleJumps
+        myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpHeight);        
         doubleJumped = true;
     }
 
     //Sets Current Checkpoint
     public void SetCurrentCheckpoint(Checkpoint newCurrentCheckpoint)
     {
-        currentCheckpoint = newCurrentCheckpoint;
+        if(currentCheckpoint = null)
+            currentCheckpoint.SetAsActivated(false);
+        else
+        {
+            
+            currentCheckpoint = newCurrentCheckpoint;
+            currentCheckpoint.SetAsActivated(true);
+        }
     }
 
 

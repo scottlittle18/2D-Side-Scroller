@@ -1,11 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class Checkpoint : MonoBehaviour {
+    [SerializeField]
+    private bool isActivated = false;
+    private Animator anim;
 
-    
-    
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+        
+    }
+
+    private void Update()
+    {
+        UpdateAnimation();
+    }
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -14,6 +27,23 @@ public class Checkpoint : MonoBehaviour {
             PlayerController player = collision.GetComponent<PlayerController>();
             //Sends whatever object this script is attached to  to the PlayerController
             player.SetCurrentCheckpoint(this);
+            
+            
+            
         }
+    }
+
+    public void SetAsActivated(bool value)
+    {
+        isActivated = value;
+        UpdateAnimation();
+    }
+
+    private void UpdateAnimation()
+    {
+        if (isActivated)
+            anim.SetBool("isActivated", true);
+        else if (!isActivated)
+            anim.SetBool("isActivated", false);
     }
 }
