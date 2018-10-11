@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private bool jumpRelease;
 
     //Checkpoint Variable
-    private Checkpoint currentCheckpoint;
+    public Checkpoint currentCheckpoint;
     
     //Ground Establishment and Detection variables
     [SerializeField]
@@ -139,16 +139,15 @@ public class PlayerController : MonoBehaviour
         doubleJumped = true;
     }
 
-    //Sets Current Checkpoint
+    //----------------SETS CURRENT CHECKPOINT-----------
     public void SetCurrentCheckpoint(Checkpoint newCurrentCheckpoint)
-    {
+    {            
         if(currentCheckpoint = null)
             currentCheckpoint.SetAsActivated(false);
         else
         {
-            
             currentCheckpoint = newCurrentCheckpoint;
-            currentCheckpoint.SetAsActivated(true);
+            newCurrentCheckpoint.SetAsActivated(true);
         }
     }
 

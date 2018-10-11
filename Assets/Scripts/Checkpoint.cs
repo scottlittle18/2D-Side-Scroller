@@ -5,12 +5,12 @@ using UnityEngine.Animations;
 
 public class Checkpoint : MonoBehaviour {
     [SerializeField]
-    private bool isActivated = false;
-    private Animator anim;
+    public bool isActivated = false;
+    public Animator anim;
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        anim = this.GetComponent<Animator>();
         
     }
 
@@ -25,6 +25,8 @@ public class Checkpoint : MonoBehaviour {
         {
             //creates a variable that refers to the PlayerController
             PlayerController player = collision.GetComponent<PlayerController>();
+
+            
             //Sends whatever object this script is attached to  to the PlayerController
             player.SetCurrentCheckpoint(this);
             
@@ -35,6 +37,7 @@ public class Checkpoint : MonoBehaviour {
 
     public void SetAsActivated(bool value)
     {
+        //anim.SetBool("isActivated", value);
         isActivated = value;
         UpdateAnimation();
     }
