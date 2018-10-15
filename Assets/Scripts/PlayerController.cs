@@ -51,8 +51,9 @@ public class PlayerController : MonoBehaviour
         Move();
         grounded = Physics2D.OverlapCircle(groundCheck.position, 
             groundCheckRadius, whatIsGround);
-        
-            if (grounded)
+
+        anim.SetFloat("jumpVelocity", myRigidBody.velocity.y);
+        if (grounded)
             {
                 doubleJumped = false;            
             }
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
 
         //Send the player's speed to the animator to let it play the run animation
         anim.SetFloat("Speed", Mathf.Abs(myRigidBody.velocity.x));
+        anim.SetBool("Grounded", grounded);
     }
 
 
@@ -123,9 +125,9 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         myRigidBody.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
-        
-            //Check for Second jump input to allow Double Jumping
-            if (jumpInput && !doubleJumped && !grounded)
+        anim.SetFloat("jumpVelocity", myRigidBody.velocity.y);
+        //Check for Second jump input to allow Double Jumping
+        if (jumpInput && !doubleJumped && !grounded)
             {
                 DoubleJump();                       
             }
