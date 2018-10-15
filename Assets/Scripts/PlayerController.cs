@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
         if(currentCheckpoint = null)
             currentCheckpoint.SetAsActivated(false);
         else
-        {
+        {            
             currentCheckpoint = newCurrentCheckpoint;
             newCurrentCheckpoint.SetAsActivated(true);
         }

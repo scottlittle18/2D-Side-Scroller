@@ -25,8 +25,8 @@ public class Checkpoint : MonoBehaviour {
         {
             //creates a variable that refers to the PlayerController
             PlayerController player = collision.GetComponent<PlayerController>();
-
             
+
             //Sends whatever object this script is attached to  to the PlayerController
             player.SetCurrentCheckpoint(this);
             
@@ -38,6 +38,7 @@ public class Checkpoint : MonoBehaviour {
     public void SetAsActivated(bool value)
     {
         //anim.SetBool("isActivated", value);
+        
         isActivated = value;
         UpdateAnimation();
     }
