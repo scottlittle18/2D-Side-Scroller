@@ -25,9 +25,11 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField]
     private Rigidbody2D enemyRigidBody;
 
+    Animator anim;
+
     // Use this for initialization
     void Start() {
-
+        anim = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -53,6 +55,7 @@ public class EnemyPatrol : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
             enemyRigidBody.velocity = new Vector2(moveSpeed, enemyRigidBody.velocity.y);
+            
 
            /* if (jumpRight && !notEdge)
             {
@@ -91,8 +94,8 @@ public class EnemyPatrol : MonoBehaviour
 
     // Update is called once per frame
     void Update () {
-		
-	}
+        anim.SetFloat("Speed", Mathf.Abs(enemyRigidBody.velocity.x));
+    }
 
     
 }
