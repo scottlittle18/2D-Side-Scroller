@@ -124,20 +124,26 @@ public class PlayerController : MonoBehaviour
     
     private void Jump()
     {
-        myRigidBody.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+        AddJumpForce();
         anim.SetFloat("jumpVelocity", myRigidBody.velocity.y);
         //Check for Second jump input to allow Double Jumping
         if (jumpInput && !doubleJumped && !grounded)
-            {
-                DoubleJump();                       
-            }
+        {
+            DoubleJump();
+        }
     }
 
+    private void AddJumpForce()
+    {
+        myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, 0);
+        myRigidBody.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+    }
 
     private void DoubleJump()
     {
+        AddJumpForce();
         //Changed from AddForce() due the double jump becoming unreliable and varying depending on when the player doubleJumps
-        myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpHeight);        
+        //myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpHeight);        
         doubleJumped = true;
     }
 
