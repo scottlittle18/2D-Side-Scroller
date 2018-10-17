@@ -13,8 +13,9 @@ public class KillPlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerController player = collision.GetComponent<PlayerController>();
-            
+            player.playerBody.color = Color.clear;
             player.Respawn();
+            player.playerBody.color = Color.white;
         }
     }
 }

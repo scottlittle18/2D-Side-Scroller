@@ -35,13 +35,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Rigidbody2D myRigidBody;
 
+    public SpriteRenderer playerBody;
+
     [SerializeField]
     private Collider2D playerGroundCollider;
 
     // Use this for initialization
     void Start()
     {
-        
+        playerBody = GetComponent<SpriteRenderer>();
     }
 
     
@@ -166,6 +168,8 @@ public class PlayerController : MonoBehaviour
     public void Respawn()
     {
         
+        
+
         if(Time.time > respawnDelay)
         {
             if (currentCheckpoint == null)
@@ -176,6 +180,7 @@ public class PlayerController : MonoBehaviour
                 transform.position = currentCheckpoint.transform.position;
             }
         }
-            
+
+        //playerBody.color = Color.white;
     }
 }
