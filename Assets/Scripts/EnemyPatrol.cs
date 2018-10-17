@@ -8,7 +8,7 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField]
     private float moveSpeed, jumpHeight, checkRadius;
 
-    public bool hittingWall, notEdge, canJump, moveRight, jumpRight;
+    private bool hittingWall, notEdge, canJump, moveRight, jumpRight;
 
     [SerializeField]
     private Transform wallCheck;

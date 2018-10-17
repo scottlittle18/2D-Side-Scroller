@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     //Movement Variables
     [SerializeField]
-    private float accelerationForce, maxSpeed,  jumpHeight, groundCheckRadius;
+    private float accelerationForce, maxSpeed,  jumpHeight, groundCheckRadius, respawnDelay;
 
     private float moveInput;
     private bool jumpInput;
@@ -73,6 +73,9 @@ public class PlayerController : MonoBehaviour
 
     private void UpdatePhysicsMaterial()
     {
+        if (!grounded)
+            playerMovingPM.friction = 0;
+
         if (Mathf.Abs(moveInput) > 0)
         {
             playerGroundCollider.sharedMaterial = playerMovingPM;
@@ -162,12 +165,17 @@ public class PlayerController : MonoBehaviour
 
     public void Respawn()
     {
-        if (currentCheckpoint == null)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        else
+        
+        if(Time.time > respawnDelay)
         {
-            myRigidBody.velocity = Vector2.zero;
-            transform.position = currentCheckpoint.transform.position;
-        }        
+            if (currentCheckpoint == null)
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            else
+            {
+                myRigidBody.velocity = Vector2.zero;
+                transform.position = currentCheckpoint.transform.position;
+            }
+        }
+            
     }
 }
