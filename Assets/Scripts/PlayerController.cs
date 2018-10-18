@@ -7,9 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     //Movement Variables
     [SerializeField]
-    private float accelerationForce, maxSpeed,  jumpHeight, groundCheckRadius;
+    private float accelerationForce, maxSpeed,  jumpHeight, groundCheckRadius, respawnDelay;
 
-    private float moveInput;
+    private float moveInput, respawnTimer;
     private bool jumpInput;
 
     //refresh the Jump button press state
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private LayerMask whatIsGround;
 
-    private bool grounded, doubleJumped;
+    private bool grounded, doubleJumped, isDead;
 
     [SerializeField]
     private PhysicsMaterial2D playerMovingPM, playerStoppingPM;
@@ -50,7 +50,9 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         UpdatePhysicsMaterial();
-        Move();
+
+        if(!isDead)
+            Move();
         grounded = Physics2D.OverlapCircle(groundCheck.position, 
             groundCheckRadius, whatIsGround);
 
@@ -64,8 +66,9 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {              
+    {        
         GetMovementInput();
+        CheckForRespawn();
 
         //Send the player's speed to the animator to let it play the run animation
         anim.SetFloat("Speed", Mathf.Abs(myRigidBody.velocity.x));
@@ -164,13 +167,39 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-    public void Respawn()
+    public void SetIsDead(bool dead)
     {
-        
-        
+        isDead = dead;
+        SetRespawnTimer();
+    }
 
-        
+    private void SetRespawnTimer()
+    {
+        respawnTimer = Time.time + respawnDelay;
+    }
+
+    private void CheckForRespawn()
+    {
+        if (isDead)
+        {
+            anim.Play("Anim_Samurai_Death", 0);
+            myRigidBody.rotation = 90;
+        }
+             
+
+        if (isDead && Time.time > respawnTimer)
+        {
+            playerBody.color = Color.clear;
+            SetRespawnTimer();
+
+
+            Respawn();
+            //anim.SetBool("isDead", false);
+        }
+    }
+
+    private void Respawn()
+    {       
             if (currentCheckpoint == null)
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             else
@@ -178,8 +207,11 @@ public class PlayerController : MonoBehaviour
                 myRigidBody.velocity = Vector2.zero;
                 transform.position = currentCheckpoint.transform.position;
             }
-            
-        //playerBody.enabled <-- Any GameObject Component can be ctivated and deactivated this way
-        //playerBody.color = Color.white;
+
+        isDead = false;
+        myRigidBody.rotation = 0;
+        playerBody.color = Color.white;
+
+        
     }
 }

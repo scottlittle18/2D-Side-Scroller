@@ -13,7 +13,8 @@ public class KillPlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerController player = collision.GetComponent<PlayerController>();            
-            player.Respawn();            
+            player.SetIsDead(true);
+            
         }
     }
 }
