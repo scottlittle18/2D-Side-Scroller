@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float accelerationForce, maxSpeed,  jumpHeight, groundCheckRadius, respawnDelay;
 
-    private float moveInput, respawnTimer;
+    private float moveInput, respawnTimer, rotationSpeed = 5;
     private bool jumpInput;
 
     //refresh the Jump button press state
@@ -183,7 +183,18 @@ public class PlayerController : MonoBehaviour
         if (isDead)
         {
             anim.Play("Anim_Samurai_Death", 0);
-            myRigidBody.rotation = 90;
+            for (int i = 0; i < 90; i++)
+            {
+                transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
+                    
+            }
+                if (myRigidBody.rotation >= 90)
+                {
+                    myRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+                    myRigidBody.angularVelocity = 0;
+                    
+                }
+                
         }
              
 
