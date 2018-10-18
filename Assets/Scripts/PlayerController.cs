@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     //Movement Variables
     [SerializeField]
-    private float accelerationForce, maxSpeed,  jumpHeight, groundCheckRadius, respawnDelay;
+    private float accelerationForce, maxSpeed,  jumpHeight, groundCheckRadius;
 
     private float moveInput;
     private bool jumpInput;
@@ -170,8 +170,7 @@ public class PlayerController : MonoBehaviour
         
         
 
-        if(Time.time > respawnDelay)
-        {
+        
             if (currentCheckpoint == null)
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             else
@@ -179,8 +178,8 @@ public class PlayerController : MonoBehaviour
                 myRigidBody.velocity = Vector2.zero;
                 transform.position = currentCheckpoint.transform.position;
             }
-        }
-
+            
+        //playerBody.enabled <-- Any GameObject Component can be ctivated and deactivated this way
         //playerBody.color = Color.white;
     }
 }

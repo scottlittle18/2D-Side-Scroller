@@ -250,7 +250,7 @@ Prefab:
     - target: {fileID: 114408999343313396, guid: 61e289f3f79ae5c4da3671051f66c3a3,
         type: 2}
       propertyPath: respawnDelay
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 61711999462242616, guid: 61e289f3f79ae5c4da3671051f66c3a3, type: 2}
@@ -1131,6 +1131,11 @@ Prefab:
     - target: {fileID: 4559312468198730, guid: 44db513ee926ac64a909a0c0e67ffe68, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114283489120823178, guid: 44db513ee926ac64a909a0c0e67ffe68,
+        type: 2}
+      propertyPath: respawnDelay
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44db513ee926ac64a909a0c0e67ffe68, type: 2}
