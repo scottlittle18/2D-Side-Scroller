@@ -123,7 +123,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 223
-        width: 53
+        width: 52
         height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -242,9 +242,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 177
-        width: 53
-        height: 44
+        y: 176
+        width: 52
+        height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,7 +363,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 130
-        width: 53
+        width: 52
         height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -381,10 +381,10 @@ TextureImporter:
       name: hud_spritesheet_13
       rect:
         serializedVersion: 2
-        x: 44
-        y: 135.33333
-        width: 44.666668
-        height: 44.666668
+        x: 50
+        y: 129
+        width: 45
+        height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

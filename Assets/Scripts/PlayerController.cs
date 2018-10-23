@@ -166,6 +166,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Pickups")
+        {
+            collision.gameObject.SetActive(false);
+        }
+    }
+
     public void SetIsDead(bool dead)
     {
         isDead = dead;
