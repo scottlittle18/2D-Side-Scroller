@@ -14,7 +14,7 @@ public class KillPlayer : MonoBehaviour
         {
             PlayerController player = collision.GetComponent<PlayerController>();            
             player.SetIsDead(true);
-            
+          
         }
     }
 }

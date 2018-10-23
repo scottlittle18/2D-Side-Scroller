@@ -8,19 +8,16 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField]
     private float moveSpeed, jumpHeight, checkRadius;
 
-    private bool hittingWall, notEdge, canJump, moveRight, jumpRight;
+    private bool hittingWall, notEdge, playerInRange, canJump, moveRight, jumpRight;
 
     [SerializeField]
-    private Transform wallCheck;
-
-    [SerializeField]
-    private Transform jumpCheck;
+    private Transform pathCheck;
 
     [SerializeField]
     private Transform edgeCheck;
     
     [SerializeField]
-    private LayerMask whatIsWall;
+    private LayerMask whatIsWall, whatIsPlayer;
 
     [SerializeField]
     private Rigidbody2D enemyRigidBody;
@@ -34,60 +31,33 @@ public class EnemyPatrol : MonoBehaviour
 
     private void FixedUpdate()
     {
-        hittingWall = Physics2D.OverlapCircle(wallCheck.position,
+        hittingWall = Physics2D.OverlapCircle(pathCheck.position,
             checkRadius, whatIsWall);
         
         notEdge = Physics2D.OverlapCircle(edgeCheck.position,
             checkRadius, whatIsWall);
 
-        //canJump = Physics2D.OverlapCircle(jumpCheck.position,
-            //checkRadius, whatIsWall);
-        
+        playerInRange = Physics2D.OverlapCircle(pathCheck.position, 
+            checkRadius, whatIsPlayer);
 
-
-        if ((hittingWall || notEdge) && !canJump)
+        if (hittingWall || notEdge)
             moveRight = !moveRight;
-        //else if ((canJump || !notEdge) && !hittingWall)
-          //  jumpRight = !jumpRight;
 
+        if (playerInRange)
+            anim.SetBool("AttackPlayer", true);
+        else if (!playerInRange)
+            anim.SetBool("AttackPlayer", false);
 
         if (moveRight)
         {
             transform.localScale = new Vector3(1, 1, 1);
-            enemyRigidBody.velocity = new Vector2(moveSpeed, enemyRigidBody.velocity.y);
-            
-
-           /* if (jumpRight && !notEdge)
-            {
-                do
-                {
-                    enemyRigidBody.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
-                }
-                while (jumpRight && !notEdge);
-            }*/
+            enemyRigidBody.velocity = new Vector2(moveSpeed, enemyRigidBody.velocity.y);          
         }
         else
         {
             transform.localScale = new Vector3(-1, 1, 1);
             enemyRigidBody.velocity = new Vector2(-moveSpeed, enemyRigidBody.velocity.y);
-
-            /*if (jumpRight && !notEdge)
-            {
-                do
-                {
-                    enemyRigidBody.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
-                }
-                while (jumpRight && !notEdge);
-            }
-            */
         }
-
-            
-
-
-
-
-
     }
 
     

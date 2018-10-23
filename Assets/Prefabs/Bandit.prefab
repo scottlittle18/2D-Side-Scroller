@@ -181,12 +181,14 @@ MonoBehaviour:
   moveSpeed: 5
   jumpHeight: 5
   checkRadius: 0.2
-  wallCheck: {fileID: 4567063855322642}
-  jumpCheck: {fileID: 0}
+  pathCheck: {fileID: 4567063855322642}
   edgeCheck: {fileID: 4371742377588474}
   whatIsWall:
     serializedVersion: 2
     m_Bits: 256
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 0
   enemyRigidBody: {fileID: 50920361203726172}
 --- !u!212 &212321848221059416
 SpriteRenderer:

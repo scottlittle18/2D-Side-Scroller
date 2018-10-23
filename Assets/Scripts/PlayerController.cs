@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     //Movement Variables
     [SerializeField]
     private float accelerationForce, maxSpeed,  jumpHeight, groundCheckRadius, respawnDelay;
-
+    private int rotationAmount;
     private float moveInput, respawnTimer, rotationSpeed = 5;
     private bool jumpInput;
 
@@ -134,6 +134,7 @@ public class PlayerController : MonoBehaviour
     {
         AddJumpForce();
         anim.SetFloat("jumpVelocity", myRigidBody.velocity.y);
+
         //Check for Second jump input to allow Double Jumping
         if (jumpInput && !doubleJumped && !grounded)
         {
@@ -150,8 +151,6 @@ public class PlayerController : MonoBehaviour
     private void DoubleJump()
     {
         AddJumpForce();
-        //Changed from AddForce() due the double jump becoming unreliable and varying depending on when the player doubleJumps
-        //myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpHeight);        
         doubleJumped = true;
     }
 
@@ -183,18 +182,7 @@ public class PlayerController : MonoBehaviour
         if (isDead)
         {
             anim.Play("Anim_Samurai_Death", 0);
-            for (int i = 0; i < 90; i++)
-            {
-                transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
-                    
-            }
-                if (myRigidBody.rotation >= 90)
-                {
-                    myRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-                    myRigidBody.angularVelocity = 0;
-                    
-                }
-                
+            myRigidBody.freezeRotation = false;
         }
              
 
@@ -203,9 +191,7 @@ public class PlayerController : MonoBehaviour
             playerBody.color = Color.clear;
             SetRespawnTimer();
 
-
-            Respawn();
-            //anim.SetBool("isDead", false);
+            Respawn();            
         }
     }
 
@@ -219,10 +205,10 @@ public class PlayerController : MonoBehaviour
                 transform.position = currentCheckpoint.transform.position;
             }
 
+        //Reset variables for player Respawn
         isDead = false;
-        myRigidBody.rotation = 0;
-        playerBody.color = Color.white;
-
-        
+        myRigidBody.transform.rotation = Quaternion.identity;
+        myRigidBody.freezeRotation = true;
+        playerBody.color = Color.white;        
     }
 }
