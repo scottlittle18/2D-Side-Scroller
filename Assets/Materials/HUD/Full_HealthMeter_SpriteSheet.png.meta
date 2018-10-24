@@ -1,15 +1,14 @@
 fileFormatVersion: 2
-guid: c8572bb30f042cd48ae59f8b4b3f50cc
+guid: 28f1cef7daef8284fbbd7a64253ec19c
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Samurai_Run_SpriteSheet_0
-    21300002: Samurai_Run_SpriteSheet_1
-    21300004: Samurai_Run_SpriteSheet_2
-    21300006: Samurai_Run_SpriteSheet_3
-    21300008: Samurai_Run_SpriteSheet_4
-    21300010: Samurai_Run_SpriteSheet_5
-    21300012: Samurai_Run_SpriteSheet_6
-    21300014: Samurai_Run_SpriteSheet_7
+    21300000: Full_HealthMeter_SpriteSheet_0
+    21300002: Full_HealthMeter_SpriteSheet_1
+    21300004: Full_HealthMeter_SpriteSheet_2
+    21300006: Full_HealthMeter_SpriteSheet_3
+    21300008: Full_HealthMeter_SpriteSheet_4
+    21300010: Full_HealthMeter_SpriteSheet_5
+    21300012: Full_HealthMeter_SpriteSheet_6
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -90,13 +89,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Samurai_Run_SpriteSheet_0
+      name: Full_HealthMeter_SpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 0
-        width: 190
-        height: 188
+        x: 0
+        y: 868
+        width: 444
+        height: 140
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -104,19 +103,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36ebea0b779a4fb4581997d45260cf99
+      spriteID: 8eea03e57aba6014493bc2443f572e0f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Samurai_Run_SpriteSheet_1
+      name: Full_HealthMeter_SpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 190
-        height: 188
+        x: 0
+        y: 722
+        width: 444
+        height: 141
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,19 +123,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e4b758c8488bc744b21c70f695e9a3e
+      spriteID: c1215aefdce4caf44bf93543631bd2a0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Samurai_Run_SpriteSheet_2
+      name: Full_HealthMeter_SpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 383
-        y: 0
-        width: 190
-        height: 188
+        x: 0
+        y: 580
+        width: 444
+        height: 140
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,19 +143,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 936c828804878a942ae1e20ac36d4c69
+      spriteID: 0e1dfef385bcd984a8d17e8d71d43924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Samurai_Run_SpriteSheet_3
+      name: Full_HealthMeter_SpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 573
-        y: 0
-        width: 190
-        height: 188
+        x: 0
+        y: 436
+        width: 444
+        height: 140
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,19 +163,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 678cca889eb8d0942875164fc8b0acc1
+      spriteID: 6376b0b3ab4ee724b8dd9a9e4f3212fe
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Samurai_Run_SpriteSheet_4
+      name: Full_HealthMeter_SpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 763
-        y: 0
-        width: 190
-        height: 188
+        x: 0
+        y: 292
+        width: 444
+        height: 139
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,19 +183,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66f2981a1cd6e004d81e9fa21c0aaf9c
+      spriteID: b7c861ebf93a61e4ca5ed5d43a03fc72
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Samurai_Run_SpriteSheet_5
+      name: Full_HealthMeter_SpriteSheet_5
       rect:
         serializedVersion: 2
-        x: 953
-        y: 0
-        width: 190
-        height: 188
+        x: 0
+        y: 149
+        width: 444
+        height: 139
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,19 +203,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 311119c76f9e8ca4495875b0b8c61284
+      spriteID: 14f819cf65d094149a92d9fe2345ba47
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Samurai_Run_SpriteSheet_6
+      name: Full_HealthMeter_SpriteSheet_6
       rect:
         serializedVersion: 2
-        x: 1143
-        y: 0
-        width: 189
-        height: 188
+        x: 0
+        y: 5
+        width: 444
+        height: 139
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,27 +223,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33bbc81ad87086140889a542fd1d6ae6
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Samurai_Run_SpriteSheet_7
-      rect:
-        serializedVersion: 2
-        x: 1332
-        y: 0
-        width: 190
-        height: 188
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60eded8d418efb24082c426a04f271a0
+      spriteID: 07de5376de5e66c48bfeb686dde1dc87
       vertices: []
       indices: 
       edges: []
@@ -252,7 +231,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 16a1c835285a77f4ebd65f0e40040cbc
+    spriteID: b104aea062883904980fd3ac66dc7e4d
     vertices: []
     indices: 
     edges: []
