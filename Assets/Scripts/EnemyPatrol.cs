@@ -6,9 +6,9 @@ public class EnemyPatrol : MonoBehaviour
 {
 
     [SerializeField]
-    private float moveSpeed, jumpHeight, checkRadius;
+    private float moveSpeed, checkRadius;
 
-    private bool hittingWall, notEdge, playerInRange, canJump, moveRight, jumpRight;
+    private bool hittingWall, notEdge, playerInRange, moveRight;
 
     [SerializeField]
     private Transform pathCheck;
@@ -31,27 +31,23 @@ public class EnemyPatrol : MonoBehaviour
 
     private void FixedUpdate()
     {
-        hittingWall = Physics2D.OverlapCircle(pathCheck.position,
-            checkRadius, whatIsWall);
-        
-        notEdge = Physics2D.OverlapCircle(edgeCheck.position,
-            checkRadius, whatIsWall);
+        PositionChecks();
 
-        playerInRange = Physics2D.OverlapCircle(pathCheck.position, 
-            checkRadius, whatIsPlayer);
+        MeleeCheck();
 
+        Patrol();        
+    }
+
+    //Handle movement of Enemies to let them 'patrol' the area
+    private void Patrol()
+    {
         if (hittingWall || notEdge)
             moveRight = !moveRight;
-
-        if (playerInRange)
-            anim.SetBool("AttackPlayer", true);
-        else if (!playerInRange)
-            anim.SetBool("AttackPlayer", false);
 
         if (moveRight)
         {
             transform.localScale = new Vector3(1, 1, 1);
-            enemyRigidBody.velocity = new Vector2(moveSpeed, enemyRigidBody.velocity.y);          
+            enemyRigidBody.velocity = new Vector2(moveSpeed, enemyRigidBody.velocity.y);
         }
         else
         {
@@ -60,7 +56,30 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
-    
+    //Check position of the enemy based on the associated Transform GameObjects
+    private void PositionChecks()
+    {
+        //WALL CHECK
+        hittingWall = Physics2D.OverlapCircle(pathCheck.position,
+            checkRadius, whatIsWall);
+
+        //EDGE CHECK
+        notEdge = Physics2D.OverlapCircle(edgeCheck.position,
+            checkRadius, whatIsWall);
+
+        //PLAYER CHECK
+        playerInRange = Physics2D.OverlapCircle(pathCheck.position,
+            checkRadius, whatIsPlayer);
+    }
+
+    //Checks if the player is within MELEE ATTACK range of the Enemy
+    private void MeleeCheck()
+    {
+        if (playerInRange)
+            anim.SetBool("AttackPlayer", true);
+        else if (!playerInRange)
+            anim.SetBool("AttackPlayer", false);
+    }
 
     // Update is called once per frame
     void Update () {

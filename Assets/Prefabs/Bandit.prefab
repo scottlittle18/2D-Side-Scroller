@@ -25,9 +25,10 @@ GameObject:
   - component: {fileID: 114903116493823994}
   - component: {fileID: 70464676997458226}
   - component: {fileID: 95931687834356222}
+  - component: {fileID: 70624710411937358}
   m_Layer: 0
   m_Name: Bandit
-  m_TagString: Untagged
+  m_TagString: EnemyBandit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,7 +57,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4567063855322642}
   m_Layer: 0
-  m_Name: WallCheck
+  m_Name: PathCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1014843701620062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 118.8, y: -4.08, z: 0}
+  m_LocalPosition: {x: 31, y: -0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4567063855322642}
@@ -138,6 +139,21 @@ CapsuleCollider2D:
   m_Offset: {x: -0.21591568, y: -0.0039254427}
   m_Size: {x: 1.091301, y: 1.8136346}
   m_Direction: 0
+--- !u!70 &70624710411937358
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1014843701620062}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.89, y: 1.84}
+  m_Direction: 0
 --- !u!95 &95931687834356222
 Animator:
   serializedVersion: 3
@@ -188,7 +204,7 @@ MonoBehaviour:
     m_Bits: 256
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   enemyRigidBody: {fileID: 50920361203726172}
 --- !u!212 &212321848221059416
 SpriteRenderer:

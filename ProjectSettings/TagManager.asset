@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Pickups
+  - EnemyBandit
   layers:
   - Default
   - TransparentFX
