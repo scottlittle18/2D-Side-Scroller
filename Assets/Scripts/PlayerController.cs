@@ -163,7 +163,7 @@ public class PlayerController : MonoBehaviour
     //----------------SETS CURRENT CHECKPOINT-----------
     public void SetCurrentCheckpoint(Checkpoint newCurrentCheckpoint)
     {            
-        if(currentCheckpoint = null)
+        if(currentCheckpoint == null)
             currentCheckpoint.SetAsActivated(false);
         else
         {            
@@ -175,13 +175,17 @@ public class PlayerController : MonoBehaviour
     //COLLISION CHECKS
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Pickups")
+        if (collision.tag == "Pickups")
         {
             collision.gameObject.SetActive(false);
             scoreCounter++;
             SetScoreText();
         }
-        else if (collision.gameObject.CompareTag("EnemyBandit"))
+        else if (collision.tag == "EnemyBandit")
+        {
+            SetIsDead(true);
+        }
+        else if (collision.tag == "Hazards");
         {
             SetIsDead(true);
         }
@@ -189,7 +193,7 @@ public class PlayerController : MonoBehaviour
 
     private void SetScoreText()
     {
-        scoreText.text = "Score: " + {scoreCounter.ToString()};
+        scoreText.text = "Score: " + scoreCounter.ToString();
     }
 
     public void SetIsDead(bool dead)
