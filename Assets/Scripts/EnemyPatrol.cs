@@ -10,34 +10,32 @@ public class EnemyPatrol : MonoBehaviour
 
     private float attackTimer;
 
-    private bool hittingWall, notEdge, playerInRange, moveRight, hasAttacked;
+    private bool hittingWall, notEdge, playerInRange, moveRight, hasAttacked = false;
 
     [SerializeField]
-    private Transform pathCheck;
+    Transform pathCheck;
 
     [SerializeField]
-    private Transform edgeCheck;
+    Transform edgeCheck;
     
     [SerializeField]
-    private LayerMask whatIsWall, whatIsPlayer;
-
-    [SerializeField]
-    private Rigidbody2D enemyRigidBody;
+    LayerMask whatIsWall, whatIsPlayer;
+    
+    Rigidbody2D enemyRigidBody;
 
     Animator anim;
 
     // Use this for initialization
     void Start() {
         anim = GetComponent<Animator>();
+        enemyRigidBody = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
-        PositionChecks();
-
-        MeleeCheck();
-
         Patrol();        
+        PositionChecks();
+        MeleeCheck();
     }
 
     //Handle movement of Enemies to let them 'patrol' the area
@@ -77,11 +75,11 @@ public class EnemyPatrol : MonoBehaviour
     //Checks if the player is within MELEE ATTACK range of the Enemy
     private void MeleeCheck()
     {
-        if (playerInRange && !hasAttacked)
+            MeleeAttackDelay();
+        if (playerInRange && !hasAttacked && Time.time > attackTimer)
         {
             anim.SetBool("AttackPlayer", true);
             hasAttacked = true;
-            MeleeAttackDelay();
         }            
         else if (!playerInRange)
             anim.SetBool("AttackPlayer", false);

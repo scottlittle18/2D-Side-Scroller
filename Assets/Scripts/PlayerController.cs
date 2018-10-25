@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     //Movement Variables
     [SerializeField]
     private float accelerationForce, maxSpeed,  jumpHeight, groundCheckRadius, respawnDelay;
-    private int rotationAmount;
+    private int rotationAmount, scoreCounter;
     private float moveInput, respawnTimer, rotationSpeed = 5;
     private bool jumpInput;
 
@@ -23,6 +24,9 @@ public class PlayerController : MonoBehaviour
     private Transform groundCheck;
     [SerializeField]
     private LayerMask whatIsGround;
+
+    [SerializeField]
+    Text scoreText;
 
     private bool grounded, doubleJumped, isDead;
 
@@ -44,6 +48,8 @@ public class PlayerController : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playerGroundCollider = GetComponent<CapsuleCollider2D>();
+
+        scoreCounter = 0;
     }
 
     
@@ -166,13 +172,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //Checks Collisions with Objects
+    //COLLISION CHECKS
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Pickups")
         {
             collision.gameObject.SetActive(false);
+            scoreCounter++;
+            SetScoreText();
         }
+        else if (collision.gameObject.CompareTag("EnemyBandit"))
+        {
+            SetIsDead(true);
+        }
+    }
+
+    private void SetScoreText()
+    {
+        scoreText.text = "Score: " + {scoreCounter.ToString()};
     }
 
     public void SetIsDead(bool dead)
