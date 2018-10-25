@@ -28,22 +28,22 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private PhysicsMaterial2D playerMovingPM, playerStoppingPM;
-
-    [SerializeField]
-    private Animator anim;
     
-    [SerializeField]
+    private Animator anim;    
+    
     private Rigidbody2D myRigidBody;
 
-    public SpriteRenderer playerBody;
-
-    [SerializeField]
+    private SpriteRenderer playerBody;
+    
     private Collider2D playerGroundCollider;
 
     // Use this for initialization
     void Start()
     {
         playerBody = GetComponent<SpriteRenderer>();
+        myRigidBody = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        playerGroundCollider = GetComponent<CapsuleCollider2D>();
     }
 
     
@@ -166,6 +166,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //Checks Collisions with Objects
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Pickups")

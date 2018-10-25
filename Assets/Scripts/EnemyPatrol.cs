@@ -6,9 +6,11 @@ public class EnemyPatrol : MonoBehaviour
 {
 
     [SerializeField]
-    private float moveSpeed, checkRadius;
+    private float moveSpeed, checkRadius, attackDelay;
 
-    private bool hittingWall, notEdge, playerInRange, moveRight;
+    private float attackTimer;
+
+    private bool hittingWall, notEdge, playerInRange, moveRight, hasAttacked;
 
     [SerializeField]
     private Transform pathCheck;
@@ -75,10 +77,28 @@ public class EnemyPatrol : MonoBehaviour
     //Checks if the player is within MELEE ATTACK range of the Enemy
     private void MeleeCheck()
     {
-        if (playerInRange)
+        if (playerInRange && !hasAttacked)
+        {
             anim.SetBool("AttackPlayer", true);
+            hasAttacked = true;
+            MeleeAttackDelay();
+        }            
         else if (!playerInRange)
             anim.SetBool("AttackPlayer", false);
+    }
+
+    private void ResetMeleeAttackTimer()
+    {
+        attackTimer = Time.time + attackDelay;
+    }
+
+    private void MeleeAttackDelay()
+    {
+        if(hasAttacked && Time.time > attackTimer)
+        {
+            hasAttacked = false;
+            ResetMeleeAttackTimer();
+        }
     }
 
     // Update is called once per frame
