@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private Transform groundCheck;
     [SerializeField]
     private LayerMask whatIsGround;
-    AudioSource footsetps;
+    AudioSource footsteps;
     [SerializeField]
     Text scoreText;
 
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        footsetps = GetComponent<AudioSource>();
+        footsteps = GetComponent<AudioSource>();
         playerBody = GetComponent<SpriteRenderer>();
         myRigidBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -76,8 +76,9 @@ public class PlayerController : MonoBehaviour
     {        
         GetMovementInput();
         CheckForRespawn();
+        AudioHandler();
 
-        //Send the player's speed to the animator to let it play the run animation
+        //----TO UPDATE THE ANIMATOR----
         anim.SetFloat("Speed", Mathf.Abs(myRigidBody.velocity.x));
         anim.SetBool("Grounded", grounded);
     }
@@ -132,28 +133,38 @@ public class PlayerController : MonoBehaviour
 
         if (myRigidBody.velocity.x > 0.1)
         {
-            transform.localScale = new Vector3(1, 1, 1);
-            footsetps.UnPause();
+            transform.localScale = new Vector3(1, 1, 1);            
         }            
         else if (myRigidBody.velocity.x < -0.1)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
-            footsetps.UnPause();
+            transform.localScale = new Vector3(-1, 1, 1);            
         }
-        else if (myRigidBody.velocity.x == 0)
-        {
-            footsetps.Pause();
-        }
-            
+
+
     }
 
+    void AudioHandler()
+    {
+        if (myRigidBody.velocity.x > 0.1 && grounded)
+        {
+            footsteps.UnPause();
+        }
+        else if (myRigidBody.velocity.x < -0.1 && grounded)
+        {
+            footsteps.UnPause();
+        }
+        else if (myRigidBody.velocity.x == 0 || !grounded)
+        {
+            footsteps.Pause();
+        }
+    }
     
     private void Jump()
     {
         AddJumpForce();
         anim.SetFloat("jumpVelocity", myRigidBody.velocity.y);
-        Debug.Log("Jump");
-        //Check for Second jump input to allow Double Jumping
+
+        //DOUBLE JUMP CHECK
         if (jumpInput && !doubleJumped && !grounded)
         {
             
@@ -169,7 +180,6 @@ public class PlayerController : MonoBehaviour
 
     private void DoubleJump()
     {
-        Debug.Log("Double Jumped");
         AddJumpForce();
         doubleJumped = true;
     }
@@ -186,7 +196,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //COLLISION CHECKS
+    //------------------COLLISION CHECKS-----------------------------
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Pickups")
@@ -212,7 +222,7 @@ public class PlayerController : MonoBehaviour
 
     public void SetIsDead(bool dead)
     {
-        footsetps.Pause();
+        footsteps.Pause();
         isDead = dead;
         SetRespawnTimer();
     }

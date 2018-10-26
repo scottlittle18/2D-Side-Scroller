@@ -39,12 +39,12 @@ public class EnemyPatrol : MonoBehaviour
     {
         Patrol();        
         PositionChecks();
+        MeleeCheck();
     }
 
     // Update is called once per frame
     void Update () {
         anim.SetFloat("Speed", Mathf.Abs(enemyRigidBody.velocity.x));
-        MeleeCheck();
     }
 
     //Handle movement of Enemies to let them 'patrol' the area
@@ -63,6 +63,15 @@ public class EnemyPatrol : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
             enemyRigidBody.velocity = new Vector2(-moveSpeed, enemyRigidBody.velocity.y);
         }
+
+        if (playerInRange && !hasAttacked)
+        {
+            anim.SetBool("AttackPlayer", true);
+            hasAttacked = true;
+            MeleeAttackDelay();
+        }            
+        else if (!playerInRange)
+            anim.SetBool("AttackPlayer", false);
     }
 
     //Check position of the enemy based on the associated Transform GameObjects
@@ -86,14 +95,6 @@ public class EnemyPatrol : MonoBehaviour
     private void MeleeCheck()
     {
         
-        if (playerInRange && !hasAttacked)
-        {
-            anim.SetBool("AttackPlayer", true);
-            hasAttacked = true;
-            MeleeAttackDelay();
-        }            
-        else if (!playerInRange)
-            anim.SetBool("AttackPlayer", false);
     }
 
     private void ResetMeleeAttackTimer()
