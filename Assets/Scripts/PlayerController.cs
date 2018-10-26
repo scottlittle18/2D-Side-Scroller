@@ -152,10 +152,11 @@ public class PlayerController : MonoBehaviour
     {
         AddJumpForce();
         anim.SetFloat("jumpVelocity", myRigidBody.velocity.y);
-
+        Debug.Log("Jump");
         //Check for Second jump input to allow Double Jumping
         if (jumpInput && !doubleJumped && !grounded)
         {
+            
             DoubleJump();
         }
     }
@@ -168,6 +169,7 @@ public class PlayerController : MonoBehaviour
 
     private void DoubleJump()
     {
+        Debug.Log("Double Jumped");
         AddJumpForce();
         doubleJumped = true;
     }
