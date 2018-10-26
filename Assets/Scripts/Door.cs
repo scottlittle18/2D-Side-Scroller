@@ -22,12 +22,9 @@ public class Door : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("Collision detected.");
 
         if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) && other.tag == "Player")
         {
-            Debug.Log("Up command registered.");
-
             SceneManager.LoadScene(currentScene + 1);
         }
     }

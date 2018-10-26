@@ -37,9 +37,9 @@ public class EnemyPatrol : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Patrol();        
         PositionChecks();
-        MeleeCheck();
+        Patrol();        
+        //MeleeCheck();
     }
 
     // Update is called once per frame
@@ -64,11 +64,12 @@ public class EnemyPatrol : MonoBehaviour
             enemyRigidBody.velocity = new Vector2(-moveSpeed, enemyRigidBody.velocity.y);
         }
 
-        if (playerInRange && !hasAttacked)
+        if (playerInRange)
         {
+            Debug.Log("Player Spotted");
             anim.SetBool("AttackPlayer", true);
             hasAttacked = true;
-            MeleeAttackDelay();
+            //MeleeAttackDelay();
         }            
         else if (!playerInRange)
             anim.SetBool("AttackPlayer", false);
@@ -91,23 +92,6 @@ public class EnemyPatrol : MonoBehaviour
     }
 
 
-    //Checks if the player is within MELEE ATTACK range of the Enemy
-    private void MeleeCheck()
-    {
-        
-    }
-
-    private void ResetMeleeAttackTimer()
-    {
-        attackTimer = Time.time + attackDelay;
-    }
-
-    private void MeleeAttackDelay()
-    {
-        if(hasAttacked && Time.time > attackTimer)
-        {
-            hasAttacked = false;            
-        }
-    }
+    
     
 }
