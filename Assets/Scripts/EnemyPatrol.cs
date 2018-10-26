@@ -10,7 +10,10 @@ public class EnemyPatrol : MonoBehaviour
 
     private float attackTimer;
 
-    private bool hittingWall, notEdge, playerInRange, moveRight, hasAttacked = false;
+    private bool hittingWall, notEdge, playerInRange, moveRight;
+
+    //TEMPORARILY PUBLIC FOR DEBUGGING
+    public bool hasAttacked;
 
     [SerializeField]
     Transform pathCheck;
@@ -29,12 +32,18 @@ public class EnemyPatrol : MonoBehaviour
     void Start() {
         anim = GetComponent<Animator>();
         enemyRigidBody = GetComponent<Rigidbody2D>();
+        hasAttacked = false;
     }
 
     private void FixedUpdate()
     {
         Patrol();        
         PositionChecks();
+    }
+
+    // Update is called once per frame
+    void Update () {
+        anim.SetFloat("Speed", Mathf.Abs(enemyRigidBody.velocity.x));
         MeleeCheck();
     }
 
@@ -72,14 +81,16 @@ public class EnemyPatrol : MonoBehaviour
             checkRadius, whatIsPlayer);
     }
 
+
     //Checks if the player is within MELEE ATTACK range of the Enemy
     private void MeleeCheck()
     {
-            MeleeAttackDelay();
-        if (playerInRange && !hasAttacked && Time.time > attackTimer)
+        
+        if (playerInRange && !hasAttacked)
         {
             anim.SetBool("AttackPlayer", true);
             hasAttacked = true;
+            MeleeAttackDelay();
         }            
         else if (!playerInRange)
             anim.SetBool("AttackPlayer", false);
@@ -94,15 +105,8 @@ public class EnemyPatrol : MonoBehaviour
     {
         if(hasAttacked && Time.time > attackTimer)
         {
-            hasAttacked = false;
-            ResetMeleeAttackTimer();
+            hasAttacked = false;            
         }
     }
-
-    // Update is called once per frame
-    void Update () {
-        anim.SetFloat("Speed", Mathf.Abs(enemyRigidBody.velocity.x));
-    }
-
     
 }

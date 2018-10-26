@@ -185,7 +185,7 @@ public class PlayerController : MonoBehaviour
         {
             SetIsDead(true);
         }
-        else if (collision.tag == "Hazards");
+        else if (collision.tag == "Hazards")
         {
             SetIsDead(true);
         }
