@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private Transform groundCheck;
     [SerializeField]
     private LayerMask whatIsGround;
-
+    AudioSource footsetps;
     [SerializeField]
     Text scoreText;
 
@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        footsetps = GetComponent<AudioSource>();
         playerBody = GetComponent<SpriteRenderer>();
         myRigidBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -130,9 +131,20 @@ public class PlayerController : MonoBehaviour
         myRigidBody.velocity = clampedVelocity;
 
         if (myRigidBody.velocity.x > 0.1)
+        {
             transform.localScale = new Vector3(1, 1, 1);
+            footsetps.UnPause();
+        }            
         else if (myRigidBody.velocity.x < -0.1)
+        {
             transform.localScale = new Vector3(-1, 1, 1);
+            footsetps.UnPause();
+        }
+        else if (myRigidBody.velocity.x == 0)
+        {
+            footsetps.Pause();
+        }
+            
     }
 
     
@@ -198,6 +210,7 @@ public class PlayerController : MonoBehaviour
 
     public void SetIsDead(bool dead)
     {
+        footsetps.Pause();
         isDead = dead;
         SetRespawnTimer();
     }
