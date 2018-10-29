@@ -17,7 +17,9 @@ public class PlayerController : MonoBehaviour
     private bool jumpRelease;
 
     //Checkpoint Variable
-    public Checkpoint currentCheckpoint;
+    public Transform currentCheckpoint;
+    public GameObject spawnPoint;
+    public Transform spawnPointPosition;
     
     //Ground Establishment and Detection variables
     [SerializeField]
@@ -44,12 +46,13 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        
         footsteps = GetComponent<AudioSource>();
         playerBody = GetComponent<SpriteRenderer>();
         myRigidBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playerGroundCollider = GetComponent<CapsuleCollider2D>();
-
+        SetCurrentCheckpoint(spawnPoint.transform);
         scoreCounter = 0;
     }
 
@@ -184,19 +187,25 @@ public class PlayerController : MonoBehaviour
         doubleJumped = true;
     }
 
-    //----------------SETS CURRENT CHECKPOINT-----------
-    public void SetCurrentCheckpoint(Checkpoint newCurrentCheckpoint)
-    {            
-        if(currentCheckpoint == null)
-            currentCheckpoint.SetAsActivated(false);
+    //------------------------------------------------------------------<<<<--------SETS CURRENT CHECKPOINT-----------
+    public void SetCurrentCheckpoint(Transform newCurrentCheckpoint)
+    {
+        Debug.Log("Attempted to Set Checkpoint");
+        if (currentCheckpoint == null)
+        {
+            spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
+            //spawnPointPosition.transform.position = spawnPoint.transform.position;
+            currentCheckpoint.position = spawnPoint.transform.position;
+        }
+            
         else
-        {            
+        {
             currentCheckpoint = newCurrentCheckpoint;
-            newCurrentCheckpoint.SetAsActivated(true);
+            //newCurrentCheckpoint.SetAsActivated(true);
         }
     }
 
-    //------------------COLLISION CHECKS-----------------------------
+    //-------------------------------------------------------------------<<<<-------COLLISION CHECKS-----------------------------
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Pickups")

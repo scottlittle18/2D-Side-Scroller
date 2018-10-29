@@ -12,7 +12,7 @@ public class EnemyPatrol : MonoBehaviour
 
     private bool hittingWall, notEdge, playerInRange, moveRight;
 
-    //TEMPORARILY PUBLIC FOR DEBUGGING
+    //TODO: TEMPORARILY PUBLIC FOR DEBUGGING
     public bool hasAttacked;
 
     [SerializeField]
@@ -71,11 +71,11 @@ public class EnemyPatrol : MonoBehaviour
     {
         if (playerInRange)
         {
+            lastAttack = Time.time;
             Debug.Log("Player Spotted");
             enemyRigidBody.velocity = new Vector2(0, enemyRigidBody.velocity.y);
             anim.SetBool("AttackPlayer", true);
             hasAttacked = true;
-            lastAttack = Time.time;
             //SetAttackDelay();
             AttackTimer();
         }            
@@ -95,6 +95,7 @@ public class EnemyPatrol : MonoBehaviour
     {
         if (hasAttacked && Time.time > lastAttack + attackDelay)
         {
+            Debug.Log("Timer is called");
             hasAttacked = false;
             //MeleeCheck();
         }

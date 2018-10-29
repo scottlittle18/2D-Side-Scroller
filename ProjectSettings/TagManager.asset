@@ -11,6 +11,7 @@ TagManager:
   - Hazards
   - Checkpoints
   - LevelExit
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
@@ -51,14 +52,14 @@ TagManager:
   - name: Ground
     uniqueID: 1629266943
     locked: 0
-  - name: Enemies
-    uniqueID: 1012213041
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Checkpoints
     uniqueID: 2771356733
+    locked: 0
+  - name: Enemies
+    uniqueID: 1012213041
     locked: 0
   - name: Player
     uniqueID: 3004435185

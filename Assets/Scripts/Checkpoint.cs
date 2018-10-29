@@ -6,12 +6,17 @@ using UnityEngine.Animations;
 public class Checkpoint : MonoBehaviour {
     [SerializeField]
     public bool isActivated = false;
+    private Transform checkpointPosition;
     public Animator anim;
+
+    //creates a variable that refers to the PlayerController
+    PlayerController player;
 
     private void Start()
     {
         anim = this.GetComponent<Animator>();
-        
+        player = GetComponent<PlayerController>();
+        checkpointPosition = this.GetComponent<Transform>();
     }
 
     private void Update()
@@ -21,17 +26,13 @@ public class Checkpoint : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.tag == "Player")
         {
-            //creates a variable that refers to the PlayerController
-            PlayerController player = collision.GetComponent<PlayerController>();
-            
+            Debug.Log("The Checkpoint detected the collision");
 
-            //Sends whatever object this script is attached to  to the PlayerController
-            player.SetCurrentCheckpoint(this);
-            
-            
-            
+            SetAsActivated(true);
+
+            player.SetCurrentCheckpoint(checkpointPosition);            
         }
     }
 
