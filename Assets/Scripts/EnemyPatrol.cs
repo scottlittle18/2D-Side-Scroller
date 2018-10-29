@@ -39,7 +39,7 @@ public class EnemyPatrol : MonoBehaviour
     {
         PositionChecks();
         Patrol();        
-        //MeleeCheck();
+        MeleeCheck();
     }
 
     // Update is called once per frame
@@ -64,9 +64,14 @@ public class EnemyPatrol : MonoBehaviour
             enemyRigidBody.velocity = new Vector2(-moveSpeed, enemyRigidBody.velocity.y);
         }
 
+    }
+
+    void MeleeCheck()
+    {
         if (playerInRange)
         {
             Debug.Log("Player Spotted");
+            enemyRigidBody.velocity = new Vector2(0, enemyRigidBody.velocity.y);
             anim.SetBool("AttackPlayer", true);
             hasAttacked = true;
             //MeleeAttackDelay();

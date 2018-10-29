@@ -9,6 +9,8 @@ TagManager:
   - EnemyBandit
   - UI
   - Hazards
+  - Checkpoints
+  - LevelExit
   layers:
   - Default
   - TransparentFX
@@ -23,9 +25,9 @@ TagManager:
   - Background
   - Pickups
   - UI
-  - 
-  - 
-  - 
+  - Hazards
+  - Enemies
+  - Checkpoints
   - 
   - 
   - 
@@ -54,6 +56,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3004435185
+    locked: 0
+  - name: Checkpoints
+    uniqueID: 2771356733
     locked: 0
   - name: Default
     uniqueID: 0
