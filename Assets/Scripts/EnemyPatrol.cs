@@ -8,7 +8,7 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField]
     private float moveSpeed, checkRadius, attackDelay;
 
-    private float attackTimer;
+    private float attackTimer, lastAttack;
 
     private bool hittingWall, notEdge, playerInRange, moveRight;
 
@@ -40,6 +40,7 @@ public class EnemyPatrol : MonoBehaviour
         PositionChecks();
         Patrol();        
         MeleeCheck();
+        
     }
 
     // Update is called once per frame
@@ -74,10 +75,29 @@ public class EnemyPatrol : MonoBehaviour
             enemyRigidBody.velocity = new Vector2(0, enemyRigidBody.velocity.y);
             anim.SetBool("AttackPlayer", true);
             hasAttacked = true;
-            //MeleeAttackDelay();
+            lastAttack = Time.time;
+            //SetAttackDelay();
+            AttackTimer();
         }            
         else if (!playerInRange)
+        {
             anim.SetBool("AttackPlayer", false);
+        }
+            
+    }
+
+    void SetAttackDelay()
+    {
+        attackTimer = lastAttack + attackDelay;
+    }
+
+    void AttackTimer()
+    {
+        if (hasAttacked && Time.time > lastAttack + attackDelay)
+        {
+            hasAttacked = false;
+            //MeleeCheck();
+        }
     }
 
     //Check position of the enemy based on the associated Transform GameObjects

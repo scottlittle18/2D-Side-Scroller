@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4505174498459978}
   - component: {fileID: 212321848221059416}
-  - component: {fileID: 114416884774297890}
   - component: {fileID: 50920361203726172}
   - component: {fileID: 114903116493823994}
   - component: {fileID: 70464676997458226}
@@ -59,7 +58,7 @@ GameObject:
   m_Layer: 0
   m_Name: PathCheck
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -70,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1759901087773350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.67, y: -1.4, z: 0}
+  m_LocalPosition: {x: 1.17, y: -1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4505174498459978}
@@ -83,7 +82,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1014843701620062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31, y: -0.8, z: 0}
+  m_LocalPosition: {x: 9.34, y: 2.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4567063855322642}
@@ -98,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1999840715921990}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.02, y: 0, z: 0}
+  m_LocalPosition: {x: 0.98, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4505174498459978}
@@ -163,7 +162,7 @@ Animator:
   m_GameObject: {fileID: 1014843701620062}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bafeab00b4ae4674cb3006b2b2e8332f, type: 2}
+  m_Controller: {fileID: 9100000, guid: fe56cb9ff443a7e4580495d7ad562370, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -172,17 +171,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114416884774297890
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1014843701620062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e40ff6ca7c7da64b92cbf08e44b4382, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114903116493823994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -194,9 +182,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3a0e1537b20e94b99f1722f36d8a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpHeight: 5
+  moveSpeed: 3
   checkRadius: 0.2
+  attackDelay: 2
+  hasAttacked: 0
   pathCheck: {fileID: 4567063855322642}
   edgeCheck: {fileID: 4371742377588474}
   whatIsWall:
@@ -205,7 +194,6 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 512
-  enemyRigidBody: {fileID: 50920361203726172}
 --- !u!212 &212321848221059416
 SpriteRenderer:
   m_ObjectHideFlags: 1
