@@ -969,6 +969,11 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: 2.62
       objectReference: {fileID: 0}
+    - target: {fileID: 114903116493823994, guid: 6b7a13b7c4a18ea48a0931a4296f9f2b,
+        type: 2}
+      propertyPath: attackDelay
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b7a13b7c4a18ea48a0931a4296f9f2b, type: 2}
   m_IsPrefabParent: 0

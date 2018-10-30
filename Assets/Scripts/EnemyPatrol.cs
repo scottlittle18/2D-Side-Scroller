@@ -71,7 +71,6 @@ public class EnemyPatrol : MonoBehaviour
     {
         if (playerInRange)
         {
-            lastAttack = Time.time;
             Debug.Log("Player Spotted");
             enemyRigidBody.velocity = new Vector2(0, enemyRigidBody.velocity.y);
             anim.SetBool("AttackPlayer", true);
@@ -93,9 +92,11 @@ public class EnemyPatrol : MonoBehaviour
 
     void AttackTimer()
     {
-        if (hasAttacked && Time.time > lastAttack + attackDelay)
+            lastAttack = Time.time;
+        if (hasAttacked && Time.time > lastAttack + attackDelay && playerInRange)
         {
             Debug.Log("Timer is called");
+            anim.SetBool("AttackPlayer", false);
             hasAttacked = false;
             //MeleeCheck();
         }
