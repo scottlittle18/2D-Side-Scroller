@@ -169,8 +169,7 @@ public class PlayerController : MonoBehaviour
 
         //DOUBLE JUMP CHECK
         if (jumpInput && !doubleJumped && !grounded)
-        {
-            
+        {            
             DoubleJump();
         }
     }
@@ -190,17 +189,15 @@ public class PlayerController : MonoBehaviour
     //------------------------------------------------------------------<<<<--------SETS CURRENT CHECKPOINT-----------
     public void SetCurrentCheckpoint(Checkpoint newCurrentCheckpoint)
     {
-        Debug.Log("Attempted to Set Checkpoint");
+        
         if (currentCheckpoint == null)
         {
-            Debug.Log("Checkpoint was null");
-            //currentCheckpoint.SetAsActivated(false);
+            
             currentCheckpoint = newCurrentCheckpoint;
             newCurrentCheckpoint.SetAsActivated(true);
         }            
         else
         {
-            Debug.Log("Checkpoint was not null");
             currentCheckpoint.SetAsActivated(false);
             currentCheckpoint = newCurrentCheckpoint;
             newCurrentCheckpoint.SetAsActivated(true);
@@ -212,7 +209,6 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == "Pickups")
         {
-            collision.gameObject.SetActive(false);
             scoreCounter++;
             SetScoreText();
         }
@@ -264,8 +260,7 @@ public class PlayerController : MonoBehaviour
     private void Respawn()
     {
         if (currentCheckpoint == null)
-            transform.position = spawnPoint.transform.position;
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            transform.position = spawnPoint.transform.position;        
         else
         {
             myRigidBody.velocity = Vector2.zero;

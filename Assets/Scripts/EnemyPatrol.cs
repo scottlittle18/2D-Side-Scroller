@@ -93,9 +93,9 @@ public class EnemyPatrol : MonoBehaviour
     void AttackTimer()
     {
             lastAttack = Time.time;
+        Debug.Log("Retrieved when the enemy attacked");
         if (hasAttacked && Time.time > lastAttack + attackDelay && playerInRange)
         {
-            Debug.Log("Timer is called");
             anim.SetBool("AttackPlayer", false);
             hasAttacked = false;
             //MeleeCheck();
