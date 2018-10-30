@@ -67,41 +67,6 @@ public class EnemyPatrol : MonoBehaviour
 
     }
 
-    void MeleeCheck()
-    {
-        if (playerInRange)
-        {
-            Debug.Log("Player Spotted");
-            enemyRigidBody.velocity = new Vector2(0, enemyRigidBody.velocity.y);
-            anim.SetBool("AttackPlayer", true);
-            hasAttacked = true;
-            //SetAttackDelay();
-            AttackTimer();
-        }            
-        else if (!playerInRange)
-        {
-            anim.SetBool("AttackPlayer", false);
-        }
-            
-    }
-
-    void SetAttackDelay()
-    {
-        attackTimer = lastAttack + attackDelay;
-    }
-
-    void AttackTimer()
-    {
-            lastAttack = Time.time;
-        Debug.Log("Retrieved when the enemy attacked");
-        if (hasAttacked && Time.time > lastAttack + attackDelay && playerInRange)
-        {
-            anim.SetBool("AttackPlayer", false);
-            hasAttacked = false;
-            //MeleeCheck();
-        }
-    }
-
     //Check position of the enemy based on the associated Transform GameObjects
     private void PositionChecks()
     {
@@ -118,7 +83,40 @@ public class EnemyPatrol : MonoBehaviour
             checkRadius, whatIsPlayer);
     }
 
+    void MeleeCheck()
+    {
+        if (playerInRange)
+        {
+            //TODO: Debug.Log("Delaying....");
+            Debug.Log("Player Spotted");
+            enemyRigidBody.velocity = new Vector2(0, enemyRigidBody.velocity.y);
+            anim.SetBool("AttackPlayer", true);
+            hasAttacked = true;
+            SetAttackDelay();
+            AttackTimer();
+        }            
+        
+    }
 
-    
-    
+    void SetAttackDelay()
+    {
+        //TODO: Debug.Log("Timer Set");
+        Debug.Log("Timer Set");
+        lastAttack = Time.time;
+        attackTimer = lastAttack + attackDelay;
+    }
+
+    void AttackTimer()
+    {
+        //TODO: Debug.Log("Retrieved when the enemy attacked");
+        Debug.Log("Retrieved when the enemy attacked");
+        if (hasAttacked && Time.time > attackTimer && playerInRange)
+        {
+            //TODO: Debug.Log("Delaying....");
+            Debug.Log("Delaying....");
+            anim.SetBool("AttackPlayer", false);
+            hasAttacked = false;
+            //MeleeCheck();
+        }
+    }    
 }

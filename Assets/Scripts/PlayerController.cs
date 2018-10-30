@@ -214,6 +214,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.tag == "EnemyBandit")
         {
+            scoreCounter--;
             SetIsDead(true);
         }
         else if (collision.tag == "Hazards")

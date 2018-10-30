@@ -14,9 +14,7 @@ public class Checkpoint : MonoBehaviour {
 
     private void Start()
     {
-        anim = this.GetComponent<Animator>();
-        
-       
+        anim = this.GetComponent<Animator>();       
     }
 
     private void Update()
@@ -27,19 +25,14 @@ public class Checkpoint : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log("The Checkpoint detected the collision");
+        {            
             player = collision.GetComponent<PlayerController>();
-            //SetAsActivated(true);
-
             player.SetCurrentCheckpoint(this);            
         }
     }
 
     public void SetAsActivated(bool value)
-    {
-        //anim.SetBool("isActivated", value);
-        Debug.Log("Tried to set as active");
+    {        
         isActivated = value;
         UpdateAnimation();
     }
