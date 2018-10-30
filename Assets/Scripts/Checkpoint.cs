@@ -6,7 +6,7 @@ using UnityEngine.Animations;
 public class Checkpoint : MonoBehaviour {
     [SerializeField]
     public bool isActivated = false;
-    private Transform checkpointPosition;
+   
     public Animator anim;
 
     //creates a variable that refers to the PlayerController
@@ -15,8 +15,8 @@ public class Checkpoint : MonoBehaviour {
     private void Start()
     {
         anim = this.GetComponent<Animator>();
-        player = GetComponent<PlayerController>();
-        checkpointPosition = this.GetComponent<Transform>();
+        
+       
     }
 
     private void Update()
@@ -24,22 +24,22 @@ public class Checkpoint : MonoBehaviour {
         UpdateAnimation();
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("The Checkpoint detected the collision");
+            player = collision.GetComponent<PlayerController>();
+            //SetAsActivated(true);
 
-            SetAsActivated(true);
-
-            player.SetCurrentCheckpoint(checkpointPosition);            
+            player.SetCurrentCheckpoint(this);            
         }
     }
 
     public void SetAsActivated(bool value)
     {
         //anim.SetBool("isActivated", value);
-        
+        Debug.Log("Tried to set as active");
         isActivated = value;
         UpdateAnimation();
     }

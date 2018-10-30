@@ -17,9 +17,9 @@ public class PlayerController : MonoBehaviour
     private bool jumpRelease;
 
     //Checkpoint Variable
-    public Transform currentCheckpoint;
+    [SerializeField]
+    private Checkpoint currentCheckpoint;
     public GameObject spawnPoint;
-    public Transform spawnPointPosition;
     
     //Ground Establishment and Detection variables
     [SerializeField]
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playerGroundCollider = GetComponent<CapsuleCollider2D>();
-        SetCurrentCheckpoint(spawnPoint.transform);
+        spawnPoint = GameObject.Find("SpawnPoint");
         scoreCounter = 0;
     }
 
@@ -188,20 +188,22 @@ public class PlayerController : MonoBehaviour
     }
 
     //------------------------------------------------------------------<<<<--------SETS CURRENT CHECKPOINT-----------
-    public void SetCurrentCheckpoint(Transform newCurrentCheckpoint)
+    public void SetCurrentCheckpoint(Checkpoint newCurrentCheckpoint)
     {
         Debug.Log("Attempted to Set Checkpoint");
         if (currentCheckpoint == null)
         {
-            spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
-            //spawnPointPosition.transform.position = spawnPoint.transform.position;
-            currentCheckpoint.position = spawnPoint.transform.position;
-        }
-            
+            Debug.Log("Checkpoint was null");
+            //currentCheckpoint.SetAsActivated(false);
+            currentCheckpoint = newCurrentCheckpoint;
+            newCurrentCheckpoint.SetAsActivated(true);
+        }            
         else
         {
+            Debug.Log("Checkpoint was not null");
+            currentCheckpoint.SetAsActivated(false);
             currentCheckpoint = newCurrentCheckpoint;
-            //newCurrentCheckpoint.SetAsActivated(true);
+            newCurrentCheckpoint.SetAsActivated(true);
         }
     }
 
@@ -260,14 +262,15 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Respawn()
-    {       
-            if (currentCheckpoint == null)
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            else
-            {
-                myRigidBody.velocity = Vector2.zero;
-                transform.position = currentCheckpoint.transform.position;
-            }
+    {
+        if (currentCheckpoint == null)
+            transform.position = spawnPoint.transform.position;
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        else
+        {
+            myRigidBody.velocity = Vector2.zero;
+            transform.position = currentCheckpoint.transform.position;
+        }
 
         //Reset variables for player Respawn
         isDead = false;
