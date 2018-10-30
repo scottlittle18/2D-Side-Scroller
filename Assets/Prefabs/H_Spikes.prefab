@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4559312468198730}
   - component: {fileID: 212058540951224328}
-  - component: {fileID: 114283489120823178}
   - component: {fileID: 61024692285673242}
   m_Layer: 0
   m_Name: H_Spikes
@@ -67,17 +66,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.54265857, y: 0.35}
   m_EdgeRadius: 0
---- !u!114 &114283489120823178
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1873321334233430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e40ff6ca7c7da64b92cbf08e44b4382, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212058540951224328
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -110,8 +98,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 866376557
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300008, guid: cb6f70de08283dc4693040a48b306672, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

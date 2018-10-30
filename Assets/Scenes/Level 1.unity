@@ -225,8 +225,7 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 114283489120823178, guid: 44db513ee926ac64a909a0c0e67ffe68,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 0}
@@ -234,7 +233,18 @@ Prefab:
       propertyPath: m_TagString
       value: Hazards
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 212058540951224328, guid: 44db513ee926ac64a909a0c0e67ffe68,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 866376557
+      objectReference: {fileID: 0}
+    - target: {fileID: 212058540951224328, guid: 44db513ee926ac64a909a0c0e67ffe68,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 44db513ee926ac64a909a0c0e67ffe68, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &363444827 stripped
@@ -833,8 +843,7 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 114283489120823178, guid: 44db513ee926ac64a909a0c0e67ffe68,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 0}
@@ -842,7 +851,18 @@ Prefab:
       propertyPath: m_TagString
       value: Hazards
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 212058540951224328, guid: 44db513ee926ac64a909a0c0e67ffe68,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 866376557
+      objectReference: {fileID: 0}
+    - target: {fileID: 212058540951224328, guid: 44db513ee926ac64a909a0c0e67ffe68,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 44db513ee926ac64a909a0c0e67ffe68, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &741307432 stripped
@@ -933,7 +953,8 @@ Prefab:
     - target: {fileID: 1999840715921990, guid: 6b7a13b7c4a18ea48a0931a4296f9f2b, type: 2}
       propertyPath: m_Icon
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000,
+        type: 0}
     - target: {fileID: 212321848221059416, guid: 6b7a13b7c4a18ea48a0931a4296f9f2b,
         type: 2}
       propertyPath: m_SortingLayerID
@@ -943,6 +964,10 @@ Prefab:
         type: 2}
       propertyPath: m_SortingLayer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567063855322642, guid: 6b7a13b7c4a18ea48a0931a4296f9f2b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2.62
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b7a13b7c4a18ea48a0931a4296f9f2b, type: 2}
@@ -1314,8 +1339,7 @@ Prefab:
       propertyPath: m_Name
       value: H_Spikes (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 114283489120823178, guid: 44db513ee926ac64a909a0c0e67ffe68,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 0}
@@ -1323,7 +1347,18 @@ Prefab:
       propertyPath: m_TagString
       value: Hazards
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 212058540951224328, guid: 44db513ee926ac64a909a0c0e67ffe68,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 866376557
+      objectReference: {fileID: 0}
+    - target: {fileID: 212058540951224328, guid: 44db513ee926ac64a909a0c0e67ffe68,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 44db513ee926ac64a909a0c0e67ffe68, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &988317747 stripped
@@ -22677,8 +22712,7 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 114283489120823178, guid: 44db513ee926ac64a909a0c0e67ffe68,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 0}
@@ -22686,7 +22720,18 @@ Prefab:
       propertyPath: m_TagString
       value: Hazards
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 212058540951224328, guid: 44db513ee926ac64a909a0c0e67ffe68,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 866376557
+      objectReference: {fileID: 0}
+    - target: {fileID: 212058540951224328, guid: 44db513ee926ac64a909a0c0e67ffe68,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 44db513ee926ac64a909a0c0e67ffe68, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1507771908 stripped
@@ -22737,10 +22782,6 @@ Prefab:
     - target: {fileID: 4624723593207332, guid: 66b872f2a87630e448466712f25770a0, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1682891228541170, guid: 66b872f2a87630e448466712f25770a0, type: 2}
-      propertyPath: m_Layer
-      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 66b872f2a87630e448466712f25770a0, type: 2}
@@ -22884,8 +22925,7 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 114283489120823178, guid: 44db513ee926ac64a909a0c0e67ffe68,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 0}
@@ -22893,7 +22933,18 @@ Prefab:
       propertyPath: m_TagString
       value: Hazards
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 212058540951224328, guid: 44db513ee926ac64a909a0c0e67ffe68,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 866376557
+      objectReference: {fileID: 0}
+    - target: {fileID: 212058540951224328, guid: 44db513ee926ac64a909a0c0e67ffe68,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 44db513ee926ac64a909a0c0e67ffe68, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1620797891 stripped
@@ -23131,7 +23182,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -984065561
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 28f1cef7daef8284fbbd7a64253ec19c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -23186,8 +23237,7 @@ Prefab:
       propertyPath: m_Name
       value: H_Spikes (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 114283489120823178, guid: 44db513ee926ac64a909a0c0e67ffe68,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 0}
@@ -23195,7 +23245,18 @@ Prefab:
       propertyPath: m_TagString
       value: Hazards
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 212058540951224328, guid: 44db513ee926ac64a909a0c0e67ffe68,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 866376557
+      objectReference: {fileID: 0}
+    - target: {fileID: 212058540951224328, guid: 44db513ee926ac64a909a0c0e67ffe68,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 44db513ee926ac64a909a0c0e67ffe68, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1831951621 stripped
@@ -23221,7 +23282,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4272338748129548, guid: 92fdf282afcbf59458e52ca83d5f2bed, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.01
+      value: 6.82
       objectReference: {fileID: 0}
     - target: {fileID: 4272338748129548, guid: 92fdf282afcbf59458e52ca83d5f2bed, type: 2}
       propertyPath: m_LocalPosition.z
@@ -23305,8 +23366,7 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 114283489120823178, guid: 44db513ee926ac64a909a0c0e67ffe68,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 0}
@@ -23314,7 +23374,18 @@ Prefab:
       propertyPath: m_TagString
       value: Hazards
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 212058540951224328, guid: 44db513ee926ac64a909a0c0e67ffe68,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 866376557
+      objectReference: {fileID: 0}
+    - target: {fileID: 212058540951224328, guid: 44db513ee926ac64a909a0c0e67ffe68,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 44db513ee926ac64a909a0c0e67ffe68, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1919811716 stripped
@@ -23390,8 +23461,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114283489120823178, guid: 44db513ee926ac64a909a0c0e67ffe68,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 0}
@@ -23399,7 +23469,18 @@ Prefab:
       propertyPath: m_TagString
       value: Hazards
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 212058540951224328, guid: 44db513ee926ac64a909a0c0e67ffe68,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 866376557
+      objectReference: {fileID: 0}
+    - target: {fileID: 212058540951224328, guid: 44db513ee926ac64a909a0c0e67ffe68,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 44db513ee926ac64a909a0c0e67ffe68, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &2071549265 stripped
