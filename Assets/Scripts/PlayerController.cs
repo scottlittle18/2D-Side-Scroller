@@ -191,8 +191,7 @@ public class PlayerController : MonoBehaviour
     {
         
         if (currentCheckpoint == null)
-        {
-            
+        {            
             currentCheckpoint = newCurrentCheckpoint;
             newCurrentCheckpoint.SetAsActivated(true);
         }            
@@ -219,6 +218,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.tag == "Hazards")
         {
+            scoreCounter--;
             SetIsDead(true);
         }
     }
