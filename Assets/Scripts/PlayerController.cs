@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private int rotationAmount, scoreCounter;
     private float moveInput, respawnTimer, rotationSpeed = 5;
     private bool jumpInput;
+    private short PlayerHealth;
 
     //refresh the Jump button press state
     private bool jumpRelease;
@@ -19,7 +20,7 @@ public class PlayerController : MonoBehaviour
     //Checkpoint Variable
     [SerializeField]
     private Checkpoint currentCheckpoint;
-    public GameObject spawnPoint;
+    public GameObject spawnPoint, HealthMeter;
     
     //Ground Establishment and Detection variables
     [SerializeField]
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private PhysicsMaterial2D playerMovingPM, playerStoppingPM;
     
-    private Animator anim;    
+    private Animator anim, HealthAnim;    
     
     private Rigidbody2D myRigidBody;
 
@@ -45,8 +46,7 @@ public class PlayerController : MonoBehaviour
 
     // Use this for initialization
     void Start()
-    {
-        
+    {        
         footsteps = GetComponent<AudioSource>();
         playerBody = GetComponent<SpriteRenderer>();
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -54,6 +54,11 @@ public class PlayerController : MonoBehaviour
         playerGroundCollider = GetComponent<CapsuleCollider2D>();
         spawnPoint = GameObject.Find("SpawnPoint");
         scoreCounter = 0;
+        SetScoreText();
+        HealthMeter = GameObject.Find("HealthMeter");
+        PlayerHealth = 6;
+        HealthAnim = HealthMeter.GetComponent<Animator>();
+        UpdateHealth();
     }
 
     
@@ -203,6 +208,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void UpdateHealth()
+    {
+        HealthAnim.SetInteger("PlayerHealth", PlayerHealth);
+    }
+
     //-------------------------------------------------------------------<<<<-------COLLISION CHECKS-----------------------------
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -213,8 +223,11 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.tag == "EnemyBandit")
         {
+            PlayerHealth--;
+            UpdateHealth();
             scoreCounter--;
-            SetIsDead(true);
+            if(PlayerHealth == 0)
+                SetIsDead(true);
         }
         else if (collision.tag == "Hazards")
         {
