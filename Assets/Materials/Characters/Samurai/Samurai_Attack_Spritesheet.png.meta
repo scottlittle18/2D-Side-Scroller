@@ -94,10 +94,10 @@ TextureImporter:
       name: Samurai_Attack_Spritesheet_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 206
-        height: 186
+        x: 0
+        y: 0
+        width: 189
+        height: 188
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -105,7 +105,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a263aed132b042c4186923a959ab0268
+      spriteID: 4be2a66da01891043843d6bf0b0b237d
       vertices: []
       indices: 
       edges: []
@@ -114,10 +114,10 @@ TextureImporter:
       name: Samurai_Attack_Spritesheet_1
       rect:
         serializedVersion: 2
-        x: 208
-        y: 1
-        width: 190
-        height: 185
+        x: 190
+        y: 0
+        width: 189
+        height: 188
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,7 +125,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b18d6becc3b114348a7121eb6b29364f
+      spriteID: b31198348df746a49a3a84a657dc623a
       vertices: []
       indices: 
       edges: []
@@ -134,10 +134,10 @@ TextureImporter:
       name: Samurai_Attack_Spritesheet_2
       rect:
         serializedVersion: 2
-        x: 566
-        y: 1
-        width: 191
-        height: 185
+        x: 379
+        y: 0
+        width: 190
+        height: 188
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,7 +145,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09a0e1b98e6c9b24882842802f187fba
+      spriteID: f775ca0b4cc64b04b82ae957ac4aa28a
       vertices: []
       indices: 
       edges: []
@@ -154,10 +154,10 @@ TextureImporter:
       name: Samurai_Attack_Spritesheet_3
       rect:
         serializedVersion: 2
-        x: 773
-        y: 2
-        width: 179
-        height: 185
+        x: 569
+        y: 0
+        width: 190
+        height: 188
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,7 +165,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb52bba815ffccf49bdf6882e1dfdaf5
+      spriteID: 64e5239828b3d3e4b8956e9d46182755
       vertices: []
       indices: 
       edges: []
@@ -174,10 +174,10 @@ TextureImporter:
       name: Samurai_Attack_Spritesheet_4
       rect:
         serializedVersion: 2
-        x: 972
+        x: 759
         y: 0
-        width: 190
-        height: 186
+        width: 181
+        height: 188
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,7 +185,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bb298b23458d4946a148cbf8bee8ab7
+      spriteID: e58bf488199ea4d419f74eac0afdf5fe
       vertices: []
       indices: 
       edges: []
@@ -194,10 +194,10 @@ TextureImporter:
       name: Samurai_Attack_Spritesheet_5
       rect:
         serializedVersion: 2
-        x: 1164
+        x: 940
         y: 0
         width: 190
-        height: 185
+        height: 188
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,7 +205,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65711194375e92043b73954688389091
+      spriteID: 1585757757060b14588adc5b6801092f
       vertices: []
       indices: 
       edges: []
@@ -214,10 +214,10 @@ TextureImporter:
       name: Samurai_Attack_Spritesheet_6
       rect:
         serializedVersion: 2
-        x: 1355
+        x: 1132
         y: 0
-        width: 190
-        height: 186
+        width: 191
+        height: 188
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,7 +225,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d07cbe44c8dd8924d8870a72f8188d9f
+      spriteID: c496d6ee42304994380ff735e691ac40
       vertices: []
       indices: 
       edges: []
@@ -234,10 +234,10 @@ TextureImporter:
       name: Samurai_Attack_Spritesheet_7
       rect:
         serializedVersion: 2
-        x: 1547
+        x: 1323
         y: 0
-        width: 190
-        height: 185
+        width: 192
+        height: 188
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,7 +245,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f860aeb9311344429accac5f68d8549
+      spriteID: 5578547fc0b2e824bb9eb67873d8b492
       vertices: []
       indices: 
       edges: []
@@ -254,10 +254,10 @@ TextureImporter:
       name: Samurai_Attack_Spritesheet_8
       rect:
         serializedVersion: 2
-        x: 399
-        y: 1
-        width: 166
-        height: 185
+        x: 1514
+        y: 0
+        width: 194
+        height: 188
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,7 +265,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95ab4562fec7e444a90c33f502843ad0
+      spriteID: f75a3cd8170e3e5428dbb4288dadb67b
       vertices: []
       indices: 
       edges: []
@@ -273,7 +273,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6255f4906a281b04daa8844a849ea29b
+    spriteID: 3015b3d8c37ade047b30784ece85fe26
     vertices: []
     indices: 
     edges: []

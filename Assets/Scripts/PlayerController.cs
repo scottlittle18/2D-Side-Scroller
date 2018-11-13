@@ -8,14 +8,16 @@ public class PlayerController : MonoBehaviour
 {
     //Movement Variables
     [SerializeField]
-    private float accelerationForce, maxSpeed,  jumpHeight, groundCheckRadius, respawnDelay;
+    private float accelerationForce, maxSpeed,  jumpHeight, groundCheckRadius, 
+        respawnDelay, kickbackPower, kickbackHeight;
     private int rotationAmount, scoreCounter;
     private float moveInput, respawnTimer, rotationSpeed = 5;
-    private bool jumpInput;
+    private bool jumpInput, attackInput;
     private short PlayerHealth;
 
     //refresh the Jump button press state
     private bool jumpRelease;
+    bool hitOnRight;
 
     //Checkpoint Variable
     [SerializeField]
@@ -114,6 +116,7 @@ public class PlayerController : MonoBehaviour
         moveInput = Input.GetAxisRaw("Horizontal");
         jumpInput = Input.GetButtonDown("Jump");
         jumpRelease = Input.GetButtonUp("Jump");
+        attackInput = Input.GetButtonDown("Fire2");
 
             //Enables Jumping
             if (jumpInput && grounded)
@@ -125,7 +128,11 @@ public class PlayerController : MonoBehaviour
             if(jumpInput && !grounded && !doubleJumped)
             {
                 DoubleJump();
-            }        
+            }
+
+        //Enables Attack
+        if (attackInput)
+            anim.SetTrigger("Attack");
     }
 
 
@@ -145,7 +152,7 @@ public class PlayerController : MonoBehaviour
         }            
         else if (myRigidBody.velocity.x < -0.1)
         {
-            transform.localScale = new Vector3(-1, 1, 1);            
+            transform.localScale = new Vector3(-1, 1, 1);           
         }
 
 
@@ -216,23 +223,55 @@ public class PlayerController : MonoBehaviour
     //-------------------------------------------------------------------<<<<-------COLLISION CHECKS-----------------------------
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Pickups")
+        switch (collision.tag)
         {
-            scoreCounter++;
-            SetScoreText();
-        }
-        else if (collision.tag == "EnemyBandit")
-        {
-            PlayerHealth--;
-            UpdateHealth();
-            scoreCounter--;
-            if(PlayerHealth == 0)
+            case "Pickups":
+                if (collision.name == "coinSilver")
+                {
+                    scoreCounter++;
+                    SetScoreText();
+                }
+                else if (collision.name == "coinGold")
+                {
+                    scoreCounter += 2;
+                    SetScoreText();
+                }
+                break;
+
+            case "EnemyBandit":
+                PlayerHealth--;
+                if (collision.transform.position.x > transform.position.x)
+                    hitOnRight = true;
+                else if (collision.transform.position.x < transform.position.x)
+                    hitOnRight = false;
+                Kickback();
+                UpdateHealth();
+                scoreCounter--;
+                if (PlayerHealth == 0)
+                    SetIsDead(true);
+                break;
+
+            case "Hazards":
+                scoreCounter--;
                 SetIsDead(true);
-        }
-        else if (collision.tag == "Hazards")
+                break;
+
+            //TODO: Debug.Log("No Matching Collision Tabs")
+            default:
+                Debug.Log("No Matching Collision Tags");
+                break;
+        }       
+    }
+
+    void Kickback()
+    {
+        if (hitOnRight)
         {
-            scoreCounter--;
-            SetIsDead(true);
+            myRigidBody.velocity = new Vector2(-kickbackPower, kickbackHeight);
+        }
+        else if (!hitOnRight)
+        {
+            myRigidBody.velocity = new Vector2(kickbackPower, kickbackHeight);
         }
     }
 
