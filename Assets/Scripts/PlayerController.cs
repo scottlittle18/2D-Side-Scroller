@@ -12,11 +12,12 @@ public class PlayerController : MonoBehaviour
         respawnDelay, kickbackPower, kickbackHeight;
     private int rotationAmount, scoreCounter;
     private float moveInput, respawnTimer, rotationSpeed = 5;
-    private bool jumpInput, attackInput;
-    private short PlayerHealth;
 
-    //refresh the Jump button press state
-    private bool jumpRelease;
+    //Jump and Attack Inputs and Release variables
+    private bool jumpInput, jumpRelease, attackInput, attackRelease;
+    private short PlayerHealth;
+    
+    //Checks which side the player was hit on
     bool hitOnRight;
 
     //Checkpoint Variable
@@ -117,13 +118,13 @@ public class PlayerController : MonoBehaviour
         jumpInput = Input.GetButtonDown("Jump");
         jumpRelease = Input.GetButtonUp("Jump");
         attackInput = Input.GetButtonDown("Fire2");
+        attackRelease = Input.GetButtonUp("Fire2");
 
             //Enables Jumping
             if (jumpInput && grounded)
             {
                 Jump();
-            }        
-
+            }
             // Enables Double jumping
             if(jumpInput && !grounded && !doubleJumped)
             {
@@ -132,7 +133,14 @@ public class PlayerController : MonoBehaviour
 
         //Enables Attack
         if (attackInput)
-            anim.SetTrigger("Attack");
+        {
+            anim.SetTrigger("Attack");            
+        }
+        if (attackRelease)
+        {
+            anim.ResetTrigger("Attack");
+        }            
+
     }
 
 
@@ -252,6 +260,11 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case "Hazards":
+                scoreCounter--;
+                SetIsDead(true);
+                break;
+
+            case "Killzone":
                 scoreCounter--;
                 SetIsDead(true);
                 break;

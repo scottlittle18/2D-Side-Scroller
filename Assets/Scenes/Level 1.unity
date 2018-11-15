@@ -1601,7 +1601,8 @@ Prefab:
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114801847229847042, guid: 2e601ca615ec655438f13ba7471c4f4b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2e601ca615ec655438f13ba7471c4f4b, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1337835106 stripped

@@ -12,6 +12,7 @@ TagManager:
   - Checkpoints
   - LevelExit
   - SpawnPoint
+  - Killzone
   layers:
   - Default
   - TransparentFX
