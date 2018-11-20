@@ -8,12 +8,16 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField]
     private float moveSpeed, checkRadius, attackDelay;
 
+    [SerializeField]
+    private short enemyHealth;
     private float attackTimer, lastAttack;
 
     private bool hittingWall, notEdge, playerInRange, moveRight;
 
     //TODO: TEMPORARILY PUBLIC FOR DEBUGGING
     public bool hasAttacked;
+
+    PlayerController player;
 
     [SerializeField]
     Transform pathCheck;
@@ -32,6 +36,7 @@ public class EnemyPatrol : MonoBehaviour
     void Start() {
         anim = GetComponent<Animator>();
         enemyRigidBody = GetComponent<Rigidbody2D>();
+        player = new PlayerController();
         hasAttacked = false;
     }
 
@@ -98,6 +103,16 @@ public class EnemyPatrol : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "PlayerAttackPoint")
+        {
+            enemyHealth--;
+            if (enemyHealth == 0)
+                Death();
+        }
+    }
+
     void SetAttackDelay()
     {
         //TODO: Debug.Log("Timer Set");
@@ -118,5 +133,14 @@ public class EnemyPatrol : MonoBehaviour
             hasAttacked = false;
             //MeleeCheck();
         }
-    }    
+    }
+    
+    //Remove Object When Player Kills It
+    private void Death()
+    {
+        //TODO: Get Player Score To Increase With Each Kill
+        //player.scoreCounter++;
+        //player.SetScoreText();
+        Destroy(gameObject, 0.2f);        
+    }
 }

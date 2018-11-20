@@ -13,6 +13,7 @@ TagManager:
   - LevelExit
   - SpawnPoint
   - Killzone
+  - PlayerAttackPoint
   layers:
   - Default
   - TransparentFX

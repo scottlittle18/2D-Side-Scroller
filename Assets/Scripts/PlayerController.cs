@@ -9,9 +9,10 @@ public class PlayerController : MonoBehaviour
     //Movement Variables
     [SerializeField]
     private float accelerationForce, maxSpeed,  jumpHeight, groundCheckRadius, 
-        respawnDelay, kickbackPower, kickbackHeight;
-    private int rotationAmount, scoreCounter;
-    private float moveInput, respawnTimer, rotationSpeed = 5;
+        respawnDelay, kickbackPower, kickbackHeight, attackRadius;
+    [HideInInspector]
+    public int scoreCounter;
+    private float moveInput, respawnTimer;
 
     //Jump and Attack Inputs and Release variables
     private bool jumpInput, jumpRelease, attackInput, attackRelease;
@@ -27,9 +28,11 @@ public class PlayerController : MonoBehaviour
     
     //Ground Establishment and Detection variables
     [SerializeField]
-    private Transform groundCheck;
+    private Transform groundCheck, attackPoint;
+
     [SerializeField]
     private LayerMask whatIsGround;
+
     AudioSource footsteps;
     [SerializeField]
     Text scoreText;
@@ -49,7 +52,8 @@ public class PlayerController : MonoBehaviour
 
     // Use this for initialization
     void Start()
-    {        
+    {
+        attackPoint.gameObject.SetActive(false);
         footsteps = GetComponent<AudioSource>();
         playerBody = GetComponent<SpriteRenderer>();
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -98,7 +102,7 @@ public class PlayerController : MonoBehaviour
     private void UpdatePhysicsMaterial()
     {
         if (!grounded)
-            playerMovingPM.friction = 0;
+            playerMovingPM.friction = 0;            
 
         if (Mathf.Abs(moveInput) > 0)
         {
@@ -134,11 +138,13 @@ public class PlayerController : MonoBehaviour
         //Enables Attack
         if (attackInput)
         {
-            anim.SetTrigger("Attack");            
+            anim.SetTrigger("Attack");
+            attackPoint.gameObject.SetActive(true);
         }
         if (attackRelease)
         {
             anim.ResetTrigger("Attack");
+            attackPoint.gameObject.SetActive(false);
         }            
 
     }
@@ -228,24 +234,11 @@ public class PlayerController : MonoBehaviour
         HealthAnim.SetInteger("PlayerHealth", PlayerHealth);
     }
 
-    //-------------------------------------------------------------------<<<<-------COLLISION CHECKS-----------------------------
+    //-------------------------------------------------------------------<<<<-------TRIGGER CHECKS-----------------------------
     private void OnTriggerEnter2D(Collider2D collision)
     {
         switch (collision.tag)
         {
-            case "Pickups":
-                if (collision.name == "coinSilver")
-                {
-                    scoreCounter++;
-                    SetScoreText();
-                }
-                else if (collision.name == "coinGold")
-                {
-                    scoreCounter += 2;
-                    SetScoreText();
-                }
-                break;
-
             case "EnemyBandit":
                 PlayerHealth--;
                 if (collision.transform.position.x > transform.position.x)
@@ -259,6 +252,19 @@ public class PlayerController : MonoBehaviour
                     SetIsDead(true);
                 break;
 
+            case "Pickups":
+                if (collision.name == "coinSilver")
+                {
+                    scoreCounter++;
+                    SetScoreText();
+                }
+                else if (collision.name == "coinGold")
+                {
+                    scoreCounter += 2;
+                    SetScoreText();
+                }
+                break;          
+
             case "Hazards":
                 scoreCounter--;
                 SetIsDead(true);
@@ -269,12 +275,20 @@ public class PlayerController : MonoBehaviour
                 SetIsDead(true);
                 break;
 
+            case "Ground":
+                break;
+
+            case "Untagged":
+                break;
+
             //TODO: Debug.Log("No Matching Collision Tabs")
             default:
-                Debug.Log("No Matching Collision Tags");
+                Debug.Log("No Matching Trigger Tags");
                 break;
         }       
     }
+
+    
 
     void Kickback()
     {
@@ -285,10 +299,10 @@ public class PlayerController : MonoBehaviour
         else if (!hitOnRight)
         {
             myRigidBody.velocity = new Vector2(kickbackPower, kickbackHeight);
-        }
+        }       
     }
 
-    private void SetScoreText()
+    public void SetScoreText()
     {
         scoreText.text = "Score: " + scoreCounter.ToString();
     }

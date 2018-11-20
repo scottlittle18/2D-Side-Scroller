@@ -291,6 +291,50 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &212834041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 212834042}
+  - component: {fileID: 212834043}
+  m_Layer: 9
+  m_Name: AttackPoint
+  m_TagString: PlayerAttackPoint
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &212834042
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 212834041}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.96, y: -0.58, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 135480547}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &212834043
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 212834041}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.15579128, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.34420872
 --- !u!1001 &342453812
 Prefab:
   m_ObjectHideFlags: 0
@@ -338,13 +382,33 @@ Prefab:
     - target: {fileID: 114408999343313396, guid: 61e289f3f79ae5c4da3671051f66c3a3,
         type: 2}
       propertyPath: kickbackPower
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 114408999343313396, guid: 61e289f3f79ae5c4da3671051f66c3a3,
         type: 2}
       propertyPath: kickbackHeight
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114408999343313396, guid: 61e289f3f79ae5c4da3671051f66c3a3,
+        type: 2}
+      propertyPath: knockbackDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114408999343313396, guid: 61e289f3f79ae5c4da3671051f66c3a3,
+        type: 2}
+      propertyPath: playerKnockbackPM
+      value: 
+      objectReference: {fileID: 6200000, guid: 4e54e30503805a2449b2cbdfe9e8e1c2, type: 2}
+    - target: {fileID: 114408999343313396, guid: 61e289f3f79ae5c4da3671051f66c3a3,
+        type: 2}
+      propertyPath: attackRadius
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114408999343313396, guid: 61e289f3f79ae5c4da3671051f66c3a3,
+        type: 2}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 212834042}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 61e289f3f79ae5c4da3671051f66c3a3, type: 2}
   m_IsPrefabParent: 0
@@ -1072,7 +1136,23 @@ Prefab:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114903116493823994, guid: 6b7a13b7c4a18ea48a0931a4296f9f2b,
+        type: 2}
+      propertyPath: enemyHealth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 70624710411937358, guid: 6b7a13b7c4a18ea48a0931a4296f9f2b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 70624710411937358, guid: 6b7a13b7c4a18ea48a0931a4296f9f2b,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 70624710411937358, guid: 6b7a13b7c4a18ea48a0931a4296f9f2b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6b7a13b7c4a18ea48a0931a4296f9f2b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &886521786
