@@ -17,6 +17,11 @@ public class MenuButtons : MonoBehaviour {
         SceneManager.LoadScene(currentScene + 1);
     }
 
+    public void StartLevelOne()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     public void Credits()
     {
         SceneManager.LoadScene("Credits");
@@ -29,6 +34,8 @@ public class MenuButtons : MonoBehaviour {
 
     public void Quit()
     {
+        //TODO: Debug.Log("Quit Program Input Accepted")
+        Debug.Log("Quit Program Input Accepted");
         Application.Quit();
     }
 }

@@ -26,7 +26,7 @@ TagManager:
   - Player
   - Background
   - Pickups
-  - UI
+  - 
   - Hazards
   - Enemies
   - Checkpoints
