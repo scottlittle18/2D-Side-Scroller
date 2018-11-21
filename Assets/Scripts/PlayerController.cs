@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdatePhysicsMaterial()
     {
-        if (!grounded)
+        if (!grounded)  //<-- TODO: try including '|| beingKnockedback' as a bool to fix knockback issue!!!!!!!!!
             playerMovingPM.friction = 0;            
 
         if (Mathf.Abs(moveInput) > 0)
