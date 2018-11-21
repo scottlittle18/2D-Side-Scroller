@@ -239,19 +239,6 @@ public class PlayerController : MonoBehaviour
     {
         switch (collision.tag)
         {
-            case "EnemyBandit":
-                PlayerHealth--;
-                if (collision.transform.position.x > transform.position.x)
-                    hitOnRight = true;
-                else if (collision.transform.position.x < transform.position.x)
-                    hitOnRight = false;
-                Kickback();
-                UpdateHealth();
-                scoreCounter--;
-                if (PlayerHealth == 0)
-                    SetIsDead(true);
-                break;
-
             case "Pickups":
                 if (collision.name == "coinSilver")
                 {
@@ -281,14 +268,34 @@ public class PlayerController : MonoBehaviour
             case "Untagged":
                 break;
 
-            //TODO: Debug.Log("No Matching Collision Tabs")
+            //Default Case Handler
             default:
-                Debug.Log("No Matching Trigger Tags");
                 break;
         }       
     }
 
-    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "EnemyBandit":
+                PlayerHealth--;
+                if (collision.transform.position.x > transform.position.x)
+                    hitOnRight = true;
+                else if (collision.transform.position.x < transform.position.x)
+                    hitOnRight = false;
+                Kickback();
+                UpdateHealth();
+                scoreCounter--;
+                if (PlayerHealth == 0)
+                    SetIsDead(true);
+                break;
+
+            //Default Case Handler
+            default:
+                break;
+        }
+    }
 
     void Kickback()
     {

@@ -10,15 +10,9 @@ public class EnemyPatrol : MonoBehaviour
 
     [SerializeField]
     private short enemyHealth;
-    private float attackTimer, lastAttack;
 
-    private bool hittingWall, notEdge, playerInRange, moveRight, isAttacking;
-
-    //TODO: TEMPORARILY PUBLIC FOR DEBUGGING
-    public bool hasAttacked;
-
-    //TODO: Player Objects to get PlayerController Script
-    //GameObject playerObject;
+    private bool hittingWall, notEdge, playerInRange, moveRight, isAttacking, hasAttacked;
+    
     PlayerController playerController;
 
     [SerializeField]
@@ -95,7 +89,7 @@ public class EnemyPatrol : MonoBehaviour
         //Detects melee attack from player
         if (collision.tag == "PlayerAttackPoint")
         {
-            //Get PlayerController from player in order to access; int scoreCounter & SetScoreText()
+            //Get PlayerController from player GameObject in order to access scoreCounter & SetScoreText()
             playerController = collision.GetComponentInParent<PlayerController>();
             playerController.scoreCounter++;
             playerController.SetScoreText();
@@ -104,7 +98,6 @@ public class EnemyPatrol : MonoBehaviour
 
             //Receive damage from player
             enemyHealth--;
-            Debug.Log("Bandit Took Damage");
 
             //Check Enemy Health
             if (enemyHealth == 0)
@@ -117,87 +110,39 @@ public class EnemyPatrol : MonoBehaviour
     {
         if (playerInRange && !hasAttacked && !isAttacking)
         {
-            //TODO: Debug.Log("Delaying....");
-            Debug.Log("Player Spotted");            
-
-            //Activate Attack
+            //Trigger Attack Animation
             anim.SetTrigger("AttackPlayer");
-            hasAttacked = true;
-
+            
             //Set Enemy Attack State to TRUE
+            hasAttacked = true;
             isAttacking = true;
 
-            if (isAttacking && (playerInRange || !playerInRange)) //TODO: if this doesnt work try taking it out of it's parent IF-statement
+            //Start Coroutine if isAttacking == true regardless of the player's distance
+            if (isAttacking && (playerInRange || !playerInRange))
             {
                 //Attack Delay Coroutine
                 StartCoroutine(DelayAttack());
-            }           
-            //hasAttacked = false;
-            //SetAttackDelay();
-            //AttackTimer();
-        }
-        /*
-        **TODO: Temporarily disabled to test what occurs without this
-        else if (!playerInRange && !hasAttacked && !isAttacking)
-        {
-            anim.SetBool("AttackPlayer", false);
-            Debug.Log("EnemyPatrol.MeleeCheck().else interuption");
-        }
-        
-         */       
+            }
+        }  
     }
 
     //------------------------------------------------------------------<<<<--------ATTACK DELAY COROUTINE-----------
     IEnumerator DelayAttack()
     {
-        //TODO: Remove Debug code when debugging is complete
-        Debug.Log("Coroutine activated");
-
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Anim_Bandit_Attack"))
-            enemyRigidBody.constraints = RigidbodyConstraints2D.FreezePositionX; // Stop Enemy Movement        
-
-        Debug.Log("Initiating Delay...");
-        yield return new WaitForSeconds(attackDelay);
-        Debug.Log("Delay Successful");
+            enemyRigidBody.constraints = RigidbodyConstraints2D.FreezePositionX; // Stop Enemy Movement
+        
+        yield return new WaitForSeconds(attackDelay); //Delay Next Attack
 
         anim.ResetTrigger("AttackPlayer"); // Reset Attack Trigger
-        Debug.Log("Bandit Attack Trigger Reset");
-
+        //Reset Attack States to False
         hasAttacked = false;
         isAttacking = false;
-        Debug.Log("Bandit's 'hasAttacked', 'isAttacking' variables = " + hasAttacked + ", " + isAttacking);
-
-        Debug.Log("Now Exiting Coroutine...");
     }
 
     //Remove Object When Player Kills It
     private void Death()
     {        
         Destroy(gameObject, deathDelay);        
-    }
-
-    /***Attemping to Use a Coroutine in place of these methods
-    void SetAttackDelay()
-    {
-        //TODO: Debug.Log("Timer Set");
-        Debug.Log("Timer Set");
-        lastAttack = Time.time;
-        attackTimer = lastAttack + attackDelay;
-    }
-
-    void AttackTimer()
-    {
-        //TODO: Debug.Log("Retrieved when the enemy attacked");
-        Debug.Log("Retrieved when the enemy attacked");
-        if (hasAttacked && Time.time > attackTimer && playerInRange)
-        {
-            //TODO: Debug.Log("Delaying....");
-            Debug.Log("Delaying....");
-            anim.SetBool("AttackPlayer", false);
-            hasAttacked = false;
-            //MeleeCheck();
-        }
-    }
-    */
-
+    }   
 }
