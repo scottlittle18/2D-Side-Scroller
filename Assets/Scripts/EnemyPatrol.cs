@@ -6,7 +6,7 @@ public class EnemyPatrol : MonoBehaviour
 {
 
     [SerializeField]
-    private float moveSpeed, checkRadius, attackDelay;
+    private float moveSpeed, checkRadius, attackDelay, deathDelay;
 
     [SerializeField]
     private short enemyHealth;
@@ -118,8 +118,7 @@ public class EnemyPatrol : MonoBehaviour
         if (playerInRange && !hasAttacked && !isAttacking)
         {
             //TODO: Debug.Log("Delaying....");
-            Debug.Log("Player Spotted");
-            
+            Debug.Log("Player Spotted");            
 
             //Activate Attack
             anim.SetTrigger("AttackPlayer");
@@ -127,15 +126,11 @@ public class EnemyPatrol : MonoBehaviour
 
             //Set Enemy Attack State to TRUE
             isAttacking = true;
-            if (isAttacking)
+
+            if (isAttacking && (playerInRange || !playerInRange)) //TODO: if this doesnt work try taking it out of it's parent IF-statement
             {
-                //Freeze Enemy Movement
-                while (isAttacking)
-                {
-                    moveSpeed = 0;
-                }
                 //Attack Delay Coroutine
-                StartCoroutine(WaitAfterHit());
+                StartCoroutine(DelayAttack());
             }           
             //hasAttacked = false;
             //SetAttackDelay();
@@ -149,31 +144,36 @@ public class EnemyPatrol : MonoBehaviour
             Debug.Log("EnemyPatrol.MeleeCheck().else interuption");
         }
         
-         */
-            
-        
+         */       
     }
 
     //------------------------------------------------------------------<<<<--------ATTACK DELAY COROUTINE-----------
-    IEnumerator WaitAfterHit()
+    IEnumerator DelayAttack()
     {
         //TODO: Remove Debug code when debugging is complete
         Debug.Log("Coroutine activated");
-        anim.ResetTrigger("AttackPlayer");
-        Debug.Log("Bandit Attack Trigger Reset");
+
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Anim_Bandit_Attack"))
+            enemyRigidBody.constraints = RigidbodyConstraints2D.FreezePositionX; // Stop Enemy Movement        
+
         Debug.Log("Initiating Delay...");
         yield return new WaitForSeconds(attackDelay);
         Debug.Log("Delay Successful");
+
+        anim.ResetTrigger("AttackPlayer"); // Reset Attack Trigger
+        Debug.Log("Bandit Attack Trigger Reset");
+
         hasAttacked = false;
-        Debug.Log("Bandit's 'hasAttacked' variable = " + hasAttacked);
         isAttacking = false;
+        Debug.Log("Bandit's 'hasAttacked', 'isAttacking' variables = " + hasAttacked + ", " + isAttacking);
+
         Debug.Log("Now Exiting Coroutine...");
     }
 
     //Remove Object When Player Kills It
     private void Death()
     {        
-        Destroy(gameObject, 0.1f);        
+        Destroy(gameObject, deathDelay);        
     }
 
     /***Attemping to Use a Coroutine in place of these methods
