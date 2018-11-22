@@ -6,12 +6,12 @@ public class EnemyPatrol : MonoBehaviour
 {
 
     [SerializeField]
-    private float moveSpeed, checkRadius, attackDelay, deathDelay;
+    private float moveSpeed, checkRadius, attackDelay, deathDelay, knockbackPower, knockbackHeight, knockbackTime;
 
     [SerializeField]
     private short enemyHealth;
 
-    private bool hittingWall, notEdge, playerInRange, moveRight, isAttacking, hasAttacked;
+    private bool hittingWall, notEdge, playerInRange, moveRight, isAttacking, hasAttacked, attackedOnRight, canMove;
     
     PlayerController playerController;
 
@@ -37,13 +37,15 @@ public class EnemyPatrol : MonoBehaviour
         hasAttacked = false;
         enemyAttackPoint = GetComponentInChildren<CircleCollider2D>();
         enemyAttackPoint.enabled = false;
+        canMove = true;
     }
 
     //FixedUpdate
     void FixedUpdate()
     {
         PositionChecks();
-        Patrol();        
+        if(canMove)
+            Patrol();     
     }
 
     // Update is called once per frame
@@ -104,6 +106,18 @@ public class EnemyPatrol : MonoBehaviour
             playerController.SetScoreText();
 
             //TODO: Add knock back to enemy
+            if (collision.transform.position.x > transform.position.x)
+            {
+                attackedOnRight = true;
+                EnemyKnockback();
+                StartCoroutine(KnockbackTime());
+            }                
+            else if (collision.transform.position.x < transform.position.x)
+            {
+                attackedOnRight = false;
+                EnemyKnockback();
+                StartCoroutine(KnockbackTime());
+            }
 
             //Receive damage from player
             enemyHealth--;
@@ -114,6 +128,24 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
+    void EnemyKnockback()
+    {
+        canMove = false;
+        if (attackedOnRight)
+        {
+            enemyRigidBody.velocity = new Vector2(-knockbackPower, knockbackHeight);
+        }
+        else if (!attackedOnRight)
+        {
+            enemyRigidBody.velocity = new Vector2(knockbackPower, knockbackHeight);
+        }
+    }
+
+    IEnumerator KnockbackTime()
+    {
+        yield return new WaitForSeconds(knockbackTime);
+        canMove = true;
+    }
     //------------------------------------------------------------------<<<<--------ENEMY MELEE CHECK-----------
     void MeleeCheck()
     {
@@ -148,6 +180,7 @@ public class EnemyPatrol : MonoBehaviour
         hasAttacked = false;
         isAttacking = false;
     }
+
 
     //Remove Object When Player Kills It
     private void Death()
