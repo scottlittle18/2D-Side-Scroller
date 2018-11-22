@@ -15,6 +15,8 @@ public class EnemyPatrol : MonoBehaviour
     
     PlayerController playerController;
 
+    CircleCollider2D enemyAttackPoint;
+
     [SerializeField]
     Transform pathCheck;
 
@@ -33,19 +35,26 @@ public class EnemyPatrol : MonoBehaviour
         anim = GetComponent<Animator>();
         enemyRigidBody = GetComponent<Rigidbody2D>();        
         hasAttacked = false;
+        enemyAttackPoint = GetComponentInChildren<CircleCollider2D>();
+        enemyAttackPoint.enabled = false;
     }
 
-    private void FixedUpdate()
+    //FixedUpdate
+    void FixedUpdate()
     {
         PositionChecks();
         Patrol();        
-        
     }
 
     // Update is called once per frame
     void Update () {
         MeleeCheck();
         anim.SetFloat("Speed", Mathf.Abs(enemyRigidBody.velocity.x));
+
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Anim_Bandit_Attack"))
+            enemyAttackPoint.enabled = true;
+        else// if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Anim_Bandit_Attack"))
+            enemyAttackPoint.enabled = false;
     }
 
     //Handle movement of Enemies to let them 'patrol' the area
