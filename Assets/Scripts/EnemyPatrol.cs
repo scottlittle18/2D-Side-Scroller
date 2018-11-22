@@ -53,7 +53,7 @@ public class EnemyPatrol : MonoBehaviour
 
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Anim_Bandit_Attack"))
             enemyAttackPoint.enabled = true;
-        else// if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Anim_Bandit_Attack"))
+        else
             enemyAttackPoint.enabled = false;
     }
 
