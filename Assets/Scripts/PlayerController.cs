@@ -9,13 +9,13 @@ public class PlayerController : MonoBehaviour
     //Movement Variables
     [SerializeField]
     private float accelerationForce, maxSpeed,  jumpHeight, groundCheckRadius, 
-        respawnDelay, kickbackPower, kickbackHeight, attackRadius;
+        respawnDelay, kickbackPower, kickbackHeight, attackRadius, knockbackTimer;
     [HideInInspector]
     public int scoreCounter;
     private float moveInput, respawnTimer;
 
     //Jump and Attack Inputs and Release variables
-    private bool jumpInput, jumpRelease, attackInput, attackRelease;
+    private bool jumpInput, jumpRelease, attackInput, attackRelease, beingKnockedback;
     private short PlayerHealth;
     
     //Checks which side the player was hit on
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     Text scoreText;
 
-    private bool grounded, doubleJumped, isDead;
+    private bool grounded, doubleJumped, isDead, allowMoveInput;
 
     [SerializeField]
     private PhysicsMaterial2D playerMovingPM, playerStoppingPM;
@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
         PlayerHealth = 6;
         HealthAnim = HealthMeter.GetComponent<Animator>();
         UpdateHealth();
+        allowMoveInput = true;
     }
 
     
@@ -88,8 +89,10 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {        
-        GetMovementInput();
+    {
+        if(allowMoveInput && !isDead)
+            GetMovementInput();
+
         CheckForRespawn();
         AudioHandler();
 
@@ -101,14 +104,14 @@ public class PlayerController : MonoBehaviour
 
     private void UpdatePhysicsMaterial()
     {
-        if (!grounded)  //<-- TODO: try including '|| beingKnockedback' as a bool to fix knockback issue!!!!!!!!!
+        if (!grounded && !beingKnockedback)  //<-- TODO: try including '|| beingKnockedback' as a bool to fix knockback issue!!!!!!!!!
             playerMovingPM.friction = 0;            
 
-        if (Mathf.Abs(moveInput) > 0)
+        if ((Mathf.Abs(moveInput) > 0) && !beingKnockedback)
         {
             playerGroundCollider.sharedMaterial = playerMovingPM;
         }
-        else
+        else if (!beingKnockedback)
         {
             playerGroundCollider.sharedMaterial = playerStoppingPM;
         }
@@ -299,14 +302,31 @@ public class PlayerController : MonoBehaviour
 
     void Kickback()
     {
+        allowMoveInput = false;
+
         if (hitOnRight)
         {
-            myRigidBody.velocity = new Vector2(-kickbackPower, kickbackHeight);
+            //myRigidBody.velocity = new Vector2(-kickbackPower, kickbackHeight);
+            myRigidBody.AddForce(Vector2.up * kickbackHeight, ForceMode2D.Impulse);
+            myRigidBody.AddForce(Vector2.left * kickbackPower, ForceMode2D.Impulse);
+            StartCoroutine(KnockbackTimer());
         }
         else if (!hitOnRight)
         {
-            myRigidBody.velocity = new Vector2(kickbackPower, kickbackHeight);
+            //myRigidBody.velocity = new Vector2(kickbackPower, kickbackHeight);
+            myRigidBody.AddForce(Vector2.up * kickbackHeight, ForceMode2D.Impulse);
+            myRigidBody.AddForce(Vector2.right * kickbackPower, ForceMode2D.Impulse);
+            StartCoroutine(KnockbackTimer());
         }       
+    }
+
+    IEnumerator KnockbackTimer()
+    {
+        beingKnockedback = true;
+        playerGroundCollider.sharedMaterial.friction = 0;
+        yield return new WaitForSeconds(knockbackTimer);
+        beingKnockedback = false;
+        allowMoveInput = true;
     }
 
     public void SetScoreText()
