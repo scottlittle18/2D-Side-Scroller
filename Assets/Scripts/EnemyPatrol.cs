@@ -28,11 +28,12 @@ public class EnemyPatrol : MonoBehaviour
     
     Rigidbody2D enemyRigidBody;
 
-    Animator anim;
+    Animator anim, healthAnim;
 
     // Use this for initialization
     void Start() {
         anim = GetComponent<Animator>();
+        healthAnim = GetComponentInChildren<Animator>();
         enemyRigidBody = GetComponent<Rigidbody2D>();        
         hasAttacked = false;
         enemyAttackPoint = GetComponentInChildren<CircleCollider2D>();
@@ -52,6 +53,7 @@ public class EnemyPatrol : MonoBehaviour
     void Update () {
         MeleeCheck();
         anim.SetFloat("Speed", Mathf.Abs(enemyRigidBody.velocity.x));
+        
 
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Anim_Bandit_Attack"))
             enemyAttackPoint.enabled = true;
@@ -121,6 +123,7 @@ public class EnemyPatrol : MonoBehaviour
 
             //Receive damage from player
             enemyHealth--;
+            healthAnim.SetInteger("EnemyHealth", enemyHealth);
 
             //Check Enemy Health
             if (enemyHealth == 0)
