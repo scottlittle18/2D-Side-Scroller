@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     private bool grounded, doubleJumped, isDead, allowMoveInput;
 
     [SerializeField]
-    private PhysicsMaterial2D playerMovingPM, playerStoppingPM;
+    private PhysicsMaterial2D playerMovingPM, playerStoppingPM, playerKnockbackPM;
     
     private Animator anim, HealthAnim;    
     
@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
         HealthAnim = HealthMeter.GetComponent<Animator>();
         UpdateHealth();
         allowMoveInput = true;
+        beingKnockedback = false;
     }
 
     
@@ -76,14 +77,20 @@ public class PlayerController : MonoBehaviour
 
         if(!isDead)
             Move();
+
         grounded = Physics2D.OverlapCircle(groundCheck.position, 
             groundCheckRadius, whatIsGround);
 
         anim.SetFloat("jumpVelocity", myRigidBody.velocity.y);
         if (grounded)
-            {
-                doubleJumped = false;            
-            }
+        {
+            doubleJumped = false;
+        }
+
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Samurai_Attack"))
+            attackPoint.gameObject.SetActive(true);
+        else
+            attackPoint.gameObject.SetActive(false);
     }
 
 
@@ -96,6 +103,12 @@ public class PlayerController : MonoBehaviour
         CheckForRespawn();
         AudioHandler();
 
+        if (beingKnockedback)
+        {
+            playerGroundCollider.sharedMaterial = playerKnockbackPM;
+            anim.SetBool("beingKnockedback", beingKnockedback);
+        }
+
         //----TO UPDATE THE ANIMATOR----
         anim.SetFloat("Speed", Mathf.Abs(myRigidBody.velocity.x));
         anim.SetBool("Grounded", grounded);
@@ -104,19 +117,18 @@ public class PlayerController : MonoBehaviour
 
     private void UpdatePhysicsMaterial()
     {
-        if (!grounded && !beingKnockedback)  //<-- TODO: try including '|| beingKnockedback' as a bool to fix knockback issue!!!!!!!!!
-            playerMovingPM.friction = 0;            
+        if (!grounded && !beingKnockedback)
+            playerMovingPM.friction = 0;
 
         if ((Mathf.Abs(moveInput) > 0) && !beingKnockedback)
         {
             playerGroundCollider.sharedMaterial = playerMovingPM;
         }
-        else if (!beingKnockedback)
+        else if (grounded && !beingKnockedback && (Mathf.Abs(moveInput) == 0))
         {
             playerGroundCollider.sharedMaterial = playerStoppingPM;
         }
     }
-
 
     private void GetMovementInput()
     {
@@ -141,15 +153,12 @@ public class PlayerController : MonoBehaviour
         //Enables Attack
         if (attackInput)
         {
-            anim.SetTrigger("Attack");
-            attackPoint.gameObject.SetActive(true);
+            anim.SetTrigger("Attack");            
         }
         if (attackRelease)
         {
             anim.ResetTrigger("Attack");
-            attackPoint.gameObject.SetActive(false);
-        }            
-
+        }
     }
 
 
@@ -163,6 +172,7 @@ public class PlayerController : MonoBehaviour
 
         myRigidBody.velocity = clampedVelocity;
 
+        //Sprite Flipping
         if (myRigidBody.velocity.x > 0.1)
         {
             transform.localScale = new Vector3(1, 1, 1);            
@@ -282,6 +292,7 @@ public class PlayerController : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "EnemyBandit":
+                beingKnockedback = true;
                 PlayerHealth--;
                 if (collision.transform.position.x > transform.position.x)
                     hitOnRight = true;
@@ -303,6 +314,7 @@ public class PlayerController : MonoBehaviour
     void Kickback()
     {
         allowMoveInput = false;
+        
 
         if (hitOnRight)
         {
@@ -317,15 +329,14 @@ public class PlayerController : MonoBehaviour
             myRigidBody.AddForce(Vector2.up * kickbackHeight, ForceMode2D.Impulse);
             myRigidBody.AddForce(Vector2.right * kickbackPower, ForceMode2D.Impulse);
             StartCoroutine(KnockbackTimer());
-        }       
+        }
     }
 
     IEnumerator KnockbackTimer()
     {
-        beingKnockedback = true;
-        playerGroundCollider.sharedMaterial.friction = 0;
         yield return new WaitForSeconds(knockbackTimer);
         beingKnockedback = false;
+        anim.SetBool("beingKnockedback", beingKnockedback);
         allowMoveInput = true;
     }
 

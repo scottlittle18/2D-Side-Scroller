@@ -343,6 +343,16 @@ Prefab:
     - target: {fileID: 114408999343313396, guid: 61e289f3f79ae5c4da3671051f66c3a3,
         type: 2}
       propertyPath: kickbackPower
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114408999343313396, guid: 61e289f3f79ae5c4da3671051f66c3a3,
+        type: 2}
+      propertyPath: playerKnockbackPM
+      value: 
+      objectReference: {fileID: 6200000, guid: dfcd42ae71d45284e902341094ceca32, type: 2}
+    - target: {fileID: 114408999343313396, guid: 61e289f3f79ae5c4da3671051f66c3a3,
+        type: 2}
+      propertyPath: kickbackHeight
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1038,6 +1048,11 @@ Prefab:
     - target: {fileID: 4505174498459978, guid: 6b7a13b7c4a18ea48a0931a4296f9f2b, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114903116493823994, guid: 6b7a13b7c4a18ea48a0931a4296f9f2b,
+        type: 2}
+      propertyPath: knockbackPower
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b7a13b7c4a18ea48a0931a4296f9f2b, type: 2}
