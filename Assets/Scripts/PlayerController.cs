@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
         spawnPoint = GameObject.Find("SpawnPoint");
         scoreCounter = 0;
         SetScoreText();
-        HealthMeter = GameObject.Find("HealthMeter");
+        HealthMeter = GameObject.Find("PlayerHealthMeter");
         PlayerHealth = 6;
         HealthAnim = HealthMeter.GetComponent<Animator>();
         UpdateHealth();

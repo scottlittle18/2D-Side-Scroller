@@ -8,12 +8,13 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField]
     private float moveSpeed, checkRadius, attackDelay, deathDelay, knockbackPower, knockbackHeight, knockbackTime;
 
-    [SerializeField]
-    private short enemyHealth;
+    public short enemyHealth;
 
     private bool hittingWall, notEdge, playerInRange, moveRight, isAttacking, hasAttacked, attackedOnRight, canMove;
     
     PlayerController playerController;
+
+    EnemyHealth EnemyHealthController;
 
     CircleCollider2D enemyAttackPoint;
 
@@ -28,17 +29,20 @@ public class EnemyPatrol : MonoBehaviour
     
     Rigidbody2D enemyRigidBody;
 
-    Animator anim, healthAnim;
+    Animator anim;
 
     // Use this for initialization
     void Start() {
         anim = GetComponent<Animator>();
-        healthAnim = GetComponentInChildren<Animator>();
         enemyRigidBody = GetComponent<Rigidbody2D>();        
         hasAttacked = false;
         enemyAttackPoint = GetComponentInChildren<CircleCollider2D>();
         enemyAttackPoint.enabled = false;
         canMove = true;
+
+        //Get Enemy Health Bar Component and set the starting value for its health
+        EnemyHealthController = GetComponentInChildren<EnemyHealth>();
+        EnemyHealthController.UpdateHealth(enemyHealth);
     }
 
     //FixedUpdate
@@ -107,6 +111,10 @@ public class EnemyPatrol : MonoBehaviour
             playerController.scoreCounter++;
             playerController.SetScoreText();
 
+            //Receive damage from player
+            enemyHealth--;
+            EnemyHealthController.UpdateHealth(enemyHealth);
+
             //TODO: Add knock back to enemy
             if (collision.transform.position.x > transform.position.x)
             {
@@ -120,10 +128,6 @@ public class EnemyPatrol : MonoBehaviour
                 EnemyKnockback();
                 StartCoroutine(KnockbackTime());
             }
-
-            //Receive damage from player
-            enemyHealth--;
-            healthAnim.SetInteger("EnemyHealth", enemyHealth);
 
             //Check Enemy Health
             if (enemyHealth == 0)
