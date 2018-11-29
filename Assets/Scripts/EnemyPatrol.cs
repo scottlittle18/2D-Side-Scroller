@@ -39,21 +39,26 @@ public class EnemyPatrol : MonoBehaviour
 
     // Use this for initialization
     void Start() {
+        SetupObject();
+    }
+
+    //Get Necessary Components and Set Starting States
+    void SetupObject()
+    {
+        //Gather Necessary Components
         anim = GetComponent<Animator>();
         enemyRigidBody = GetComponent<Rigidbody2D>();        
-        hasAttacked = false;
         enemyAttackPoint = GetComponentInChildren<CircleCollider2D>();
-        enemyAttackPoint.enabled = false;
         enemyPrimaryCollision = GetComponent<CapsuleCollider2D>();
-        canMove = true;
-
-        isDamagable = true;
-
-        beingKnockedBack = false;
-
-        //Get Enemy Health Bar Component and set the starting value for its health
         EnemyHealthController = GetComponentInChildren<EnemyHealth>();
+
+        //Set Starting States
         EnemyHealthController.UpdateHealth(enemyHealth);
+        hasAttacked = false;
+        enemyAttackPoint.enabled = false;
+        canMove = true;
+        isDamagable = true;
+        beingKnockedBack = false;
     }
 
     //FixedUpdate
@@ -129,13 +134,16 @@ public class EnemyPatrol : MonoBehaviour
             //Set current state to beingKnockedBack
             beingKnockedBack = true;
 
-            //Get PlayerController from player GameObject in order to access scoreCounter & SetScoreText()
-            playerController = collision.GetComponentInParent<PlayerController>();
-            playerController.scoreCounter++;
-            playerController.SetScoreText();
+            
 
+            //Keeps the Enemy from taking damage & adding to the player score multiple times from a single attack
             if (isDamagable)
             {
+                //Get PlayerController from player GameObject in order to access scoreCounter & SetScoreText()
+                playerController = collision.GetComponentInParent<PlayerController>();
+                playerController.scoreCounter++;
+                playerController.SetScoreText();
+
                 //Receive damage from player
                 enemyHealth--;
                 EnemyHealthController.UpdateHealth(enemyHealth);
