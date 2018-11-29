@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
     {
         UpdatePhysicsMaterial();
 
-        if(!isDead)
+        if(allowMoveInput && !isDead)
             Move();
 
         grounded = Physics2D.OverlapCircle(groundCheck.position, 
@@ -105,6 +105,7 @@ public class PlayerController : MonoBehaviour
 
         if (beingKnockedback)
         {
+            allowMoveInput = false;
             playerGroundCollider.sharedMaterial = playerKnockbackPM;
             anim.SetBool("beingKnockedback", beingKnockedback);
         }
@@ -292,6 +293,7 @@ public class PlayerController : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "EnemyBandit":
+                
                 beingKnockedback = true;
                 PlayerHealth--;
                 if (collision.transform.position.x > transform.position.x)
@@ -313,21 +315,21 @@ public class PlayerController : MonoBehaviour
 
     void Kickback()
     {
-        allowMoveInput = false;
+        //allowMoveInput = false;
         
 
         if (hitOnRight)
         {
-            //myRigidBody.velocity = new Vector2(-kickbackPower, kickbackHeight);
-            myRigidBody.AddForce(Vector2.up * kickbackHeight, ForceMode2D.Impulse);
-            myRigidBody.AddForce(Vector2.left * kickbackPower, ForceMode2D.Impulse);
+            myRigidBody.velocity = new Vector2(-kickbackPower, kickbackHeight);
+            //myRigidBody.AddForce(Vector2.up * kickbackHeight, ForceMode2D.Impulse);
+            //myRigidBody.AddForce(Vector2.left * kickbackPower, ForceMode2D.Impulse);
             StartCoroutine(KnockbackTimer());
         }
         else if (!hitOnRight)
         {
-            //myRigidBody.velocity = new Vector2(kickbackPower, kickbackHeight);
-            myRigidBody.AddForce(Vector2.up * kickbackHeight, ForceMode2D.Impulse);
-            myRigidBody.AddForce(Vector2.right * kickbackPower, ForceMode2D.Impulse);
+            myRigidBody.velocity = new Vector2(kickbackPower, kickbackHeight);
+            //myRigidBody.AddForce(Vector2.up * kickbackHeight, ForceMode2D.Impulse);
+            //myRigidBody.AddForce(Vector2.right * kickbackPower, ForceMode2D.Impulse);
             StartCoroutine(KnockbackTimer());
         }
     }
