@@ -113,6 +113,7 @@ public class PlayerController : MonoBehaviour
         //----TO UPDATE THE ANIMATOR----
         anim.SetFloat("Speed", Mathf.Abs(myRigidBody.velocity.x));
         anim.SetBool("Grounded", grounded);
+        anim.SetFloat("jumpVelocity", myRigidBody.velocity.y);
     }
 
 
@@ -182,6 +183,10 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(-1, 1, 1);           
         }
+        else
+        {
+            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
 
 
     }
@@ -205,7 +210,6 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         AddJumpForce();
-        anim.SetFloat("jumpVelocity", myRigidBody.velocity.y);
 
         //DOUBLE JUMP CHECK
         if (jumpInput && !doubleJumped && !grounded)
@@ -216,7 +220,7 @@ public class PlayerController : MonoBehaviour
 
     private void AddJumpForce()
     {
-        myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, 0);
+        //myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, 0);
         myRigidBody.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
     }
 
