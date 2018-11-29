@@ -324,14 +324,12 @@ public class PlayerController : MonoBehaviour
 
         if (hitOnRight)
         {
-            //myRigidBody.velocity = new Vector2(-kickbackPower, kickbackHeight);
             myRigidBody.AddForce(Vector2.up * kickbackHeight, ForceMode2D.Impulse);
             myRigidBody.AddForce(Vector2.left * kickbackPower, ForceMode2D.Impulse);
             StartCoroutine(KnockbackTimer());
         }
         else if (!hitOnRight)
         {
-            //myRigidBody.velocity = new Vector2(kickbackPower, kickbackHeight);
             myRigidBody.AddForce(Vector2.up * kickbackHeight, ForceMode2D.Impulse);
             myRigidBody.AddForce(Vector2.right * kickbackPower, ForceMode2D.Impulse);
             StartCoroutine(KnockbackTimer());

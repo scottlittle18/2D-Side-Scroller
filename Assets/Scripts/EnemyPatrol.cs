@@ -10,7 +10,8 @@ public class EnemyPatrol : MonoBehaviour
 
     public short enemyHealth;
 
-    private bool hittingWall, notEdge, playerInRange, moveRight, isAttacking, hasAttacked, attackedOnRight, canMove;
+    private bool hittingWall, notEdge, playerInRange, moveRight, 
+        isAttacking, hasAttacked, attackedOnRight, canMove, isDamagable, beingKnockedBack;
     
     PlayerController playerController;
 
@@ -31,6 +32,11 @@ public class EnemyPatrol : MonoBehaviour
 
     Animator anim;
 
+    [SerializeField]
+    PhysicsMaterial2D knockbackPM, patrolPM;
+
+    Collider2D enemyPrimaryCollision;
+
     // Use this for initialization
     void Start() {
         anim = GetComponent<Animator>();
@@ -38,7 +44,12 @@ public class EnemyPatrol : MonoBehaviour
         hasAttacked = false;
         enemyAttackPoint = GetComponentInChildren<CircleCollider2D>();
         enemyAttackPoint.enabled = false;
+        enemyPrimaryCollision = GetComponent<CapsuleCollider2D>();
         canMove = true;
+
+        isDamagable = true;
+
+        beingKnockedBack = false;
 
         //Get Enemy Health Bar Component and set the starting value for its health
         EnemyHealthController = GetComponentInChildren<EnemyHealth>();
@@ -57,12 +68,21 @@ public class EnemyPatrol : MonoBehaviour
     void Update () {
         MeleeCheck();
         anim.SetFloat("Speed", Mathf.Abs(enemyRigidBody.velocity.x));
-        
+
+        UpdatePM();
 
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Anim_Bandit_Attack"))
             enemyAttackPoint.enabled = true;
         else
             enemyAttackPoint.enabled = false;
+    }
+
+    void UpdatePM()
+    {
+        if (beingKnockedBack)
+            enemyPrimaryCollision.sharedMaterial = knockbackPM;
+        else
+            enemyPrimaryCollision.sharedMaterial = patrolPM;
     }
 
     //Handle movement of Enemies to let them 'patrol' the area
@@ -106,14 +126,22 @@ public class EnemyPatrol : MonoBehaviour
         //Detects melee attack from player
         if (collision.tag == "PlayerAttackPoint")
         {
+            //Set current state to beingKnockedBack
+            beingKnockedBack = true;
+
             //Get PlayerController from player GameObject in order to access scoreCounter & SetScoreText()
             playerController = collision.GetComponentInParent<PlayerController>();
             playerController.scoreCounter++;
             playerController.SetScoreText();
 
-            //Receive damage from player
-            enemyHealth--;
-            EnemyHealthController.UpdateHealth(enemyHealth);
+            if (isDamagable)
+            {
+                //Receive damage from player
+                enemyHealth--;
+                EnemyHealthController.UpdateHealth(enemyHealth);
+            }
+
+            isDamagable = false;
 
             //TODO: Add knock back to enemy
             if (collision.transform.position.x > transform.position.x)
@@ -138,6 +166,8 @@ public class EnemyPatrol : MonoBehaviour
     void EnemyKnockback()
     {
         canMove = false;
+
+        
         if (attackedOnRight)
         {
             enemyRigidBody.velocity = new Vector2(-knockbackPower, knockbackHeight);
@@ -151,6 +181,8 @@ public class EnemyPatrol : MonoBehaviour
     IEnumerator KnockbackTime()
     {
         yield return new WaitForSeconds(knockbackTime);
+        beingKnockedBack = false;
+        isDamagable = true;
         canMove = true;
     }
     //------------------------------------------------------------------<<<<--------ENEMY MELEE CHECK-----------

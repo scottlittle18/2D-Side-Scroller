@@ -5,10 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
-    
     BoxCollider2D box;
-
-    //GameObject enemy;
+    
     GameObject[] EnemyBandits;
 
     int currentScene;
@@ -16,8 +14,7 @@ public class Door : MonoBehaviour
     private void Start()
     {
         currentScene = SceneManager.GetActiveScene().buildIndex;
-        EnemyBandits = GameObject.FindGameObjectsWithTag("EnemyBandit");
-        
+        EnemyBandits = GameObject.FindGameObjectsWithTag("EnemyBandit");        
     }
 
     private void Awake()
