@@ -53,23 +53,35 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        attackPoint.gameObject.SetActive(false);
+        SetupPlayer();
+    }
+
+    //Gather and Set Necessary Components, GameObjects, Values, and States
+    void SetupPlayer()
+    {
+        // Components
         footsteps = GetComponent<AudioSource>();
         playerBody = GetComponent<SpriteRenderer>();
         myRigidBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playerGroundCollider = GetComponent<CapsuleCollider2D>();
-        spawnPoint = GameObject.Find("SpawnPoint");
+
+        // Values
         scoreCounter = 0;
         SetScoreText();
-        HealthMeter = GameObject.Find("PlayerHealthMeter");
         PlayerHealth = 6;
-        HealthAnim = HealthMeter.GetComponent<Animator>();
         UpdateHealth();
+
+        // Game Objects
+        spawnPoint = GameObject.Find("SpawnPoint");
+        HealthMeter = GameObject.Find("PlayerHealthMeter");
+        HealthAnim = HealthMeter.GetComponent<Animator>();
+
+        // States
+        attackPoint.gameObject.SetActive(false);
         allowMoveInput = true;
         beingKnockedback = false;
     }
-
     
     void FixedUpdate()
     {
@@ -92,7 +104,6 @@ public class PlayerController : MonoBehaviour
         else
             attackPoint.gameObject.SetActive(false);
     }
-
 
     // Update is called once per frame
     void Update()
@@ -232,8 +243,7 @@ public class PlayerController : MonoBehaviour
 
     //------------------------------------------------------------------<<<<--------SETS CURRENT CHECKPOINT-----------
     public void SetCurrentCheckpoint(Checkpoint newCurrentCheckpoint)
-    {
-        
+    {        
         if (currentCheckpoint == null)
         {            
             currentCheckpoint = newCurrentCheckpoint;
@@ -296,8 +306,7 @@ public class PlayerController : MonoBehaviour
     {
         switch (collision.gameObject.tag)
         {
-            case "EnemyBandit":
-                
+            case "EnemyBandit":                
                 beingKnockedback = true;
                 PlayerHealth--;
                 if (collision.transform.position.x > transform.position.x)
@@ -317,23 +326,28 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // TODO: Prototype for a way to handle any kind of enemy attack
+   /* void CollisionWithEnemy(Collider2D collision)
+    {
+
+    }
+    */
+
     void Kickback()
     {
-        //allowMoveInput = false;
-        
-
         if (hitOnRight)
         {
             myRigidBody.AddForce(Vector2.up * kickbackHeight, ForceMode2D.Impulse);
             myRigidBody.AddForce(Vector2.left * kickbackPower, ForceMode2D.Impulse);
-            StartCoroutine(KnockbackTimer());
         }
         else if (!hitOnRight)
         {
             myRigidBody.AddForce(Vector2.up * kickbackHeight, ForceMode2D.Impulse);
             myRigidBody.AddForce(Vector2.right * kickbackPower, ForceMode2D.Impulse);
-            StartCoroutine(KnockbackTimer());
         }
+
+        // Start Knockback Timer
+        StartCoroutine(KnockbackTimer());
     }
 
     IEnumerator KnockbackTimer()
@@ -363,6 +377,8 @@ public class PlayerController : MonoBehaviour
 
     private void CheckForRespawn()
     {
+        
+
         if (isDead)
         {
             anim.Play("Anim_Samurai_Death", 0);

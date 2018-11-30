@@ -42,18 +42,20 @@ public class EnemyPatrol : MonoBehaviour
         SetupObject();
     }
 
-    //Get Necessary Components and Set Starting States
+    //Gather and Set Necessary Components, GameObjects, Values, and States
     void SetupObject()
     {
-        //Gather Necessary Components
+        // Components
         anim = GetComponent<Animator>();
         enemyRigidBody = GetComponent<Rigidbody2D>();        
-        enemyAttackPoint = GetComponentInChildren<CircleCollider2D>();
         enemyPrimaryCollision = GetComponent<CapsuleCollider2D>();
+        enemyAttackPoint = GetComponentInChildren<CircleCollider2D>();
         EnemyHealthController = GetComponentInChildren<EnemyHealth>();
 
-        //Set Starting States
+        //Values
         EnemyHealthController.UpdateHealth(enemyHealth);
+
+        // States
         hasAttacked = false;
         enemyAttackPoint.enabled = false;
         canMove = true;
@@ -109,7 +111,7 @@ public class EnemyPatrol : MonoBehaviour
 
     }
 
-    //Check position of the enemy based on the associated Transform GameObjects
+    //Check position of the enemy based on the associated Transform.GameObjects
     private void PositionChecks()
     {
         //WALL CHECK
@@ -133,8 +135,7 @@ public class EnemyPatrol : MonoBehaviour
         {
             //Set current state to beingKnockedBack
             beingKnockedBack = true;
-
-            
+            canMove = false;
 
             //Keeps the Enemy from taking damage & adding to the player score multiple times from a single attack
             if (isDamagable)
@@ -151,31 +152,32 @@ public class EnemyPatrol : MonoBehaviour
 
             isDamagable = false;
 
-            //TODO: Add knock back to enemy
-            if (collision.transform.position.x > transform.position.x)
-            {
-                attackedOnRight = true;
-                EnemyKnockback();
-                StartCoroutine(KnockbackTime());
-            }                
-            else if (collision.transform.position.x < transform.position.x)
-            {
-                attackedOnRight = false;
-                EnemyKnockback();
-                StartCoroutine(KnockbackTime());
-            }
-
+            EnemyKnockbackDirection(collision);
+            EnemyKnockback();
+            StartCoroutine(KnockbackTime());
             //Check Enemy Health
             if (enemyHealth == 0)
                 Death();
         }
     }
 
+    // Determine Knockback Direction
+    void EnemyKnockbackDirection(Collider2D collision)
+    {
+        //TODO: Add knock back to enemy
+        if (collision.transform.position.x > transform.position.x)
+        {
+            attackedOnRight = true;
+        }
+        else if (collision.transform.position.x < transform.position.x)
+        {
+            attackedOnRight = false;
+        }
+    }
+
+    // Apply Knockback Force
     void EnemyKnockback()
     {
-        canMove = false;
-
-        
         if (attackedOnRight)
         {
             enemyRigidBody.velocity = new Vector2(-knockbackPower, knockbackHeight);
