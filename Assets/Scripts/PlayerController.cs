@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     //Movement Variables
     [SerializeField]
     private float accelerationForce, maxSpeed,  jumpHeight, groundCheckRadius, 
-        respawnDelay, kickbackPower, kickbackHeight, attackRadius, knockbackTimer;
+        respawnDelay, kickbackPower, kickbackHeight, attackRadius, knockbackTimer, timeInvincible;
     [HideInInspector]
     public int scoreCounter;
     private float moveInput, respawnTimer;
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     Text scoreText;
 
-    private bool grounded, doubleJumped, isDead, allowMoveInput;
+    private bool grounded, doubleJumped, isDead, allowMoveInput, isDamagable;
 
     [SerializeField]
     private PhysicsMaterial2D playerMovingPM, playerStoppingPM, playerKnockbackPM;
@@ -49,6 +49,10 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer playerBody;
     
     private Collider2D playerGroundCollider;
+
+    Color playerColor;
+
+    Renderer playerRend;
 
     // Use this for initialization
     void Start()
@@ -65,6 +69,8 @@ public class PlayerController : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playerGroundCollider = GetComponent<CapsuleCollider2D>();
+        playerRend = GetComponent<Renderer>();
+        playerColor = playerBody.color;
 
         // Values
         scoreCounter = 0;
@@ -81,6 +87,7 @@ public class PlayerController : MonoBehaviour
         attackPoint.gameObject.SetActive(false);
         allowMoveInput = true;
         beingKnockedback = false;
+        isDamagable = true;
     }
     
     void FixedUpdate()
@@ -286,8 +293,11 @@ public class PlayerController : MonoBehaviour
                 break;          
 
             case "Hazards":
-                scoreCounter--;
-                SetIsDead(true);
+                if (isDamagable)
+                {
+                    scoreCounter--;
+                    SetIsDead(true);
+                }                
                 break;
 
             case "Killzone":
@@ -311,16 +321,20 @@ public class PlayerController : MonoBehaviour
     {
         switch (collision.gameObject.tag)
         {
-            case "EnemyBandit":                
-                beingKnockedback = true;
-                PlayerHealth--;
-                if (collision.transform.position.x > transform.position.x)
-                    hitOnRight = true;
-                else if (collision.transform.position.x < transform.position.x)
-                    hitOnRight = false;
-                Kickback();
-                UpdateHealth();
-                scoreCounter--;
+            case "EnemyBandit":
+                if (isDamagable)
+                {
+                    beingKnockedback = true;
+                    PlayerHealth--;
+                    if (collision.transform.position.x > transform.position.x)
+                        hitOnRight = true;
+                    else if (collision.transform.position.x < transform.position.x)
+                        hitOnRight = false;
+                    Kickback();
+                    UpdateHealth();
+                    scoreCounter--;
+                    StartCoroutine(InvincibilityTimer());
+                }
                 if (PlayerHealth == 0)
                     SetIsDead(true);
                 break;
@@ -329,6 +343,21 @@ public class PlayerController : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    IEnumerator InvincibilityTimer()
+    {
+        isDamagable = false;
+        Physics2D.IgnoreLayerCollision(9, 14, true);
+        Physics2D.IgnoreLayerCollision(9, 13, true);
+        playerColor.a = 0.5f;
+        playerRend.material.color = playerColor;
+        yield return new WaitForSeconds(timeInvincible);
+        playerColor.a = 1f;
+        playerRend.material.color = playerColor;
+        Physics2D.IgnoreLayerCollision(9, 13, true);
+        Physics2D.IgnoreLayerCollision(9, 14, false);
+        isDamagable = true;
     }
 
     // TODO: Prototype for a way to handle any kind of enemy attack

@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 70464676997458226}
   - component: {fileID: 95931687834356222}
   - component: {fileID: 58128280507240128}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Bandit
   m_TagString: EnemyBandit
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4401982141870392}
   - component: {fileID: 114445174586554226}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: EnemyHealthMeter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4228930413030772}
   - component: {fileID: 212633945176832142}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: EnemyHealthMeter_Half
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4566743495844948}
   - component: {fileID: 212463138964967038}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: EnemyHealthMeter_Full
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4371742377588474}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: EdgeCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4662773294231978}
   - component: {fileID: 212017713874789152}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: EnemyHealthMeter_Empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4567063855322642}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: PathCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
