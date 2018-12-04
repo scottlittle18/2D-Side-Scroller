@@ -70,12 +70,12 @@ public class PlayerController : MonoBehaviour
         scoreCounter = 0;
         SetScoreText();
         PlayerHealth = 6;
-        UpdateHealth();
 
         // Game Objects
         spawnPoint = GameObject.Find("SpawnPoint");
         HealthMeter = GameObject.Find("PlayerHealthMeter");
         HealthAnim = HealthMeter.GetComponent<Animator>();
+        UpdateHealth();
 
         // States
         attackPoint.gameObject.SetActive(false);
@@ -235,9 +235,14 @@ public class PlayerController : MonoBehaviour
         myRigidBody.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
     }
 
+    private void AddDoubleJumpForce()
+    {
+        myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpHeight);
+    }
+
     private void DoubleJump()
     {
-        AddJumpForce();
+        AddDoubleJumpForce();
         doubleJumped = true;
     }
 
