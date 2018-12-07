@@ -396,7 +396,7 @@ public class PlayerController : MonoBehaviour
     }
     */
 
-    void Kickback()
+    private void Kickback()
     {
         if (hitOnRight)
         {
