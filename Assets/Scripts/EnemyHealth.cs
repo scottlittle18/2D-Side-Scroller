@@ -21,9 +21,6 @@ public class EnemyHealth : MonoBehaviour
         halfHealth = transform.GetChild(1);
         noHealth = transform.GetChild(2);
 
-        //EnemyController = GetComponentInParent<EnemyPatrol>();
-        //currentEnemyHealth = EnemyController.enemyHealth;
-
         UpdateHealthSprite();
 	}
 
