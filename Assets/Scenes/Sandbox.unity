@@ -335,26 +335,6 @@ Prefab:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 483134710}
-    - target: {fileID: 114408999343313396, guid: 61e289f3f79ae5c4da3671051f66c3a3,
-        type: 2}
-      propertyPath: timeInvincible
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114408999343313396, guid: 61e289f3f79ae5c4da3671051f66c3a3,
-        type: 2}
-      propertyPath: playerMovingPhysicsMaterial
-      value: 
-      objectReference: {fileID: 6200000, guid: 132d9010577a41844b4dbc3db5ba602c, type: 2}
-    - target: {fileID: 114408999343313396, guid: 61e289f3f79ae5c4da3671051f66c3a3,
-        type: 2}
-      propertyPath: playerStoppingPhysicsMaterial
-      value: 
-      objectReference: {fileID: 6200000, guid: 27b08e05ada24ac41817a9877517e72d, type: 2}
-    - target: {fileID: 114408999343313396, guid: 61e289f3f79ae5c4da3671051f66c3a3,
-        type: 2}
-      propertyPath: playerKnockbackPhysicsMaterial
-      value: 
-      objectReference: {fileID: 6200000, guid: dfcd42ae71d45284e902341094ceca32, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 61e289f3f79ae5c4da3671051f66c3a3, type: 2}
   m_IsPrefabParent: 0
@@ -420,7 +400,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 512306008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.57777286, y: 0.19327974, z: -9.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1770095163}
@@ -454,7 +434,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -857,6 +837,16 @@ Prefab:
       propertyPath: m_Layer
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 114903116493823994, guid: 6b7a13b7c4a18ea48a0931a4296f9f2b,
+        type: 2}
+      propertyPath: patrolPhysicsMaterial
+      value: 
+      objectReference: {fileID: 6200000, guid: 2a359edaaf369774e876c2a2deffa449, type: 2}
+    - target: {fileID: 114903116493823994, guid: 6b7a13b7c4a18ea48a0931a4296f9f2b,
+        type: 2}
+      propertyPath: knockbackPhysicsMaterial
+      value: 
+      objectReference: {fileID: 6200000, guid: dfcd42ae71d45284e902341094ceca32, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b7a13b7c4a18ea48a0931a4296f9f2b, type: 2}
   m_IsPrefabParent: 0
@@ -22611,11 +22601,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4624723593207332, guid: 66b872f2a87630e448466712f25770a0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 19.81
+      value: -35.3
       objectReference: {fileID: 0}
     - target: {fileID: 4624723593207332, guid: 66b872f2a87630e448466712f25770a0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -6.93
+      value: -3.7
       objectReference: {fileID: 0}
     - target: {fileID: 4624723593207332, guid: 66b872f2a87630e448466712f25770a0, type: 2}
       propertyPath: m_LocalPosition.z

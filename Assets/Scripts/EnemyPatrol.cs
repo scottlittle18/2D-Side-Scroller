@@ -27,17 +27,19 @@ public class EnemyPatrol : MonoBehaviour
     [Tooltip("Adjusts delay between when the enemy was hit and when it can move again")]
     private float knockbackTime;
     [SerializeField]
+    [Tooltip("This is the Game Object that will check what is in the enemy's path")]
     private Transform pathCheck;
     [SerializeField]
+    [Tooltip("This is the Game Object that will check if the enemy is at an edge")]
     private Transform edgeCheck;    
     [SerializeField]
     private LayerMask whatIsWall, whatIsPlayer;
     [SerializeField]
     [Tooltip("Physics Material that will be active while being knocked back")]
-    private PhysicsMaterial2D knockbackPM;
+    private PhysicsMaterial2D knockbackPhysicsMaterial;
     [SerializeField]
     [Tooltip("Physics Material that will be active while patrolling")]
-    private PhysicsMaterial2D patrolPM;
+    private PhysicsMaterial2D patrolPhysicsMaterial;
     [SerializeField]
     [Tooltip("Total amount of health")]
     private short enemyHealth;
@@ -52,8 +54,29 @@ public class EnemyPatrol : MonoBehaviour
     private Animator anim;
     private Collider2D enemyPrimaryCollision;
     #endregion
+    #region Enumerators
+    IEnumerator KnockbackTime()
+    {
+        yield return new WaitForSeconds(knockbackTime);
+        beingKnockedBack = false;
+        isDamagable = true;
+        canMove = true;
+    }
+    
+    IEnumerator DelayAttack()
+    {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Anim_Bandit_Attack"))
+            enemyRigidBody.constraints = RigidbodyConstraints2D.FreezePositionX; // Stop Enemy Movement        
+        yield return new WaitForSeconds(attackDelay); //Delay Next Attack
+        anim.ResetTrigger("AttackPlayer"); // Reset Attack Trigger
+        //Reset Attack States to False
+        hasAttacked = false;
+        isAttacking = false;
+    }
+    #endregion
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         SetupObject();
     }
     /// <summary>
@@ -86,7 +109,8 @@ public class EnemyPatrol : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update ()
+    {
         MeleeCheck();
         anim.SetFloat("Speed", Mathf.Abs(enemyRigidBody.velocity.x));
         UpdatePhysicsMaterial();
@@ -101,9 +125,9 @@ public class EnemyPatrol : MonoBehaviour
     void UpdatePhysicsMaterial()
     {
         if (beingKnockedBack)
-            enemyPrimaryCollision.sharedMaterial = knockbackPM;
+            enemyPrimaryCollision.sharedMaterial = knockbackPhysicsMaterial;
         else
-            enemyPrimaryCollision.sharedMaterial = patrolPM;
+            enemyPrimaryCollision.sharedMaterial = patrolPhysicsMaterial;
     }
 
     //Handle movement of Enemies to let them 'patrol' the area
@@ -111,7 +135,6 @@ public class EnemyPatrol : MonoBehaviour
     {
         if (isHittingWall || isAtEdge)
             isMovingRight = !isMovingRight;
-
         if (isMovingRight)
         {
             transform.localScale = new Vector3(1, 1, 1);
@@ -130,11 +153,9 @@ public class EnemyPatrol : MonoBehaviour
         //WALL CHECK
         isHittingWall = Physics2D.OverlapCircle(pathCheck.position,
             checkRadius, whatIsWall);
-
         //EDGE CHECK
         isAtEdge = Physics2D.OverlapCircle(edgeCheck.position,
             checkRadius, whatIsWall);
-
         //PLAYER CHECK
         isPlayerInRange = Physics2D.OverlapCircle(pathCheck.position,
             checkRadius, whatIsPlayer);
@@ -149,14 +170,12 @@ public class EnemyPatrol : MonoBehaviour
             //Set current state to beingKnockedBack
             beingKnockedBack = true;
             canMove = false;
-
             //Keeps the Enemy from taking damage & adding to the player score multiple times from a single attack
             if (isDamagable)
             {
                 //Get PlayerController from player GameObject in order to access scoreCounter & SetScoreText()
                 playerController = collision.GetComponentInParent<PlayerController>();
                 playerController.ScoreCounter++;
-                //TODO: May Not Need --> playerController.SetScoreText();
                 //Receive damage from player
                 enemyHealth--;
                 EnemyHealthController.CurrentEnemyHealth = enemyHealth;
@@ -181,7 +200,6 @@ public class EnemyPatrol : MonoBehaviour
     /// <param name="collision"></param>
     void EnemyKnockbackDirection(Collider2D collision)
     {
-        //TODO: Add knock back to enemy
         if (collision.transform.position.x > transform.position.x)
         {
             attackedOnRight = true;
@@ -207,13 +225,6 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
-    IEnumerator KnockbackTime()
-    {
-        yield return new WaitForSeconds(knockbackTime);
-        beingKnockedBack = false;
-        isDamagable = true;
-        canMove = true;
-    }
     /// <summary>
     /// Checks whether the player is close enough to attack
     /// </summary>
@@ -237,17 +248,6 @@ public class EnemyPatrol : MonoBehaviour
         }  
     }
 
-    //------------------------------------------------------------------<<<<--------ATTACK DELAY COROUTINE-----------
-    IEnumerator DelayAttack()
-    {
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Anim_Bandit_Attack"))
-            enemyRigidBody.constraints = RigidbodyConstraints2D.FreezePositionX; // Stop Enemy Movement        
-        yield return new WaitForSeconds(attackDelay); //Delay Next Attack
-        anim.ResetTrigger("AttackPlayer"); // Reset Attack Trigger
-        //Reset Attack States to False
-        hasAttacked = false;
-        isAttacking = false;
-    }
 
     /// <summary>
     /// Remove Object When Player Kills It

@@ -43,7 +43,6 @@ public class Checkpoint : MonoBehaviour
         }
     }
 
-
     private void UpdateAnimation()
     {
         anim.SetBool("isActivated", IsActivated);
