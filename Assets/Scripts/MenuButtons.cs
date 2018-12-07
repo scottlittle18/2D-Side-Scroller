@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuButtons : MonoBehaviour {
-
-    int currentScene;
+public class MenuButtons : MonoBehaviour 
+{
+    private int currentScene;
 
 	// Use this for initialization
 	void Start () {
         currentScene = SceneManager.GetActiveScene().buildIndex;
 	}
 	
-    public void PressStartButton()
+    public void PressedStartButton()
     {
         SceneManager.LoadScene(currentScene + 1);
     }

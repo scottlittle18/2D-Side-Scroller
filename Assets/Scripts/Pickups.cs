@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pickups : MonoBehaviour {
-
+public class Pickups : MonoBehaviour
+{
     [SerializeField]
-    AudioSource coinSFX;
+    private AudioSource coinSFX;
 
 	// Use this for initialization
-	void Start () {
+	private void Start () {
         coinSFX = GetComponent<AudioSource>();        
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	private void Update () {
         transform.Rotate(new Vector3(0, 60, 0) * Time.deltaTime);
     }
 

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour {
-
+public class SceneLoader : MonoBehaviour
+{
     public void PlayGame()
     {
         SceneManager.LoadScene("Level 1");
@@ -14,10 +14,4 @@ public class SceneLoader : MonoBehaviour {
     {
         SceneManager.LoadScene("Main Menu");
     }
-
-    public void Retry()
-    {
-
-    }
-
 }

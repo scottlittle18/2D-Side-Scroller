@@ -3,23 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 
-public class Checkpoint : MonoBehaviour {
-    [SerializeField]
-    public bool isActivated = false;
-   
-    public Animator anim;
-
-    //creates a variable that refers to the PlayerController
-    PlayerController player;
+public class Checkpoint : MonoBehaviour
+{    
+    private bool isActivated;   
+    private Animator anim;
+    private PlayerController player;
 
     private void Start()
     {
-        anim = this.GetComponent<Animator>();       
+        IsActivated = false;
+        anim = GetComponent<Animator>();
+        player = FindObjectOfType<PlayerController>();
     }
 
     private void Update()
     {
-        UpdateAnimation();
+        //UpdateAnimation();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,21 +26,34 @@ public class Checkpoint : MonoBehaviour {
         if (collision.gameObject.tag == "Player")
         {            
             player = collision.GetComponent<PlayerController>();
-            player.SetCurrentCheckpoint(this);            
+            player.CurrentCheckpoint = this;
         }
     }
 
-    public void SetAsActivated(bool value)
-    {        
-        isActivated = value;
-        UpdateAnimation();
+    /// <summary>
+    /// Used to Activate or Deactivate checkpoints
+    /// </summary>
+    public bool IsActivated
+    {
+        get
+        {
+            return isActivated;
+        }
+        set
+        {
+            isActivated = value;
+            UpdateAnimation();
+        }
     }
 
     private void UpdateAnimation()
     {
-        if (isActivated)
-            anim.SetBool("isActivated", true);
-        else if (!isActivated)
-            anim.SetBool("isActivated", false);
+        if (player.CurrentCheckpoint != null)
+        {
+            if (isActivated)
+                anim.SetBool("isActivated", true);
+            else if (!isActivated)
+                anim.SetBool("isActivated", false);
+        }
     }
 }

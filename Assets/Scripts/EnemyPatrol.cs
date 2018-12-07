@@ -4,45 +4,61 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
-
+    #region Serialized Fields
     [SerializeField]
-    private float moveSpeed, checkRadius, attackDelay, deathDelay, knockbackPower, knockbackHeight, knockbackTime;
-
-    public short enemyHealth;
-
-    private bool hittingWall, notEdge, playerInRange, moveRight, 
-        isAttacking, hasAttacked, attackedOnRight, canMove, isDamagable, beingKnockedBack;
-    
-    PlayerController playerController;
-
-    EnemyHealth EnemyHealthController;
-
-    CircleCollider2D enemyAttackPoint;
-
+    [Tooltip("Enemy Movement Speed")]
+    private float moveSpeed;
     [SerializeField]
-    Transform pathCheck;
-
+    [Tooltip("Maximum distance from enemy that objects will be detected by the EdgeCheck and PathCheck game objects")]
+    private float checkRadius;
     [SerializeField]
-    Transform edgeCheck;
-    
+    [Tooltip("Adjusts amount of time between attacks")]
+    private float attackDelay;
     [SerializeField]
-    LayerMask whatIsWall, whatIsPlayer;
-    
-    Rigidbody2D enemyRigidBody;
-
-    Animator anim;
-
+    [Tooltip("Adjusts amount of time between when the enemy dies and when it's removed from the scene")]
+    private float deathDelay;
     [SerializeField]
-    PhysicsMaterial2D knockbackPM, patrolPM;
-
-    Collider2D enemyPrimaryCollision;
-
+    [Tooltip("Adjusts how far the enemy is knocked back when being attacked")]
+    private float knockbackPower;
+    [SerializeField]
+    [Tooltip("Adjusts how high the enemy is knocked up when being attacked")]
+    private float knockbackHeight;
+    [SerializeField]
+    [Tooltip("Adjusts delay between when the enemy was hit and when it can move again")]
+    private float knockbackTime;
+    [SerializeField]
+    private Transform pathCheck;
+    [SerializeField]
+    private Transform edgeCheck;    
+    [SerializeField]
+    private LayerMask whatIsWall, whatIsPlayer;
+    [SerializeField]
+    [Tooltip("Physics Material that will be active while being knocked back")]
+    private PhysicsMaterial2D knockbackPM;
+    [SerializeField]
+    [Tooltip("Physics Material that will be active while patrolling")]
+    private PhysicsMaterial2D patrolPM;
+    [SerializeField]
+    [Tooltip("Total amount of health")]
+    private short enemyHealth;
+    #endregion
+    #region Non-Serialized Fields
+    private bool isHittingWall, isAtEdge, isPlayerInRange, isMovingRight, 
+        isAttacking, hasAttacked, attackedOnRight, canMove, isDamagable, beingKnockedBack;    
+    private PlayerController playerController;
+    private EnemyHealth EnemyHealthController;
+    private CircleCollider2D enemyAttackPoint;    
+    private Rigidbody2D enemyRigidBody;
+    private Animator anim;
+    private Collider2D enemyPrimaryCollision;
+    #endregion
     // Use this for initialization
     void Start() {
         SetupObject();
     }
-
-    //Gather and Set Necessary Components, GameObjects, Values, and States
+    /// <summary>
+    /// Gather and Set Necessary Components, GameObjects, Values, and States
+    /// </summary>
     void SetupObject()
     {
         // Components
@@ -51,10 +67,8 @@ public class EnemyPatrol : MonoBehaviour
         enemyPrimaryCollision = GetComponent<CapsuleCollider2D>();
         enemyAttackPoint = GetComponentInChildren<CircleCollider2D>();
         EnemyHealthController = GetComponentInChildren<EnemyHealth>();
-
         //Values
-        EnemyHealthController.UpdateHealth(enemyHealth);
-
+        EnemyHealthController.CurrentEnemyHealth = enemyHealth;
         // States
         hasAttacked = false;
         enemyAttackPoint.enabled = false;
@@ -75,16 +89,16 @@ public class EnemyPatrol : MonoBehaviour
     void Update () {
         MeleeCheck();
         anim.SetFloat("Speed", Mathf.Abs(enemyRigidBody.velocity.x));
-
-        UpdatePM();
-
+        UpdatePhysicsMaterial();
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Anim_Bandit_Attack"))
             enemyAttackPoint.enabled = true;
         else
             enemyAttackPoint.enabled = false;
     }
-
-    void UpdatePM()
+    /// <summary>
+    /// Updates the current Physics Material
+    /// </summary>
+    void UpdatePhysicsMaterial()
     {
         if (beingKnockedBack)
             enemyPrimaryCollision.sharedMaterial = knockbackPM;
@@ -95,10 +109,10 @@ public class EnemyPatrol : MonoBehaviour
     //Handle movement of Enemies to let them 'patrol' the area
     private void Patrol()
     {
-        if (hittingWall || notEdge)
-            moveRight = !moveRight;
+        if (isHittingWall || isAtEdge)
+            isMovingRight = !isMovingRight;
 
-        if (moveRight)
+        if (isMovingRight)
         {
             transform.localScale = new Vector3(1, 1, 1);
             enemyRigidBody.velocity = new Vector2(moveSpeed, enemyRigidBody.velocity.y);
@@ -108,22 +122,21 @@ public class EnemyPatrol : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
             enemyRigidBody.velocity = new Vector2(-moveSpeed, enemyRigidBody.velocity.y);
         }
-
     }
 
     //Check position of the enemy based on the associated Transform.GameObjects
     private void PositionChecks()
     {
         //WALL CHECK
-        hittingWall = Physics2D.OverlapCircle(pathCheck.position,
+        isHittingWall = Physics2D.OverlapCircle(pathCheck.position,
             checkRadius, whatIsWall);
 
         //EDGE CHECK
-        notEdge = Physics2D.OverlapCircle(edgeCheck.position,
+        isAtEdge = Physics2D.OverlapCircle(edgeCheck.position,
             checkRadius, whatIsWall);
 
         //PLAYER CHECK
-        playerInRange = Physics2D.OverlapCircle(pathCheck.position,
+        isPlayerInRange = Physics2D.OverlapCircle(pathCheck.position,
             checkRadius, whatIsPlayer);
     }
 
@@ -142,12 +155,12 @@ public class EnemyPatrol : MonoBehaviour
             {
                 //Get PlayerController from player GameObject in order to access scoreCounter & SetScoreText()
                 playerController = collision.GetComponentInParent<PlayerController>();
-                playerController.scoreCounter++;
+                playerController.ScoreCounter++;
                 playerController.SetScoreText();
 
                 //Receive damage from player
                 enemyHealth--;
-                EnemyHealthController.UpdateHealth(enemyHealth);
+                EnemyHealthController.CurrentEnemyHealth = enemyHealth;
             }
 
             isDamagable = false;
@@ -155,13 +168,20 @@ public class EnemyPatrol : MonoBehaviour
             EnemyKnockbackDirection(collision);
             EnemyKnockback();
             StartCoroutine(KnockbackTime());
-            //Check Enemy Health
-            if (enemyHealth == 0)
-                Death();
+            CheckEnemyHealth();
         }
     }
 
-    // Determine Knockback Direction
+    private void CheckEnemyHealth()
+    {
+        if (enemyHealth == 0)
+            Death();
+    }
+
+    /// <summary>
+    ///  Determines which direction to knockback the enemy
+    /// </summary>
+    /// <param name="collision"></param>
     void EnemyKnockbackDirection(Collider2D collision)
     {
         //TODO: Add knock back to enemy
@@ -175,7 +195,9 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
-    // Apply Knockback Force
+    /// <summary>
+    /// Applies Knockback Force
+    /// </summary>
     void EnemyKnockback()
     {
         if (attackedOnRight)
@@ -195,10 +217,12 @@ public class EnemyPatrol : MonoBehaviour
         isDamagable = true;
         canMove = true;
     }
-    //------------------------------------------------------------------<<<<--------ENEMY MELEE CHECK-----------
+    /// <summary>
+    /// Checks whether the player is close enough to attack
+    /// </summary>
     void MeleeCheck()
     {
-        if (playerInRange && !hasAttacked && !isAttacking)
+        if (isPlayerInRange && !hasAttacked && !isAttacking)
         {
             //Trigger Attack Animation
             anim.SetTrigger("AttackPlayer");
@@ -208,7 +232,7 @@ public class EnemyPatrol : MonoBehaviour
             isAttacking = true;
 
             //Start Coroutine if isAttacking == true regardless of the player's distance
-            if (isAttacking && (playerInRange || !playerInRange))
+            if (isAttacking && (isPlayerInRange || !isPlayerInRange))
             {
                 //Attack Delay Coroutine
                 StartCoroutine(DelayAttack());
@@ -220,18 +244,17 @@ public class EnemyPatrol : MonoBehaviour
     IEnumerator DelayAttack()
     {
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Anim_Bandit_Attack"))
-            enemyRigidBody.constraints = RigidbodyConstraints2D.FreezePositionX; // Stop Enemy Movement
-        
+            enemyRigidBody.constraints = RigidbodyConstraints2D.FreezePositionX; // Stop Enemy Movement        
         yield return new WaitForSeconds(attackDelay); //Delay Next Attack
-
         anim.ResetTrigger("AttackPlayer"); // Reset Attack Trigger
         //Reset Attack States to False
         hasAttacked = false;
         isAttacking = false;
     }
 
-
-    //Remove Object When Player Kills It
+    /// <summary>
+    /// Remove Object When Player Kills It
+    /// </summary>
     private void Death()
     {        
         Destroy(gameObject, deathDelay);        

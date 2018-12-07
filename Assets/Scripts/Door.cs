@@ -5,11 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
-    BoxCollider2D box;
-    
-    GameObject[] EnemyBandits;
-
-    int currentScene;
+    private BoxCollider2D box;
+    private GameObject[] EnemyBandits;
+    private int currentScene;
 
     private void Start()
     {
@@ -22,15 +20,23 @@ public class Door : MonoBehaviour
         box = GetComponent<BoxCollider2D>();
     }
 
-    void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) && other.tag == "Player")
+        if ((Input.GetAxis("Vertical") > 0) && other.tag == "Player")
         {
-            foreach (GameObject Enemy in EnemyBandits)
-            {
-                Enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
-            }
+            HaltEnemyMovement();
             SceneManager.LoadScene(currentScene + 1);
+        }
+    }
+
+    /// <summary>
+    /// Stop enemy movement while the next scene is loading
+    /// </summary>
+    private void HaltEnemyMovement()
+    {
+        foreach (GameObject Enemy in EnemyBandits)
+        {
+            Enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
         }
     }
 }

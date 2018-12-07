@@ -6,61 +6,65 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Serialized Fields
     //Movement Variables
     [SerializeField]
-    private float accelerationForce, maxSpeed,  jumpHeight, groundCheckRadius, 
-        respawnDelay, kickbackPower, kickbackHeight, attackRadius, knockbackTimer, timeInvincible;
-    [HideInInspector]
-    public int scoreCounter;
-    private float moveInput, respawnTimer;
-
-    //Jump and Attack Inputs and Release variables
-    private bool jumpInput, jumpRelease, attackInput, attackRelease, beingKnockedback;
-    private short PlayerHealth;
-    
-    //Checks which side the player was hit on
-    bool hitOnRight;
-
-    //Checkpoint Variable
+    private float accelerationForce;
     [SerializeField]
-    private Checkpoint currentCheckpoint;
-    public GameObject spawnPoint, HealthMeter;
-    
-    //Ground Establishment and Detection variables
+    private float maxSpeed;
+    [SerializeField]
+    private float jumpHeight;
+    [SerializeField]
+    private float groundCheckRadius;
+    [SerializeField]
+    private float respawnDelay;
+    [SerializeField]
+    private float kickbackPower;
+    [SerializeField]
+    private float kickbackHeight;
+    [SerializeField]
+    private float attackRadius;
+    [SerializeField]
+    private float knockbackTimer;
+    [SerializeField]
+    private float timeInvincible;
     [SerializeField]
     private Transform groundCheck, attackPoint;
-
     [SerializeField]
     private LayerMask whatIsGround;
-
-    AudioSource footsteps;
     [SerializeField]
-    Text scoreText;
-
-    private bool grounded, doubleJumped, isDead, allowMoveInput, isDamagable;
-
+    private Text scoreText;
     [SerializeField]
     private PhysicsMaterial2D playerMovingPM, playerStoppingPM, playerKnockbackPM;
-    
+    #endregion
+    #region Non-Serialized Fields
+    private Checkpoint currentCheckpoint;
+    private int scoreCounter;
+    private float moveInput, respawnTimer;
+    //Jump and Attack Inputs and Release variables
+    private bool jumpInput, jumpRelease, attackInput, attackRelease, beingKnockedback;
+    private short PlayerHealth;    
+    //Checks which side the player was hit on
+    private bool hitOnRight;
+    private GameObject spawnPoint, HealthMeter;
+    private Transform currentCheckpointLocation, spawnPointLocation;
+    private AudioSource footsteps;
+    private bool grounded, doubleJumped, isDead, allowMoveInput, isDamagable;    
     private Animator anim, HealthAnim;    
-    
     private Rigidbody2D myRigidBody;
-
-    private SpriteRenderer playerBody;
-    
+    private SpriteRenderer playerBody;    
     private Collider2D playerGroundCollider;
-
-    Color playerColor;
-
-    Renderer playerRend;
-
+    private Color playerColor;
+    private Renderer playerRend;
+    #endregion
     // Use this for initialization
     void Start()
     {
         SetupPlayer();
     }
-
-    //Gather and Set Necessary Components, GameObjects, Values, and States
+    /// <summary>
+    /// Gather and Set Necessary Components, GameObjects, Values, and States
+    /// </summary>
     void SetupPlayer()
     {
         // Components
@@ -71,18 +75,17 @@ public class PlayerController : MonoBehaviour
         playerGroundCollider = GetComponent<CapsuleCollider2D>();
         playerRend = GetComponent<Renderer>();
         playerColor = playerBody.color;
-
         // Values
-        scoreCounter = 0;
-        SetScoreText();
+        ScoreCounter = 0;
         PlayerHealth = 6;
-
         // Game Objects
         spawnPoint = GameObject.Find("SpawnPoint");
+        spawnPointLocation = spawnPoint.transform;
+        if (CurrentCheckpoint == null)
+            currentCheckpointLocation = spawnPointLocation;
         HealthMeter = GameObject.Find("PlayerHealthMeter");
         HealthAnim = HealthMeter.GetComponent<Animator>();
         UpdateHealth();
-
         // States
         attackPoint.gameObject.SetActive(false);
         allowMoveInput = true;
@@ -134,6 +137,27 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("jumpVelocity", myRigidBody.velocity.y);
     }
 
+    public Checkpoint CurrentCheckpoint
+    {
+        get
+        {
+            return currentCheckpoint;
+        }
+        set
+        {
+            if (currentCheckpoint == null)
+            {
+                currentCheckpoint = value;
+                currentCheckpoint.IsActivated = true;
+            }
+            else
+            {
+                currentCheckpoint.IsActivated = false;
+                currentCheckpoint = value;
+                currentCheckpoint.IsActivated = true;
+            }
+        }
+    }
 
     private void UpdatePhysicsMaterial()
     {
@@ -158,18 +182,16 @@ public class PlayerController : MonoBehaviour
         jumpRelease = Input.GetButtonUp("Jump");
         attackInput = Input.GetButtonDown("Fire2");
         attackRelease = Input.GetButtonUp("Fire2");
-
-            //Enables Jumping
-            if (jumpInput && grounded)
-            {
-                Jump();
-            }
-            // Enables Double jumping
-            if(jumpInput && !grounded && !doubleJumped)
-            {
-                DoubleJump();
-            }
-
+        //Enables Jumping
+        if (jumpInput && grounded)
+        {
+            Jump();
+        }
+        // Enables Double jumping
+        if (jumpInput && !grounded && !doubleJumped)
+        {
+            DoubleJump();
+        }
         //Enables Attack
         if (attackInput)
         {
@@ -185,13 +207,9 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {        
         myRigidBody.AddForce(Vector2.right * moveInput * accelerationForce);
-
         Vector2 clampedVelocity = myRigidBody.velocity;
-
         clampedVelocity.x = Mathf.Clamp(myRigidBody.velocity.x, -maxSpeed, maxSpeed);
-
         myRigidBody.velocity = clampedVelocity;
-
         //Sprite Flipping
         if (myRigidBody.velocity.x > 0.1)
         {
@@ -205,8 +223,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
-
-
     }
 
     void AudioHandler()
@@ -228,7 +244,6 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         AddJumpForce();
-
         //DOUBLE JUMP CHECK
         if (jumpInput && !doubleJumped && !grounded)
         {            
@@ -252,28 +267,12 @@ public class PlayerController : MonoBehaviour
         AddDoubleJumpForce();
         doubleJumped = true;
     }
+    
 
-    //------------------------------------------------------------------<<<<--------SETS CURRENT CHECKPOINT-----------
-    public void SetCurrentCheckpoint(Checkpoint newCurrentCheckpoint)
-    {        
-        if (currentCheckpoint == null)
-        {            
-            currentCheckpoint = newCurrentCheckpoint;
-            newCurrentCheckpoint.SetAsActivated(true);
-        }            
-        else
-        {
-            currentCheckpoint.SetAsActivated(false);
-            currentCheckpoint = newCurrentCheckpoint;
-            newCurrentCheckpoint.SetAsActivated(true);
-        }
-    }
-
-    void UpdateHealth()
+    private void UpdateHealth()
     {
         HealthAnim.SetInteger("PlayerHealth", PlayerHealth);
     }
-
     //-------------------------------------------------------------------<<<<-------TRIGGER CHECKS-----------------------------
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -282,35 +281,30 @@ public class PlayerController : MonoBehaviour
             case "Pickups":
                 if (collision.name == "coinSilver")
                 {
-                    scoreCounter++;
-                    SetScoreText();
+                    ScoreCounter++;
+                    //SetScoreText();
                 }
                 else if (collision.name == "coinGold")
                 {
-                    scoreCounter += 2;
-                    SetScoreText();
+                    ScoreCounter += 2;
+                    //SetScoreText();
                 }
-                break;          
-
+                break;    
             case "Hazards":
                 if (isDamagable)
                 {
-                    scoreCounter--;
+                    ScoreCounter--;
                     SetIsDead(true);
                 }                
                 break;
-
             case "Killzone":
-                scoreCounter--;
+                ScoreCounter--;
                 SetIsDead(true);
                 break;
-
             case "Ground":
                 break;
-
             case "Untagged":
                 break;
-
             //Default Case Handler
             default:
                 break;
@@ -332,13 +326,12 @@ public class PlayerController : MonoBehaviour
                         hitOnRight = false;
                     Kickback();
                     UpdateHealth();
-                    scoreCounter--;
+                    ScoreCounter--;
                     StartCoroutine(InvincibilityTimer());
                 }
                 if (PlayerHealth == 0)
                     SetIsDead(true);
                 break;
-
             //Default Case Handler
             default:
                 break;
@@ -379,7 +372,6 @@ public class PlayerController : MonoBehaviour
             myRigidBody.AddForce(Vector2.up * kickbackHeight, ForceMode2D.Impulse);
             myRigidBody.AddForce(Vector2.right * kickbackPower, ForceMode2D.Impulse);
         }
-
         // Start Knockback Timer
         StartCoroutine(KnockbackTimer());
     }
@@ -390,6 +382,19 @@ public class PlayerController : MonoBehaviour
         beingKnockedback = false;
         anim.SetBool("beingKnockedback", beingKnockedback);
         allowMoveInput = true;
+    }
+
+    public int ScoreCounter
+    {
+        get
+        {
+            return scoreCounter;
+        }
+        set
+        {
+            scoreCounter = value;
+            SetScoreText();
+        }
     }
 
     public void SetScoreText()
@@ -411,20 +416,15 @@ public class PlayerController : MonoBehaviour
 
     private void CheckForRespawn()
     {
-        
-
         if (isDead)
         {
             anim.Play("Anim_Samurai_Death", 0);
             myRigidBody.freezeRotation = false;
         }
-             
-
         if (isDead && Time.time > respawnTimer)
         {
             playerBody.color = Color.clear;
             SetRespawnTimer();
-
             Respawn();            
         }
     }
@@ -438,7 +438,6 @@ public class PlayerController : MonoBehaviour
             myRigidBody.velocity = Vector2.zero;
             transform.position = currentCheckpoint.transform.position;
         }
-
         //Reset variables for player Respawn
         isDead = false;
         myRigidBody.transform.rotation = Quaternion.identity;
