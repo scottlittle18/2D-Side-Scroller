@@ -4,39 +4,30 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuButtons : MonoBehaviour 
-{
-    private int currentScene;
+{    
+    [SerializeField]
+    [Tooltip("Sprite for when the button is pressed")]
+    Sprite buttonPressed;
+    [SerializeField]
+    [Tooltip("Sprite for when the button is NOT pressed")]
+    Sprite buttonUnpressed;
+    [Tooltip("Displays the button's current state (pressed/unpressed)")]
+    SpriteRenderer menuButtonState;
 
-	// Use this for initialization
-	void Start ()
+    private void Update()
     {
-        currentScene = SceneManager.GetActiveScene().buildIndex;
-	}
-	
-    public void PressedStartButton()
-    {
-        SceneManager.LoadScene(currentScene + 1);
+        InputHandler();
     }
 
-    public void StartLevelOne()
+    private void InputHandler()
     {
-        SceneManager.LoadScene(1);
-    }
-
-    public void Credits()
-    {
-        SceneManager.LoadScene("Credits");
-    }
-
-    public void ExitCredits()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-
-    public void Quit()
-    {
-        //TODO: Debug.Log("Quit Program Input Accepted")
-        Debug.Log("Quit Program Input Accepted");
-        Application.Quit();
-    }
+        if (Input.GetButtonDown("Select"))
+        {
+            menuButtonState.sprite = buttonPressed;
+        }
+        if (Input.GetButtonUp("Select"))
+        {
+            menuButtonState.sprite = buttonUnpressed;
+        }
+    }	
 }
