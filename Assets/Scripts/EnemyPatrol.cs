@@ -157,14 +157,11 @@ public class EnemyPatrol : MonoBehaviour
                 playerController = collision.GetComponentInParent<PlayerController>();
                 playerController.ScoreCounter++;
                 playerController.SetScoreText();
-
                 //Receive damage from player
                 enemyHealth--;
                 EnemyHealthController.CurrentEnemyHealth = enemyHealth;
             }
-
             isDamagable = false;
-
             EnemyKnockbackDirection(collision);
             EnemyKnockback();
             StartCoroutine(KnockbackTime());

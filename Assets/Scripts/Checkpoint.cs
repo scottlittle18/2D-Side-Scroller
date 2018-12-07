@@ -13,12 +13,12 @@ public class Checkpoint : MonoBehaviour
     {
         IsActivated = false;
         anim = GetComponent<Animator>();
-        player = FindObjectOfType<PlayerController>();
+        //player = FindObjectOfType<PlayerController>();
     }
 
     private void Update()
     {
-        //UpdateAnimation();
+        UpdateAnimation();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -48,12 +48,12 @@ public class Checkpoint : MonoBehaviour
 
     private void UpdateAnimation()
     {
+            if (IsActivated)
+                anim.SetBool("isActivated", true);
+            else if (!IsActivated)
+                anim.SetBool("isActivated", false);
         if (player.CurrentCheckpoint != null)
         {
-            if (isActivated)
-                anim.SetBool("isActivated", true);
-            else if (!isActivated)
-                anim.SetBool("isActivated", false);
         }
     }
 }

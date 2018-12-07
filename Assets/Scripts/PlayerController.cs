@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     private int scoreCounter;
     private float moveInput, respawnTimer;
     //Jump and Attack Inputs and Release variables
-    private bool jumpInput, jumpRelease, attackInput, attackRelease, beingKnockedback;
+    private bool jumpInput, jumpRelease, attackInput, attackRelease, beingKnockedback, isAlive, canDoubleJump, canJump;
     private short PlayerHealth;    
     //Checks which side the player was hit on
     private bool hitOnRight;
@@ -81,8 +81,7 @@ public class PlayerController : MonoBehaviour
         // Game Objects
         spawnPoint = GameObject.Find("SpawnPoint");
         spawnPointLocation = spawnPoint.transform;
-        if (CurrentCheckpoint == null)
-            currentCheckpointLocation = spawnPointLocation;
+        
         HealthMeter = GameObject.Find("PlayerHealthMeter");
         HealthAnim = HealthMeter.GetComponent<Animator>();
         UpdateHealth();
@@ -91,17 +90,19 @@ public class PlayerController : MonoBehaviour
         allowMoveInput = true;
         beingKnockedback = false;
         isDamagable = true;
+        isAlive = allowMoveInput && !isDead;
+        canDoubleJump = jumpInput && !grounded && !doubleJumped;
+        canJump = jumpInput && grounded;
     }
     
     void FixedUpdate()
     {
         UpdatePhysicsMaterial();
 
-        if(allowMoveInput && !isDead)
+        if(isAlive)
             Move();
 
-        grounded = Physics2D.OverlapCircle(groundCheck.position, 
-            groundCheckRadius, whatIsGround);
+        CheckIfOnGround();
 
         anim.SetFloat("jumpVelocity", myRigidBody.velocity.y);
         if (grounded)
@@ -114,11 +115,19 @@ public class PlayerController : MonoBehaviour
         else
             attackPoint.gameObject.SetActive(false);
     }
+    /// <summary>
+    /// Checks whether the player is on the ground
+    /// </summary>
+    private void CheckIfOnGround()
+    {
+        grounded = Physics2D.OverlapCircle(groundCheck.position,
+            groundCheckRadius, whatIsGround);
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if(allowMoveInput && !isDead)
+        if(isAlive)
             GetMovementInput();
 
         CheckForRespawn();
@@ -130,7 +139,6 @@ public class PlayerController : MonoBehaviour
             playerGroundCollider.sharedMaterial = playerKnockbackPM;
             anim.SetBool("beingKnockedback", beingKnockedback);
         }
-
         //----TO UPDATE THE ANIMATOR----
         anim.SetFloat("Speed", Mathf.Abs(myRigidBody.velocity.x));
         anim.SetBool("Grounded", grounded);
@@ -183,12 +191,12 @@ public class PlayerController : MonoBehaviour
         attackInput = Input.GetButtonDown("Fire2");
         attackRelease = Input.GetButtonUp("Fire2");
         //Enables Jumping
-        if (jumpInput && grounded)
+        if (canJump)
         {
             Jump();
         }
         // Enables Double jumping
-        if (jumpInput && !grounded && !doubleJumped)
+        if (canDoubleJump)
         {
             DoubleJump();
         }
@@ -245,7 +253,7 @@ public class PlayerController : MonoBehaviour
     {
         AddJumpForce();
         //DOUBLE JUMP CHECK
-        if (jumpInput && !doubleJumped && !grounded)
+        if (canDoubleJump)
         {            
             DoubleJump();
         }
