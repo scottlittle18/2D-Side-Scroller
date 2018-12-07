@@ -8,16 +8,29 @@ public class Checkpoint : MonoBehaviour
     private bool isActivated;   
     private Animator anim;
     private PlayerController player;
+    /// <summary>
+    /// Property Used to Activate or Deactivate checkpoints
+    /// </summary>
+    public bool IsActivated
+    {
+        get
+        {
+            return isActivated;
+        }
+        set
+        {
+            isActivated = value;
+        }
+    }
 
     private void Start()
     {
         IsActivated = false;
         anim = GetComponent<Animator>();
-        //player = FindObjectOfType<PlayerController>();
     }
 
     private void Update()
-    {
+    {        
         UpdateAnimation();
     }
 
@@ -30,30 +43,9 @@ public class Checkpoint : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Used to Activate or Deactivate checkpoints
-    /// </summary>
-    public bool IsActivated
-    {
-        get
-        {
-            return isActivated;
-        }
-        set
-        {
-            isActivated = value;
-            UpdateAnimation();
-        }
-    }
 
     private void UpdateAnimation()
     {
-            if (IsActivated)
-                anim.SetBool("isActivated", true);
-            else if (!IsActivated)
-                anim.SetBool("isActivated", false);
-        if (player.CurrentCheckpoint != null)
-        {
-        }
+        anim.SetBool("isActivated", IsActivated);
     }
 }

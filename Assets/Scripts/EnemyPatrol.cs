@@ -156,7 +156,7 @@ public class EnemyPatrol : MonoBehaviour
                 //Get PlayerController from player GameObject in order to access scoreCounter & SetScoreText()
                 playerController = collision.GetComponentInParent<PlayerController>();
                 playerController.ScoreCounter++;
-                playerController.SetScoreText();
+                //TODO: May Not Need --> playerController.SetScoreText();
                 //Receive damage from player
                 enemyHealth--;
                 EnemyHealthController.CurrentEnemyHealth = enemyHealth;

@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float knockbackTimer;
     [SerializeField]
+    [Tooltip("The Amount of Time the Player is invincible after taking damage")]
     private float timeInvincible;
     [SerializeField]
     private Transform groundCheck, attackPoint;
@@ -35,7 +36,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Text scoreText;
     [SerializeField]
-    private PhysicsMaterial2D playerMovingPM, playerStoppingPM, playerKnockbackPM;
+    [Tooltip("Active Physics Material While Player Is Moving")]
+    private PhysicsMaterial2D playerMovingPhysicsMaterial;
+    [SerializeField]
+    [Tooltip("Active Physics Material While Player Is Stopping")]
+    private PhysicsMaterial2D playerStoppingPhysicsMaterial;
+    [SerializeField]
+    [Tooltip("Active Physics Material While Player Is Being Knocked Back")]
+    private PhysicsMaterial2D playerKnockbackPhysicsMaterial;
     #endregion
     #region Non-Serialized Fields
     private Checkpoint currentCheckpoint;
@@ -57,94 +65,7 @@ public class PlayerController : MonoBehaviour
     private Color playerColor;
     private Renderer playerRend;
     #endregion
-    // Use this for initialization
-    void Start()
-    {
-        SetupPlayer();
-    }
-    /// <summary>
-    /// Gather and Set Necessary Components, GameObjects, Values, and States
-    /// </summary>
-    void SetupPlayer()
-    {
-        // Components
-        footsteps = GetComponent<AudioSource>();
-        playerBody = GetComponent<SpriteRenderer>();
-        myRigidBody = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        playerGroundCollider = GetComponent<CapsuleCollider2D>();
-        playerRend = GetComponent<Renderer>();
-        playerColor = playerBody.color;
-        // Values
-        ScoreCounter = 0;
-        PlayerHealth = 6;
-        // Game Objects
-        spawnPoint = GameObject.Find("SpawnPoint");
-        spawnPointLocation = spawnPoint.transform;
-        
-        HealthMeter = GameObject.Find("PlayerHealthMeter");
-        HealthAnim = HealthMeter.GetComponent<Animator>();
-        UpdateHealth();
-        // States
-        attackPoint.gameObject.SetActive(false);
-        allowMoveInput = true;
-        beingKnockedback = false;
-        isDamagable = true;
-        isAlive = allowMoveInput && !isDead;
-        canDoubleJump = jumpInput && !grounded && !doubleJumped;
-        canJump = jumpInput && grounded;
-    }
-    
-    void FixedUpdate()
-    {
-        UpdatePhysicsMaterial();
-
-        if(isAlive)
-            Move();
-
-        CheckIfOnGround();
-
-        anim.SetFloat("jumpVelocity", myRigidBody.velocity.y);
-        if (grounded)
-        {
-            doubleJumped = false;
-        }
-
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Samurai_Attack"))
-            attackPoint.gameObject.SetActive(true);
-        else
-            attackPoint.gameObject.SetActive(false);
-    }
-    /// <summary>
-    /// Checks whether the player is on the ground
-    /// </summary>
-    private void CheckIfOnGround()
-    {
-        grounded = Physics2D.OverlapCircle(groundCheck.position,
-            groundCheckRadius, whatIsGround);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(isAlive)
-            GetMovementInput();
-
-        CheckForRespawn();
-        AudioHandler();
-
-        if (beingKnockedback)
-        {
-            allowMoveInput = false;
-            playerGroundCollider.sharedMaterial = playerKnockbackPM;
-            anim.SetBool("beingKnockedback", beingKnockedback);
-        }
-        //----TO UPDATE THE ANIMATOR----
-        anim.SetFloat("Speed", Mathf.Abs(myRigidBody.velocity.x));
-        anim.SetBool("Grounded", grounded);
-        anim.SetFloat("jumpVelocity", myRigidBody.velocity.y);
-    }
-
+    #region Properties
     public Checkpoint CurrentCheckpoint
     {
         get
@@ -167,18 +88,143 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public int ScoreCounter
+    {
+        get
+        {
+            return scoreCounter;
+        }
+        set
+        {
+            scoreCounter = value;
+            SetScoreText();
+        }
+    }
+    #endregion
+    #region Enumerators
+    /// <summary>
+    /// Controls how long the player is invincible for after being hit
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator InvincibilityTimer()
+    {
+        isDamagable = false;
+        Physics2D.IgnoreLayerCollision(9, 14, true);
+        Physics2D.IgnoreLayerCollision(9, 13, true);
+        playerColor.a = 0.5f;
+        playerRend.material.color = playerColor;
+        yield return new WaitForSeconds(timeInvincible);
+        playerColor.a = 1f;
+        playerRend.material.color = playerColor;
+        Physics2D.IgnoreLayerCollision(9, 13, true);
+        Physics2D.IgnoreLayerCollision(9, 14, false);
+        isDamagable = true;
+    }
+    /// <summary>
+    /// Controls how long the effects of being knocked back last (e.g. Not being able to move)
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator KnockbackTimer()
+    {
+        yield return new WaitForSeconds(knockbackTimer);
+        beingKnockedback = false;
+        anim.SetBool("beingKnockedback", beingKnockedback);
+        allowMoveInput = true;
+    }
+    #endregion
+    // Use this for initialization
+    private void Start()
+    {
+        InitializePlayer();
+    }
+    /// <summary>
+    /// Gather and Set Necessary Components, GameObjects, Values, and States
+    /// </summary>
+    private void InitializePlayer()
+    {
+        // Components
+        footsteps = GetComponent<AudioSource>();
+        playerBody = GetComponent<SpriteRenderer>();
+        myRigidBody = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        playerGroundCollider = GetComponent<CapsuleCollider2D>();
+        playerRend = GetComponent<Renderer>();
+        playerColor = playerBody.color;
+        // Values
+        ScoreCounter = 0;
+        PlayerHealth = 6;
+        // Game Objects
+        spawnPoint = GameObject.Find("SpawnPoint");
+        spawnPointLocation = spawnPoint.transform;        
+        HealthMeter = GameObject.Find("PlayerHealthMeter");
+        HealthAnim = HealthMeter.GetComponent<Animator>();
+        UpdateHealth();
+        // States
+        attackPoint.gameObject.SetActive(false);
+        allowMoveInput = true;
+        beingKnockedback = false;
+        isDamagable = true;
+    }
+    
+    private void FixedUpdate()
+    {
+        UpdatePhysicsMaterial();
+        if(allowMoveInput && !isDead)
+            Move();
+        CheckIfOnGround();
+        anim.SetFloat("jumpVelocity", myRigidBody.velocity.y);
+        if (grounded)
+        {
+            doubleJumped = false;
+        }
+
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Samurai_Attack"))
+            attackPoint.gameObject.SetActive(true);
+        else
+            attackPoint.gameObject.SetActive(false);
+    }
+    /// <summary>
+    /// Checks whether the player is on the ground
+    /// </summary>
+    private void CheckIfOnGround()
+    {
+        grounded = Physics2D.OverlapCircle(groundCheck.position,
+            groundCheckRadius, whatIsGround);
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+        if(allowMoveInput && !isDead)
+            GetMovementInput();
+
+        CheckForRespawn();
+        AudioHandler();
+
+        if (beingKnockedback)
+        {
+            allowMoveInput = false;
+            playerGroundCollider.sharedMaterial = playerKnockbackPhysicsMaterial;
+            anim.SetBool("beingKnockedback", beingKnockedback);
+        }
+        //----TO UPDATE THE ANIMATOR----
+        anim.SetFloat("Speed", Mathf.Abs(myRigidBody.velocity.x));
+        anim.SetBool("Grounded", grounded);
+        anim.SetFloat("jumpVelocity", myRigidBody.velocity.y);
+    }    
+
     private void UpdatePhysicsMaterial()
     {
         if (!grounded && !beingKnockedback)
-            playerMovingPM.friction = 0;
+            playerMovingPhysicsMaterial.friction = 0;
 
         if ((Mathf.Abs(moveInput) > 0) && !beingKnockedback)
         {
-            playerGroundCollider.sharedMaterial = playerMovingPM;
+            playerGroundCollider.sharedMaterial = playerMovingPhysicsMaterial;
         }
         else if (grounded && !beingKnockedback && (Mathf.Abs(moveInput) == 0))
         {
-            playerGroundCollider.sharedMaterial = playerStoppingPM;
+            playerGroundCollider.sharedMaterial = playerStoppingPhysicsMaterial;
         }
     }
 
@@ -191,12 +237,12 @@ public class PlayerController : MonoBehaviour
         attackInput = Input.GetButtonDown("Fire2");
         attackRelease = Input.GetButtonUp("Fire2");
         //Enables Jumping
-        if (canJump)
+        if (jumpInput && grounded)
         {
             Jump();
         }
         // Enables Double jumping
-        if (canDoubleJump)
+        if (jumpInput && !grounded && !doubleJumped)
         {
             DoubleJump();
         }
@@ -210,7 +256,6 @@ public class PlayerController : MonoBehaviour
             anim.ResetTrigger("Attack");
         }
     }
-
 
     private void Move()
     {        
@@ -233,7 +278,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void AudioHandler()
+    private void AudioHandler()
     {
         if (myRigidBody.velocity.x > 0.1 && grounded)
         {
@@ -253,7 +298,7 @@ public class PlayerController : MonoBehaviour
     {
         AddJumpForce();
         //DOUBLE JUMP CHECK
-        if (canDoubleJump)
+        if (jumpInput && !grounded && !doubleJumped)
         {            
             DoubleJump();
         }
@@ -274,8 +319,7 @@ public class PlayerController : MonoBehaviour
     {
         AddDoubleJumpForce();
         doubleJumped = true;
-    }
-    
+    }    
 
     private void UpdateHealth()
     {
@@ -345,22 +389,6 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
-
-    IEnumerator InvincibilityTimer()
-    {
-        isDamagable = false;
-        Physics2D.IgnoreLayerCollision(9, 14, true);
-        Physics2D.IgnoreLayerCollision(9, 13, true);
-        playerColor.a = 0.5f;
-        playerRend.material.color = playerColor;
-        yield return new WaitForSeconds(timeInvincible);
-        playerColor.a = 1f;
-        playerRend.material.color = playerColor;
-        Physics2D.IgnoreLayerCollision(9, 13, true);
-        Physics2D.IgnoreLayerCollision(9, 14, false);
-        isDamagable = true;
-    }
-
     // TODO: Prototype for a way to handle any kind of enemy attack
    /* void CollisionWithEnemy(Collider2D collision)
     {
@@ -382,35 +410,14 @@ public class PlayerController : MonoBehaviour
         }
         // Start Knockback Timer
         StartCoroutine(KnockbackTimer());
-    }
+    }       
 
-    IEnumerator KnockbackTimer()
-    {
-        yield return new WaitForSeconds(knockbackTimer);
-        beingKnockedback = false;
-        anim.SetBool("beingKnockedback", beingKnockedback);
-        allowMoveInput = true;
-    }
-
-    public int ScoreCounter
-    {
-        get
-        {
-            return scoreCounter;
-        }
-        set
-        {
-            scoreCounter = value;
-            SetScoreText();
-        }
-    }
-
-    public void SetScoreText()
+    private void SetScoreText()
     {
         scoreText.text = "Score: " + scoreCounter.ToString();
     }
 
-    public void SetIsDead(bool dead)
+    private void SetIsDead(bool dead)
     {
         footsteps.Pause();
         isDead = dead;
