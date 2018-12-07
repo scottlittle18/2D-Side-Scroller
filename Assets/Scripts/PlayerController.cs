@@ -432,11 +432,11 @@ public class PlayerController : MonoBehaviour
     private void Respawn()
     {
         if (currentCheckpoint == null)
-            transform.position = spawnPoint.transform.position;        
+            transform.position = spawnPointLocation.position;        
         else
         {
             myRigidBody.velocity = Vector2.zero;
-            transform.position = currentCheckpoint.transform.position;
+            transform.position = currentCheckpointLocation.position;
         }
         //Reset variables for player Respawn
         isDead = false;

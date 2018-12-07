@@ -8,7 +8,8 @@ public class MenuButtons : MonoBehaviour
     private int currentScene;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         currentScene = SceneManager.GetActiveScene().buildIndex;
 	}
 	

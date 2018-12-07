@@ -8,12 +8,14 @@ public class Pickups : MonoBehaviour
     private AudioSource coinSFX;
 
 	// Use this for initialization
-	private void Start () {
+	private void Start ()
+    {
         coinSFX = GetComponent<AudioSource>();        
 	}
 	
 	// Update is called once per frame
-	private void Update () {
+	private void Update ()
+    {
         transform.Rotate(new Vector3(0, 60, 0) * Time.deltaTime);
     }
 
