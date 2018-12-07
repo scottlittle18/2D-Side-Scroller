@@ -20,18 +20,18 @@ public class Checkpoint : MonoBehaviour
         set
         {
             isActivated = value;
+            UpdateAnimation();
         }
+    }
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
     }
 
     private void Start()
     {
-        IsActivated = false;
-        anim = GetComponent<Animator>();
-    }
-
-    private void Update()
-    {        
-        UpdateAnimation();
+        IsActivated = false;        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

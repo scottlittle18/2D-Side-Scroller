@@ -446,7 +446,7 @@ public class PlayerController : MonoBehaviour
 
     private void Respawn()
     {
-        if (currentCheckpoint == null)
+        if (CurrentCheckpoint == null)
             transform.position = spawnPointLocation.position;        
         else
         {
