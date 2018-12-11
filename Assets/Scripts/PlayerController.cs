@@ -435,9 +435,11 @@ public class PlayerController : MonoBehaviour
         {
             anim.Play("Anim_Samurai_Death", 0);
             myRigidBody.freezeRotation = false;
+            isDamagable = false;
         }
         if (isDead && Time.time > respawnTimer)
         {
+            //isDamagable = false;
             playerBody.color = Color.clear;
             SetRespawnTimer();
             Respawn();            
@@ -451,12 +453,13 @@ public class PlayerController : MonoBehaviour
         else
         {
             myRigidBody.velocity = Vector2.zero;
-            transform.position = currentCheckpointLocation.position;
+            transform.position = CurrentCheckpoint.transform.position;
         }
         //Reset variables for player Respawn
         isDead = false;
         myRigidBody.transform.rotation = Quaternion.identity;
         myRigidBody.freezeRotation = true;
-        playerBody.color = Color.white;        
+        playerBody.color = Color.white;
+        isDamagable = true;
     }
 }
