@@ -14,6 +14,8 @@ TagManager:
   - SpawnPoint
   - Killzone
   - PlayerAttackPoint
+  - SilverCoin
+  - GoldCoin
   layers:
   - Default
   - TransparentFX

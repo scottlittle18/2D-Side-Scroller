@@ -46,7 +46,6 @@ public class PlayerController : MonoBehaviour
     private PhysicsMaterial2D playerKnockbackPhysicsMaterial;
     #endregion
     #region Non-Serialized Fields
-    private Checkpoint currentCheckpoint;
     private int scoreCounter;
     private float moveInput, respawnTimer;
     //Jump and Attack Inputs and Release variables
@@ -54,10 +53,11 @@ public class PlayerController : MonoBehaviour
     private short PlayerHealth;    
     //Checks which side the player was hit on
     private bool hitOnRight;
+    private bool grounded, doubleJumped, isDead, allowMoveInput, isDamagable;    
+    private Checkpoint currentCheckpoint;
     private GameObject spawnPoint, HealthMeter;
     private Transform currentCheckpointLocation, spawnPointLocation;
     private AudioSource footsteps;
-    private bool grounded, doubleJumped, isDead, allowMoveInput, isDamagable;    
     private Animator anim, HealthAnim;    
     private Rigidbody2D myRigidBody;
     private SpriteRenderer playerBody;    
@@ -330,17 +330,11 @@ public class PlayerController : MonoBehaviour
     {
         switch (collision.tag)
         {
-            case "Pickups":
-                if (collision.name == "coinSilver")
-                {
-                    ScoreCounter++;
-                    //SetScoreText();
-                }
-                else if (collision.name == "coinGold")
-                {
-                    ScoreCounter += 2;
-                    //SetScoreText();
-                }
+            case "SilverCoin":
+                ScoreCounter++;
+                break;
+            case "GoldCoin":
+                ScoreCounter += 2;
                 break;    
             case "Hazards":
                 if (isDamagable)
@@ -414,7 +408,7 @@ public class PlayerController : MonoBehaviour
 
     private void SetScoreText()
     {
-        scoreText.text = "Score: " + scoreCounter.ToString();
+        scoreText.text = "Score: " + ScoreCounter.ToString();
     }
 
     private void SetIsDead(bool dead)

@@ -166,6 +166,10 @@ Prefab:
       propertyPath: m_Name
       value: coinGold (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
   m_IsPrefabParent: 0
@@ -211,6 +215,10 @@ Prefab:
     - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
       propertyPath: m_Name
       value: coinGold (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
@@ -263,6 +271,10 @@ Prefab:
       propertyPath: m_Name
       value: coinGold (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
   m_IsPrefabParent: 0
@@ -314,6 +326,10 @@ Prefab:
       propertyPath: m_Name
       value: coinSilver (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
+      propertyPath: m_TagString
+      value: SilverCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
   m_IsPrefabParent: 0
@@ -359,6 +375,10 @@ Prefab:
     - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
       propertyPath: m_Name
       value: coinGold (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
@@ -816,6 +836,10 @@ Prefab:
       propertyPath: m_Name
       value: coinSilver (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
+      propertyPath: m_TagString
+      value: SilverCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
   m_IsPrefabParent: 0
@@ -862,6 +886,10 @@ Prefab:
       propertyPath: m_Name
       value: coinSilver (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
+      propertyPath: m_TagString
+      value: SilverCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
   m_IsPrefabParent: 0
@@ -907,6 +935,10 @@ Prefab:
     - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
       propertyPath: m_Name
       value: coinSilver (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
+      propertyPath: m_TagString
+      value: SilverCoin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
@@ -959,6 +991,10 @@ Prefab:
       propertyPath: m_Name
       value: coinGold (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
   m_IsPrefabParent: 0
@@ -1004,6 +1040,10 @@ Prefab:
     - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
       propertyPath: m_Name
       value: coinSilver (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
+      propertyPath: m_TagString
+      value: SilverCoin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
@@ -1204,6 +1244,10 @@ Prefab:
       propertyPath: m_Name
       value: coinSilver (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
+      propertyPath: m_TagString
+      value: SilverCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
   m_IsPrefabParent: 0
@@ -1389,6 +1433,10 @@ Prefab:
     - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
       propertyPath: m_Name
       value: coinSilver (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
+      propertyPath: m_TagString
+      value: SilverCoin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
@@ -1593,6 +1641,10 @@ Prefab:
       propertyPath: m_Name
       value: coinGold (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
   m_IsPrefabParent: 0
@@ -1684,6 +1736,10 @@ Prefab:
     - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
       propertyPath: m_Name
       value: coinGold (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
@@ -1930,6 +1986,10 @@ Prefab:
       propertyPath: m_Name
       value: coinSilver (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
+      propertyPath: m_TagString
+      value: SilverCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
   m_IsPrefabParent: 0
@@ -1976,6 +2036,10 @@ Prefab:
       propertyPath: m_Name
       value: coinGold (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
   m_IsPrefabParent: 0
@@ -2021,6 +2085,10 @@ Prefab:
     - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
       propertyPath: m_Name
       value: coinGold (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
@@ -2279,6 +2347,10 @@ Prefab:
       propertyPath: m_Name
       value: coinGold (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
   m_IsPrefabParent: 0
@@ -2391,6 +2463,10 @@ Prefab:
       propertyPath: m_Name
       value: coinGold (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
   m_IsPrefabParent: 0
@@ -2441,6 +2517,10 @@ Prefab:
     - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
       propertyPath: m_Name
       value: coinGold (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
@@ -2694,6 +2774,10 @@ Prefab:
       propertyPath: m_Name
       value: coinSilver (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
+      propertyPath: m_TagString
+      value: SilverCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
   m_IsPrefabParent: 0
@@ -2834,6 +2918,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
+      propertyPath: m_TagString
+      value: SilverCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
   m_IsPrefabParent: 0
@@ -2880,6 +2968,10 @@ Prefab:
       propertyPath: m_Name
       value: coinGold (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
   m_IsPrefabParent: 0
@@ -2925,6 +3017,10 @@ Prefab:
     - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
       propertyPath: m_Name
       value: coinGold (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
@@ -3065,6 +3161,10 @@ Prefab:
       propertyPath: m_Name
       value: coinSilver (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
+      propertyPath: m_TagString
+      value: SilverCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
   m_IsPrefabParent: 0
@@ -3110,6 +3210,10 @@ Prefab:
     - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
       propertyPath: m_Name
       value: coinSilver (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
+      propertyPath: m_TagString
+      value: SilverCoin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
@@ -3265,6 +3369,10 @@ Prefab:
       propertyPath: m_Name
       value: coinGold (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
   m_IsPrefabParent: 0
@@ -3358,6 +3466,10 @@ Prefab:
       propertyPath: m_Name
       value: coinSilver (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
+      propertyPath: m_TagString
+      value: SilverCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
   m_IsPrefabParent: 0
@@ -3414,6 +3526,10 @@ Prefab:
       propertyPath: m_Name
       value: coinGold (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
   m_IsPrefabParent: 0
@@ -3459,6 +3575,10 @@ Prefab:
     - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
       propertyPath: m_Name
       value: coinGold (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
@@ -3568,6 +3688,10 @@ Prefab:
       propertyPath: m_Name
       value: coinSilver (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
+      propertyPath: m_TagString
+      value: SilverCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
   m_IsPrefabParent: 0
@@ -3613,6 +3737,10 @@ Prefab:
     - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
       propertyPath: m_Name
       value: coinGold (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
@@ -46086,6 +46214,10 @@ Prefab:
       propertyPath: m_Name
       value: coinSilver (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
+      propertyPath: m_TagString
+      value: SilverCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
   m_IsPrefabParent: 0
@@ -46175,7 +46307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1400817873}
   m_Layer: 0
-  m_Name: Pickups
+  m_Name: Pickups[]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46284,6 +46416,10 @@ Prefab:
     - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
       propertyPath: m_Name
       value: coinGold (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
@@ -46490,6 +46626,10 @@ Prefab:
       propertyPath: m_Name
       value: coinGold (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
   m_IsPrefabParent: 0
@@ -46612,6 +46752,10 @@ Prefab:
       propertyPath: m_Name
       value: coinGold (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
   m_IsPrefabParent: 0
@@ -46663,6 +46807,10 @@ Prefab:
       propertyPath: m_Name
       value: coinGold (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
   m_IsPrefabParent: 0
@@ -46708,6 +46856,10 @@ Prefab:
     - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
       propertyPath: m_Name
       value: coinSilver (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
+      propertyPath: m_TagString
+      value: SilverCoin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
@@ -46759,6 +46911,10 @@ Prefab:
     - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
       propertyPath: m_Name
       value: coinGold (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
@@ -47125,6 +47281,10 @@ Prefab:
       propertyPath: m_Name
       value: coinSilver (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
+      propertyPath: m_TagString
+      value: SilverCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
   m_IsPrefabParent: 0
@@ -47175,6 +47335,10 @@ Prefab:
     - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
       propertyPath: m_Name
       value: coinGold (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
@@ -47261,6 +47425,10 @@ Prefab:
       propertyPath: m_Name
       value: coinSilver (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
+      propertyPath: m_TagString
+      value: SilverCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
   m_IsPrefabParent: 0
@@ -47311,6 +47479,10 @@ Prefab:
     - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
       propertyPath: m_Name
       value: coinGold (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
@@ -47363,6 +47535,10 @@ Prefab:
       propertyPath: m_Name
       value: coinSilver (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 1997851089165768, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
+      propertyPath: m_TagString
+      value: SilverCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79e5e724a2286304f8b8927305903a46, type: 2}
   m_IsPrefabParent: 0
@@ -47404,6 +47580,10 @@ Prefab:
     - target: {fileID: 4331606932638162, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690420143371946, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
+      propertyPath: m_TagString
+      value: GoldCoin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8a19f607a9420479582c5d53b351a2, type: 2}
