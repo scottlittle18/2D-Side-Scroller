@@ -44,6 +44,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     [Tooltip("Active Physics Material While Player Is Being Knocked Back")]
     private PhysicsMaterial2D playerKnockbackPhysicsMaterial;
+    [SerializeField]
+    private AudioClip[] SFXArray = new AudioClip[0];
+    [SerializeField]
+    private AudioSource FootstepFX, SoundFX;
     #endregion
     #region Non-Serialized Fields
     private int scoreCounter;
@@ -57,7 +61,6 @@ public class PlayerController : MonoBehaviour
     private Checkpoint currentCheckpoint;
     private GameObject spawnPoint, HealthMeter;
     private Transform currentCheckpointLocation, spawnPointLocation;
-    private AudioSource footsteps;
     private Animator anim, HealthAnim;    
     private Rigidbody2D myRigidBody;
     private SpriteRenderer playerBody;    
@@ -143,7 +146,7 @@ public class PlayerController : MonoBehaviour
     private void InitializePlayer()
     {
         // Components
-        footsteps = GetComponent<AudioSource>();
+        //SoundFX = GetComponent<AudioSource>();
         playerBody = GetComponent<SpriteRenderer>();
         myRigidBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -247,11 +250,12 @@ public class PlayerController : MonoBehaviour
             DoubleJump();
         }
         //Enables Attack
-        if (attackInput)
+        if (attackInput && grounded)
         {
-            anim.SetTrigger("Attack");            
+            anim.SetTrigger("Attack");
+            SoundFX.PlayOneShot(SFXArray[0]);
         }
-        if (attackRelease)
+        if (attackRelease && grounded)
         {
             anim.ResetTrigger("Attack");
         }
@@ -282,20 +286,21 @@ public class PlayerController : MonoBehaviour
     {
         if (myRigidBody.velocity.x > 0.1 && grounded)
         {
-            footsteps.UnPause();
+            FootstepFX.UnPause();
         }
         else if (myRigidBody.velocity.x < -0.1 && grounded)
         {
-            footsteps.UnPause();
+            FootstepFX.UnPause();
         }
         else if (myRigidBody.velocity.x == 0 || !grounded)
         {
-            footsteps.Pause();
+            FootstepFX.Pause();
         }
     }
     
     private void Jump()
     {
+        SoundFX.PlayOneShot(SFXArray[1]);
         AddJumpForce();
         //DOUBLE JUMP CHECK
         if (jumpInput && !grounded && !doubleJumped)
@@ -318,6 +323,7 @@ public class PlayerController : MonoBehaviour
     private void DoubleJump()
     {
         AddDoubleJumpForce();
+        SoundFX.PlayOneShot(SFXArray[2]);
         doubleJumped = true;
     }    
 
@@ -413,7 +419,7 @@ public class PlayerController : MonoBehaviour
 
     private void SetIsDead(bool dead)
     {
-        footsteps.Pause();
+        SoundFX.Pause();
         isDead = dead;
         SetRespawnTimer();
     }
