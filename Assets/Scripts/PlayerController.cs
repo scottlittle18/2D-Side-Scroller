@@ -345,6 +345,8 @@ public class PlayerController : MonoBehaviour
             case "Hazards":
                 if (isDamagable)
                 {
+                    SoundFX.PlayOneShot(SFXArray[3]);
+                    playerMovingPhysicsMaterial.friction = playerStoppingPhysicsMaterial.friction;
                     ScoreCounter--;
                     SetIsDead(true);
                 }                
@@ -370,6 +372,7 @@ public class PlayerController : MonoBehaviour
             case "EnemyBandit":
                 if (isDamagable)
                 {
+                    SoundFX.PlayOneShot(SFXArray[3]);
                     beingKnockedback = true;
                     PlayerHealth--;
                     if (collision.transform.position.x > transform.position.x)
@@ -419,7 +422,7 @@ public class PlayerController : MonoBehaviour
 
     private void SetIsDead(bool dead)
     {
-        SoundFX.Pause();
+        FootstepFX.Pause();
         isDead = dead;
         SetRespawnTimer();
     }
@@ -461,5 +464,6 @@ public class PlayerController : MonoBehaviour
         myRigidBody.freezeRotation = true;
         playerBody.color = Color.white;
         isDamagable = true;
+        FootstepFX.UnPause();
     }
 }

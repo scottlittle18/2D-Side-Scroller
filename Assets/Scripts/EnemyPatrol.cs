@@ -44,9 +44,9 @@ public class EnemyPatrol : MonoBehaviour
     [Tooltip("Total amount of health")]
     private short enemyHealth;
     [SerializeField]
-    private AudioSource attackSFX;
+    private AudioSource AudioSFX;
     [SerializeField]
-    private AudioClip attackSound;
+    private AudioClip attackSound, barkSound;
     #endregion
     #region Non-Serialized Fields
     private bool isHittingWall, isAtEdge, isPlayerInRange, isMovingRight, 
@@ -171,6 +171,7 @@ public class EnemyPatrol : MonoBehaviour
         //Detects melee attack from player
         if (collision.tag == "PlayerAttackPoint")
         {
+            AudioSFX.PlayOneShot(barkSound);
             //Set current state to beingKnockedBack
             beingKnockedBack = true;
             canMove = false;
@@ -238,7 +239,7 @@ public class EnemyPatrol : MonoBehaviour
         {
             //Trigger Attack Animation
             anim.SetTrigger("AttackPlayer");
-            attackSFX.PlayOneShot(attackSound);
+            AudioSFX.PlayOneShot(attackSound);
             
             //Set Enemy Attack State to TRUE
             hasAttacked = true;

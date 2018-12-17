@@ -295,7 +295,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 10
+  MaxDistance: 12
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -552,8 +552,9 @@ MonoBehaviour:
   patrolPhysicsMaterial: {fileID: 6200000, guid: 2a359edaaf369774e876c2a2deffa449,
     type: 2}
   enemyHealth: 2
-  attackSFX: {fileID: 82922927245016350}
+  AudioSFX: {fileID: 82922927245016350}
   attackSound: {fileID: 8300000, guid: 63666fb81341cf54f89d8fa8bc7dabfb, type: 3}
+  barkSound: {fileID: 8300000, guid: 70ed19222bdfafd4e836aacfe8ae4097, type: 3}
 --- !u!212 &212017713874789152
 SpriteRenderer:
   m_ObjectHideFlags: 1

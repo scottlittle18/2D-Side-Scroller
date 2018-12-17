@@ -408,6 +408,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dabdac6e8fbad1d42b57a036b31625f5, type: 3}
   - {fileID: 8300000, guid: c524d457796102d438f8aa84687fbe46, type: 3}
   - {fileID: 8300000, guid: 6432cea7e57f3414bb020ac2c5683b08, type: 3}
+  - {fileID: 8300000, guid: 825f0c24428a7234987d1ba58702a100, type: 3}
   FootstepFX: {fileID: 82726590425513562}
   SoundFX: {fileID: 82481605535911472}
 --- !u!212 &212938765485272138
