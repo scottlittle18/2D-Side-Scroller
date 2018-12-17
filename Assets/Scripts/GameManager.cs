@@ -76,8 +76,7 @@ public class GameManager : MonoBehaviour {
 
     private void Start()
     {
-        LifeCounter = lives;
-        //gameOverScreen.enabled = false;        
+        LifeCounter = lives;      
     }
 
     public void ResetLifeCount()
