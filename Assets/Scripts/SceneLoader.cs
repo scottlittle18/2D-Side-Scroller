@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     private int currentScene;
+    private GameManager gameManager;
     // Use this for initialization
     void Start()
     {
         currentScene = SceneManager.GetActiveScene().buildIndex;
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     public void PressedStartButton()
@@ -24,7 +26,15 @@ public class SceneLoader : MonoBehaviour
 
     public void ExitCredits()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene(gameManager.LevelToRetry);
+        gameManager.GameOver = false;
+        //gameManager = FindObjectOfType<GameManager>();
+        //gameManager.ResetLifeCount();
     }
 
     public void Quit()
