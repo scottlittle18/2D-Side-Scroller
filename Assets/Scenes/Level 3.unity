@@ -27074,7 +27074,6 @@ GameObject:
   m_Component:
   - component: {fileID: 512306009}
   - component: {fileID: 512306011}
-  - component: {fileID: 512306010}
   - component: {fileID: 512306012}
   m_Layer: 9
   m_Name: Main Camera
@@ -27090,20 +27089,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 512306008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 135.15082, y: 16.09555, z: -9.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1770095163}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &512306010
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 512306008}
-  m_Enabled: 1
 --- !u!20 &512306011
 Camera:
   m_ObjectHideFlags: 0
@@ -27124,7 +27116,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
