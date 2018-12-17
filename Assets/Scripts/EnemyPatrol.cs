@@ -43,6 +43,10 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField]
     [Tooltip("Total amount of health")]
     private short enemyHealth;
+    [SerializeField]
+    private AudioSource attackSFX;
+    [SerializeField]
+    private AudioClip attackSound;
     #endregion
     #region Non-Serialized Fields
     private bool isHittingWall, isAtEdge, isPlayerInRange, isMovingRight, 
@@ -234,6 +238,7 @@ public class EnemyPatrol : MonoBehaviour
         {
             //Trigger Attack Animation
             anim.SetTrigger("AttackPlayer");
+            attackSFX.PlayOneShot(attackSound);
             
             //Set Enemy Attack State to TRUE
             hasAttacked = true;

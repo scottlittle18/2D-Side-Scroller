@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 114408999343313396}
   - component: {fileID: 82726590425513562}
   - component: {fileID: 82481605535911472}
+  - component: {fileID: 81062983165469114}
   m_Layer: 9
   m_Name: Player_Samurai
   m_TagString: Player
@@ -155,6 +156,13 @@ CapsuleCollider2D:
   m_Offset: {x: -0.22205639, y: -0.049737275}
   m_Size: {x: 0.90569687, y: 1.6206061}
   m_Direction: 0
+--- !u!81 &81062983165469114
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1545175643372454}
+  m_Enabled: 1
 --- !u!82 &82481605535911472
 AudioSource:
   m_ObjectHideFlags: 1
