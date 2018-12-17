@@ -17,6 +17,7 @@ TagManager:
   - SilverCoin
   - GoldCoin
   - LifeCounter
+  - Door
   layers:
   - Default
   - TransparentFX

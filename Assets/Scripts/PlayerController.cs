@@ -477,6 +477,8 @@ public class PlayerController : MonoBehaviour
         myRigidBody.freezeRotation = true;
         playerBody.color = Color.white;
         isDamagable = true;
+        allowMoveInput = true;
+        gameManager.GameOver = false;
         FootstepFX.UnPause();
     }
 }

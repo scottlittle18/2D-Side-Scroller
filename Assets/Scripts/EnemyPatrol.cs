@@ -57,6 +57,7 @@ public class EnemyPatrol : MonoBehaviour
     private Rigidbody2D enemyRigidBody;
     private Animator anim;
     private Collider2D enemyPrimaryCollision;
+    private Door doorScript;
     #endregion
     #region Enumerators
     IEnumerator KnockbackTime()
@@ -94,6 +95,7 @@ public class EnemyPatrol : MonoBehaviour
         enemyPrimaryCollision = GetComponent<CapsuleCollider2D>();
         enemyAttackPoint = GetComponentInChildren<CircleCollider2D>();
         EnemyHealthController = GetComponentInChildren<EnemyHealth>();
+        doorScript = GameObject.FindGameObjectWithTag("Door").GetComponent<Door>();
         //Values
         EnemyHealthController.CurrentEnemyHealth = enemyHealth;
         // States
@@ -259,7 +261,8 @@ public class EnemyPatrol : MonoBehaviour
     /// Remove Object When Player Kills It
     /// </summary>
     private void Death()
-    {        
+    {
+        doorScript.EnemyBandits.Remove(gameObject);
         Destroy(gameObject, deathDelay);        
     }   
 }

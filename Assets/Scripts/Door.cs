@@ -6,13 +6,30 @@ using UnityEngine.SceneManagement;
 public class Door : MonoBehaviour
 {
     private BoxCollider2D box;
-    private GameObject[] EnemyBandits;
+    private List<GameObject> enemyBandits = new List<GameObject>();
     private int currentScene;
+
+    public List<GameObject> EnemyBandits
+    {
+        get
+        {
+            return enemyBandits;
+        }
+        set
+        {
+            enemyBandits = value;
+        }
+    }
 
     private void Start()
     {
         currentScene = SceneManager.GetActiveScene().buildIndex;
-        EnemyBandits = GameObject.FindGameObjectsWithTag("EnemyBandit");        
+        //EnemyBandits.Add(GameObject.FindGameObjectsWithTag("EnemyBandit"));
+
+        foreach (GameObject Enemy in GameObject.FindGameObjectsWithTag("EnemyBandit"))
+        {
+            EnemyBandits.Add(Enemy);
+        }
     }
 
     private void Awake()
@@ -36,6 +53,7 @@ public class Door : MonoBehaviour
     {
         foreach (GameObject Enemy in EnemyBandits)
         {
+            //EnemyBandits.Remove(Enemy);
             Enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
         }
     }
