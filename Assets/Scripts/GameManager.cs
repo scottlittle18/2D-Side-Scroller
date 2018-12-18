@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour {
 
     private void Start()
     {
-        LifeCounter = lives;      
+        instance.LifeCounter = lives;      
     }
 
     public void ResetLifeCount()
