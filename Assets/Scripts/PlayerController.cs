@@ -240,8 +240,8 @@ public class PlayerController : MonoBehaviour
         moveInput = Input.GetAxisRaw("Horizontal");
         jumpInput = Input.GetButtonDown("Jump");
         jumpRelease = Input.GetButtonUp("Jump");
-        attackInput = Input.GetButtonDown("Fire2");
-        attackRelease = Input.GetButtonUp("Fire2");
+        attackInput = Input.GetButtonDown("Submit");
+        attackRelease = Input.GetButtonUp("Submit");
         //Enables Jumping
         if (jumpInput && grounded)
         {
