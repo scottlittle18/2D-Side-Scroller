@@ -24,7 +24,6 @@ public class Door : MonoBehaviour
     private void Start()
     {
         currentScene = SceneManager.GetActiveScene().buildIndex;
-        //EnemyBandits.Add(GameObject.FindGameObjectsWithTag("EnemyBandit"));
 
         foreach (GameObject Enemy in GameObject.FindGameObjectsWithTag("EnemyBandit"))
         {

@@ -31,8 +31,9 @@ public class SceneLoader : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene(gameManager.LevelToRetry);
         gameManager.GameOver = false;
+        gameManager.ResetLifeCount();
+        SceneManager.LoadScene(gameManager.LevelToRetry);
         //gameManager = FindObjectOfType<GameManager>();
         //gameManager.ResetLifeCount();
     }

@@ -1129,45 +1129,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1076358674873960, guid: 342526adc4dec9c469679664a2792c24, type: 2}
-      propertyPath: m_Name
-      value: GameplayGUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 224474480846751664, guid: 342526adc4dec9c469679664a2792c24,
-        type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224474480846751664, guid: 342526adc4dec9c469679664a2792c24,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224474480846751664, guid: 342526adc4dec9c469679664a2792c24,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 160
-      objectReference: {fileID: 0}
-    - target: {fileID: 224474480846751664, guid: 342526adc4dec9c469679664a2792c24,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 114477690535295284, guid: 342526adc4dec9c469679664a2792c24,
-        type: 2}
-      propertyPath: m_FontData.m_FontSize
-      value: 26
-      objectReference: {fileID: 0}
-    - target: {fileID: 114477690535295284, guid: 342526adc4dec9c469679664a2792c24,
-        type: 2}
-      propertyPath: m_FontData.m_MinSize
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 224474480846751664, guid: 342526adc4dec9c469679664a2792c24,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 342526adc4dec9c469679664a2792c24, type: 2}
   m_IsPrefabParent: 0

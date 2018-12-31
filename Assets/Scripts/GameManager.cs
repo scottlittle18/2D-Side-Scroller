@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private int lives;
     private int lifeCounter;
-    [SerializeField]
+    //[SerializeField]
     private Text lifeText;
     //[SerializeField]
     //private Canvas gameOverScreen;
@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour {
         }
         set
         {
+            //TODO: Debug.Log("Life Counter Updated");
             Debug.Log("Life Counter Updated");
             lifeCounter = value;
             SetLifeCounterText();
@@ -66,22 +67,24 @@ public class GameManager : MonoBehaviour {
         //If instance already exists and it's not this:
         else if (instance != this)
         {
+            if (instance.LifeCounter < 1)
+                ResetLifeCount();
             //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
             Destroy(gameObject);
-            ResetLifeCount();
         }
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
+        lifeText = GameObject.FindGameObjectWithTag("LifeCounter").GetComponent<Text>();
+        ResetLifeCount();
     }
 
     private void Start()
     {
-        instance.LifeCounter = lives;      
     }
 
     public void ResetLifeCount()
     {
-        LifeCounter = lives;
+        instance.LifeCounter = lives;
     }
 
     private void CheckForGameOver()
@@ -89,17 +92,20 @@ public class GameManager : MonoBehaviour {
         if (GameOver == true)
         {
             LevelToRetry = SceneManager.GetActiveScene().buildIndex;
+            //TODO: Debug.Log("Scene to be retried is " + LevelToRetry);
             Debug.Log("Scene to be retried is " + LevelToRetry);
             SceneManager.LoadScene("Game Over");
+            //TODO: Debug.Log("Game Should Be Over");
             Debug.Log("Game Should Be Over");
         }
     }
 
     private void SetLifeCounterText()
     {
+        //TODO: Debug.Log("LifeCounterTextSet");
         Debug.Log("LifeCounterTextSet");
-        lifeText.text = "x" + LifeCounter.ToString();
-        if (LifeCounter < 0)
+        lifeText.text = "x" + instance.LifeCounter.ToString();
+        if (instance.LifeCounter < 0)
             GameOver = true;
     }
 }

@@ -14,6 +14,20 @@ public class MenuButtons : MonoBehaviour
     [Tooltip("Displays the button's current state (pressed/unpressed)")]
     SpriteRenderer menuButtonState;
 
+    private void Awake()
+    {
+        if ((menuButtonState = null) && (GetComponent<SpriteRenderer>() != null))
+        {
+            menuButtonState = GetComponent<SpriteRenderer>();
+            menuButtonState.sprite = buttonUnpressed;
+        }
+        else
+        {
+            //TODO: Debug.Log("Missing SpriteRenderer Component");
+            Debug.Log("Missing SpriteRenderer Component");
+        }
+        
+    }
     private void Update()
     {
         InputHandler();
