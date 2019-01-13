@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
     private Collider2D playerGroundCollider;
     private Color playerColor;
     private Renderer playerRend;
-    private GameManager gameManager;
+    private LifeCounter lifeCounter;
     #endregion
     #region Properties
     public Checkpoint CurrentCheckpoint
@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour
         // Game Objects
         spawnPoint = GameObject.Find("SpawnPoint");
         spawnPointLocation = spawnPoint.transform;
-        gameManager = FindObjectOfType<GameManager>();
+        lifeCounter = FindObjectOfType<LifeCounter>();
         HealthMeter = GameObject.Find("PlayerHealthMeter");
         HealthAnim = HealthMeter.GetComponent<Animator>();
         UpdateHealth();
@@ -426,15 +426,14 @@ public class PlayerController : MonoBehaviour
     private void SetIsDead(bool dead)
     {
         FootstepFX.Pause();
-        if (gameManager.LifeCounter >= 0)
+        if (lifeCounter.LifeCountKeeper >= 0)
         {
-            gameManager.LifeCounter -= 3;
+            lifeCounter.LifeCountKeeper -= 3;
         }
-        else if (gameManager.LifeCounter < 0 || gameManager.GameOver == true)
+        else if (lifeCounter.LifeCountKeeper < 0 || lifeCounter.GameOver == true)
         {
             Debug.Log("LifeCounter < 0");
             allowMoveInput = false;
-            //gameManager.GameOver = true;
         }
         isDead = dead;
         SetRespawnTimer();
@@ -478,7 +477,7 @@ public class PlayerController : MonoBehaviour
         playerBody.color = Color.white;
         isDamagable = true;
         allowMoveInput = true;
-        gameManager.GameOver = false;
+        lifeCounter.GameOver = false;
         FootstepFX.UnPause();
     }
 }
