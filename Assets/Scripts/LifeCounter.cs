@@ -32,17 +32,17 @@ public class LifeCounter : MonoBehaviour {
     {
         get
         {
-            return lifeCounter;
+            return PlayerPrefs.GetInt("LifeCounter");
         }
         set
         {
-            lifeCounter = value;
+            //lifeCounter = value;
             //TODO: Debug.Log("Life Counter Updated");
-            Debug.Log("Life Counter Updated");
+            //Debug.Log("Life Counter Updated");
 
-            PlayerPrefs.SetInt("LifeCounter", lifeCounter);
+            PlayerPrefs.SetInt("LifeCounter", value);
             //TODO: Debug.Log("LifeCounter PlayerPref Updated");
-            Debug.Log("LifeCounter PlayerPref Updated");
+            Debug.Log("LifeCounter PlayerPref Updated and = " + LifeCountKeeper);
 
             SetLifeCounterText();
         }
@@ -63,14 +63,21 @@ public class LifeCounter : MonoBehaviour {
 
     private void Awake()
     {
-        lifeText = GameObject.FindGameObjectWithTag("LifeCounter").GetComponent<Text>();
+        lifeText = GetComponent<Text>();
+        LifeCountKeeper = lives;
+    }
+
+    private void Start()
+    {
+        GameOver = false;
     }
 
     private void CheckForGameOver()
     {
         if (GameOver == true)
         {
-            levelToRetry = SceneManager.GetActiveScene().buildIndex;
+            //levelToRetry = SceneManager.GetActiveScene().buildIndex;
+            PlayerPrefs.SetInt("LevelToRetry", SceneManager.GetActiveScene().buildIndex);
             //TODO: Debug.Log("Scene to be retried is " + LevelToRetry);
             Debug.Log("Scene to be retried is " + levelToRetry);
             SceneManager.LoadScene("Game Over");

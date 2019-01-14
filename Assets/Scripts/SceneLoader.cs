@@ -19,6 +19,11 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(currentScene + 1);
     }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+
     public void Credits()
     {
         SceneManager.LoadScene("Credits");
@@ -31,9 +36,7 @@ public class SceneLoader : MonoBehaviour
 
     public void Retry()
     {
-        lifeCounter.GameOver = false;
-        lifeCounter.ResetLifeCount();
-        SceneManager.LoadScene(lifeCounter.LevelToRetry);
+        SceneManager.LoadScene(PlayerPrefs.GetInt("LevelToRetry"));
     }
 
     public void Quit()

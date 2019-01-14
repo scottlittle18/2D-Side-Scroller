@@ -16,9 +16,10 @@ public class MenuButtons : MonoBehaviour
 
     private void Awake()
     {
-        if ((menuButtonState = null) && (GetComponent<SpriteRenderer>() != null))
+        //menuButtonState.sprite = buttonUnpressed;
+        /*if ((menuButtonState = null) && (GetComponent<SpriteRenderer>() != null))
         {
-            menuButtonState = GetComponent<SpriteRenderer>();
+            //menuButtonState = GetComponent<SpriteRenderer>();
             menuButtonState.sprite = buttonUnpressed;
         }
         else
@@ -26,11 +27,7 @@ public class MenuButtons : MonoBehaviour
             //TODO: Debug.Log("Missing SpriteRenderer Component");
             Debug.Log("Missing SpriteRenderer Component");
         }
-        
-    }
-    private void Update()
-    {
-        InputHandler();
+        */
     }
 
     private void InputHandler()
