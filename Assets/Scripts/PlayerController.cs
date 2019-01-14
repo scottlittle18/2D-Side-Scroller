@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(timeInvincible);
         playerColor.a = 1f;
         playerRend.material.color = playerColor;
-        Physics2D.IgnoreLayerCollision(9, 13, true);
+        Physics2D.IgnoreLayerCollision(9, 13, false);
         Physics2D.IgnoreLayerCollision(9, 14, false);
         isDamagable = true;
     }
