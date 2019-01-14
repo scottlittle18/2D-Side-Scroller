@@ -50,11 +50,10 @@ public class PlayerController : MonoBehaviour
     private AudioSource FootstepFX, SoundFX;
     #endregion
     #region Non-Serialized Fields
-    private int scoreCounter;
+    private int scoreCounter, PlayerHealth;
     private float moveInput, respawnTimer;
     //Jump and Attack Inputs and Release variables
-    private bool jumpInput, jumpRelease, attackInput, attackRelease, beingKnockedback, isAlive, canDoubleJump, canJump;
-    private short PlayerHealth;    
+    private bool jumpInput, jumpRelease, attackInput, attackRelease, beingKnockedback, isAlive, canDoubleJump, canJump;  
     //Checks which side the player was hit on
     private bool hitOnRight;
     private bool grounded, doubleJumped, isDead, allowMoveInput, isDamagable;    
@@ -100,7 +99,10 @@ public class PlayerController : MonoBehaviour
         }
         set
         {
-            scoreCounter = value;
+            if (value < 0)
+                scoreCounter = 0;
+            else
+                scoreCounter = value;
             SetScoreText();
         }
     }
@@ -147,7 +149,6 @@ public class PlayerController : MonoBehaviour
     private void InitializePlayer()
     {
         // Components
-        //SoundFX = GetComponent<AudioSource>();
         playerBody = GetComponent<SpriteRenderer>();
         myRigidBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -156,8 +157,7 @@ public class PlayerController : MonoBehaviour
         playerColor = playerBody.color;
         // Values
         ScoreCounter = 0;
-        PlayerHealth = 6;
-        //gameManager.LifeCounter = 6;
+        PlayerHealth = PlayerPrefs.GetInt("LifeCounter");
         // Game Objects
         spawnPoint = GameObject.Find("SpawnPoint");
         spawnPointLocation = spawnPoint.transform;

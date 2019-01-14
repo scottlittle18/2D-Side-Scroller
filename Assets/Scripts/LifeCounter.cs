@@ -37,14 +37,7 @@ public class LifeCounter : MonoBehaviour {
         }
         set
         {
-            //lifeCounter = value;
-            //TODO: Debug.Log("Life Counter Updated");
-            //Debug.Log("Life Counter Updated");
-
             PlayerPrefs.SetInt("LifeCounter", value);
-            //TODO: Debug.Log("LifeCounter PlayerPref Updated");
-            Debug.Log("LifeCounter PlayerPref Updated and = " + LifeCountKeeper);
-
             SetLifeCounterText();
         }
     }
