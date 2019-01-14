@@ -70,26 +70,19 @@ public class LifeCounter : MonoBehaviour {
     {
         if (GameOver == true)
         {
-            //levelToRetry = SceneManager.GetActiveScene().buildIndex;
             PlayerPrefs.SetInt("LevelToRetry", SceneManager.GetActiveScene().buildIndex);
-            //TODO: Debug.Log("Scene to be retried is " + LevelToRetry);
-            Debug.Log("Scene to be retried is " + PlayerPrefs.GetInt("LevelToRetry"));
             SceneManager.LoadScene("Game Over");
-            //TODO: Debug.Log("Game Should Be Over");
-            Debug.Log("Game Should Be Over");
         }
     }
 
     private void SetLifeCounterText()
     {
         lifeText.text = "x" + LifeCountKeeper.ToString();
-        //TODO: Debug.Log("LifeCounterTextSet");
-        Debug.Log("LifeCounterTextSet");
         if (LifeCountKeeper < 0)
             GameOver = true;
     }
 
-    public void ResetLifeCount()
+    private void ResetLifeCount()
     {
         LifeCountKeeper = playerLives;
     }

@@ -41,6 +41,7 @@ public class Door : MonoBehaviour
         if ((Input.GetAxis("Vertical") > 0) && other.tag == "Player")
         {
             HaltEnemyMovement();
+
             SceneManager.LoadScene(currentScene + 1);
         }
     }

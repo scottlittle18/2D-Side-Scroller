@@ -21,8 +21,9 @@ GameObject:
   - component: {fileID: 224474480846751664}
   - component: {fileID: 222816732440454134}
   - component: {fileID: 114477690535295284}
+  - component: {fileID: 114261318571472814}
   m_Layer: 5
-  m_Name: Score
+  m_Name: ScoreCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,6 +95,17 @@ Transform:
   m_Father: {fileID: 224087918389318646}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114261318571472814
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1047186381224866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26856aba4bf90094a9e28edabd8e451b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114369491332655982
 MonoBehaviour:
   m_ObjectHideFlags: 1

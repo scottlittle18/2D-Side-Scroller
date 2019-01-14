@@ -58,6 +58,7 @@ public class EnemyPatrol : MonoBehaviour
     private Animator anim;
     private Collider2D enemyPrimaryCollision;
     private Door doorScript;
+    private ScoreCounter scoreCounter;
     #endregion
     #region Enumerators
     IEnumerator KnockbackTime()
@@ -96,6 +97,7 @@ public class EnemyPatrol : MonoBehaviour
         enemyAttackPoint = GetComponentInChildren<CircleCollider2D>();
         EnemyHealthController = GetComponentInChildren<EnemyHealth>();
         doorScript = GameObject.FindGameObjectWithTag("Door").GetComponent<Door>();
+        scoreCounter = FindObjectOfType<ScoreCounter>();
         //Values
         EnemyHealthController.CurrentEnemyHealth = enemyHealth;
         // States
@@ -182,7 +184,7 @@ public class EnemyPatrol : MonoBehaviour
             {
                 //Get PlayerController from player GameObject in order to access scoreCounter & SetScoreText()
                 playerController = collision.GetComponentInParent<PlayerController>();
-                playerController.ScoreCounter++;
+                scoreCounter.ScoreCountKeeper++;
                 //Receive damage from player
                 enemyHealth--;
                 EnemyHealthController.CurrentEnemyHealth = enemyHealth;

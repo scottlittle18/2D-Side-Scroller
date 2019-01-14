@@ -34,8 +34,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private LayerMask whatIsGround;
     [SerializeField]
-    private Text scoreText;
-    [SerializeField]
     [Tooltip("Active Physics Material While Player Is Moving")]
     private PhysicsMaterial2D playerMovingPhysicsMaterial;
     [SerializeField]
@@ -50,7 +48,7 @@ public class PlayerController : MonoBehaviour
     private AudioSource FootstepFX, SoundFX;
     #endregion
     #region Non-Serialized Fields
-    private int scoreCounter, PlayerHealth;
+    private short PlayerHealth;
     private float moveInput, respawnTimer;
     //Jump and Attack Inputs and Release variables
     private bool jumpInput, jumpRelease, attackInput, attackRelease, beingKnockedback, isAlive, canDoubleJump, canJump;  
@@ -67,6 +65,7 @@ public class PlayerController : MonoBehaviour
     private Color playerColor;
     private Renderer playerRend;
     private LifeCounter lifeCounter;
+    private ScoreCounter scoreCounter;
     #endregion
     #region Properties
     public Checkpoint CurrentCheckpoint
@@ -89,23 +88,7 @@ public class PlayerController : MonoBehaviour
                 currentCheckpoint.IsActivated = true;
             }
         }
-    }
-
-    public int ScoreCounter
-    {
-        get
-        {
-            return scoreCounter;
-        }
-        set
-        {
-            if (value < 0)
-                scoreCounter = 0;
-            else
-                scoreCounter = value;
-            SetScoreText();
-        }
-    }
+    }    
     #endregion
     #region Enumerators
     /// <summary>
@@ -156,12 +139,12 @@ public class PlayerController : MonoBehaviour
         playerRend = GetComponent<Renderer>();
         playerColor = playerBody.color;
         // Values
-        ScoreCounter = 0;
-        PlayerHealth = PlayerPrefs.GetInt("LifeCounter");
+        PlayerHealth = 6; // 1hp = half of a heart
         // Game Objects
         spawnPoint = GameObject.Find("SpawnPoint");
         spawnPointLocation = spawnPoint.transform;
         lifeCounter = FindObjectOfType<LifeCounter>();
+        scoreCounter = FindObjectOfType<ScoreCounter>();
         HealthMeter = GameObject.Find("PlayerHealthMeter");
         HealthAnim = HealthMeter.GetComponent<Animator>();
         UpdateHealth();
@@ -337,20 +320,18 @@ public class PlayerController : MonoBehaviour
     //-------------------------------------------------------------------<<<<-------TRIGGER CHECKS-----------------------------
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //TODO: Debug.Log("Player has collided with an object with the tag: " + collision.tag);
-        Debug.Log("Player has collided with an object with the tag: " + collision.tag);
         switch (collision.tag)
         {
             case "SilverCoin":
-                ScoreCounter++;
+                scoreCounter.ScoreCountKeeper++;
                 break;
             case "GoldCoin":
-                ScoreCounter += 2;
+                scoreCounter.ScoreCountKeeper += 2;
                 break;    
             case "Hazards":
                     SoundFX.PlayOneShot(SFXArray[3]);
                     playerMovingPhysicsMaterial.friction = playerStoppingPhysicsMaterial.friction;
-                    ScoreCounter--;
+                    scoreCounter.ScoreCountKeeper--;
                     SetIsDead(true);
                 if (isDamagable)
                 {
@@ -362,7 +343,7 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
             case "Killzone":
-                ScoreCounter--;
+                scoreCounter.ScoreCountKeeper--;
                 SetIsDead(true);
                 break;
             case "Ground":
@@ -391,7 +372,7 @@ public class PlayerController : MonoBehaviour
                         hitOnRight = false;
                     Kickback();
                     UpdateHealth();
-                    ScoreCounter--;
+                    scoreCounter.ScoreCountKeeper--;
                     StartCoroutine(InvincibilityTimer());
                 }
                 if (PlayerHealth == 0)
@@ -423,11 +404,6 @@ public class PlayerController : MonoBehaviour
         }
         // Start Knockback Timer
         StartCoroutine(KnockbackTimer());
-    }       
-
-    private void SetScoreText()
-    {
-        scoreText.text = "Score: " + ScoreCounter.ToString();
     }
 
     private void SetIsDead(bool dead)
@@ -436,7 +412,7 @@ public class PlayerController : MonoBehaviour
         if (lifeCounter.LifeCountKeeper >= 0)
         {
             //TODO: *For Debugging Purposes* Set this to a reasonable # when going to build the project
-            lifeCounter.LifeCountKeeper -= 6;
+            lifeCounter.LifeCountKeeper -= 2;
         }
         else if (lifeCounter.LifeCountKeeper < 0 || lifeCounter.GameOver == true)
         {
