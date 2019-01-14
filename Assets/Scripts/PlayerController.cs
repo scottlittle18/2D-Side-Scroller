@@ -428,7 +428,8 @@ public class PlayerController : MonoBehaviour
         FootstepFX.Pause();
         if (lifeCounter.LifeCountKeeper >= 0)
         {
-            lifeCounter.LifeCountKeeper -= 3;
+            //TODO: *For Debugging Purposes* Set this to a reasonable # when going to build the project
+            lifeCounter.LifeCountKeeper -= 6;
         }
         else if (lifeCounter.LifeCountKeeper < 0 || lifeCounter.GameOver == true)
         {

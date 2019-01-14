@@ -13,13 +13,18 @@ public class EnemyHealth : MonoBehaviour
     private EnemyPatrol EnemyController;
     private short currentEnemyHealth;
 
-    // Use this for initialization
-    private void Start ()
+    private void Awake()
     {
         //Index references for the children of the EnemyHealthMeter
         fullHealth = transform.GetChild(0);
         halfHealth = transform.GetChild(1);
         noHealth = transform.GetChild(2);
+        
+    }
+
+    // Use this for initialization
+    private void Start ()
+    {
 
         UpdateHealthSprite();
 	}
