@@ -337,6 +337,8 @@ public class PlayerController : MonoBehaviour
     //-------------------------------------------------------------------<<<<-------TRIGGER CHECKS-----------------------------
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //TODO: Debug.Log("Player has collided with an object with the tag: " + collision.tag);
+        Debug.Log("Player has collided with an object with the tag: " + collision.tag);
         switch (collision.tag)
         {
             case "SilverCoin":
@@ -346,13 +348,18 @@ public class PlayerController : MonoBehaviour
                 ScoreCounter += 2;
                 break;    
             case "Hazards":
-                if (isDamagable)
-                {
                     SoundFX.PlayOneShot(SFXArray[3]);
                     playerMovingPhysicsMaterial.friction = playerStoppingPhysicsMaterial.friction;
                     ScoreCounter--;
                     SetIsDead(true);
-                }                
+                if (isDamagable)
+                {
+                }
+                else
+                {
+                    //TODO: Debug.Log("Hazard Collision Failure; isDamagable = " + isDamagable);
+                    Debug.Log("Hazard Collision Failure;\nStatus:\n\tisDamagable = " + isDamagable + ";\n\tisDead = " + isDead);
+                }
                 break;
             case "Killzone":
                 ScoreCounter--;

@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class LifeCounter : MonoBehaviour {
 
     [SerializeField]
-    private int lives;
+    [Tooltip("The Number of Lives That the Player Starts the Game with")]
+    private int playerLives;
     private int lifeCounter;
     //[SerializeField]
     private Text lifeText;
@@ -64,7 +65,7 @@ public class LifeCounter : MonoBehaviour {
     private void Awake()
     {
         lifeText = GetComponent<Text>();
-        LifeCountKeeper = lives;
+        LifeCountKeeper = playerLives;
     }
 
     private void Start()
@@ -79,7 +80,7 @@ public class LifeCounter : MonoBehaviour {
             //levelToRetry = SceneManager.GetActiveScene().buildIndex;
             PlayerPrefs.SetInt("LevelToRetry", SceneManager.GetActiveScene().buildIndex);
             //TODO: Debug.Log("Scene to be retried is " + LevelToRetry);
-            Debug.Log("Scene to be retried is " + levelToRetry);
+            Debug.Log("Scene to be retried is " + PlayerPrefs.GetInt("LevelToRetry"));
             SceneManager.LoadScene("Game Over");
             //TODO: Debug.Log("Game Should Be Over");
             Debug.Log("Game Should Be Over");
@@ -97,6 +98,6 @@ public class LifeCounter : MonoBehaviour {
 
     public void ResetLifeCount()
     {
-        LifeCountKeeper = lives;
+        LifeCountKeeper = playerLives;
     }
 }
