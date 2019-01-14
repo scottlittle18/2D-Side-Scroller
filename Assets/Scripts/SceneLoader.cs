@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     private int currentScene;
-    private LifeCounter LifeCountKeeper;
+    private LifeCounter lifeCounter;
     // Use this for initialization
     void Start()
     {
         currentScene = SceneManager.GetActiveScene().buildIndex;
-        LifeCountKeeper = FindObjectOfType<GameManager>();
+        lifeCounter = FindObjectOfType<LifeCounter>();
     }
 
     public void PressedStartButton()
@@ -31,11 +31,9 @@ public class SceneLoader : MonoBehaviour
 
     public void Retry()
     {
-        LifeCountKeeper.GameOver = false;
-        LifeCountKeeper.ResetLifeCount();
-        SceneManager.LoadScene(LifeCountKeeper.LevelToRetry);
-        //gameManager = FindObjectOfType<GameManager>();
-        //gameManager.ResetLifeCount();
+        lifeCounter.GameOver = false;
+        lifeCounter.ResetLifeCount();
+        SceneManager.LoadScene(lifeCounter.LevelToRetry);
     }
 
     public void Quit()
