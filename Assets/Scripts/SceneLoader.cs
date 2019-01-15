@@ -6,21 +6,18 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     private int currentScene;
-    private LifeCounter lifeCounter;
-    private ScoreCounter scoreCounter;
 
     // Use this for initialization
     void Start()
     {
+        PlayerPrefs.SetInt("FullHealth", 6);
+        PlayerPrefs.SetInt("StartingNumberOfLives", 5);
         currentScene = SceneManager.GetActiveScene().buildIndex;
-        lifeCounter = FindObjectOfType<LifeCounter>();
-        scoreCounter = FindObjectOfType<ScoreCounter>();
     }
 
     public void PressedStartButton()
     {
-        //Sets the Player's score to 0 when 'Start' is selected on the Main Menu
-        PlayerPrefs.SetInt("ScoreCounter", 0);
+        ResetScoreCounterAndHealth();
         SceneManager.LoadScene(currentScene + 1);
     }
 
@@ -41,13 +38,21 @@ public class SceneLoader : MonoBehaviour
 
     public void Retry()
     {
+        ResetScoreCounterAndHealth();
         SceneManager.LoadScene(PlayerPrefs.GetInt("LevelToRetry"));
     }
 
     public void Quit()
     {
-        //TODO: Debug.Log("Quit Program Input Accepted")
-        Debug.Log("Quit Program Input Accepted");
         Application.Quit();
+    }
+    /// <summary>
+    /// Call this method to Fully Heal the Player and Reset the ScoreCounter
+    /// </summary>
+    private void ResetScoreCounterAndHealth()
+    {
+        PlayerPrefs.SetInt("CurrentPlayerHealth", PlayerPrefs.GetInt("FullHealth"));
+        PlayerPrefs.SetInt("LifeCounter", PlayerPrefs.GetInt("StartingNumberOfLives"));
+        PlayerPrefs.SetInt("ScoreCounter", 0);
     }
 }

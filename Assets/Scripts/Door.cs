@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
-    private BoxCollider2D box;
     private List<GameObject> enemyBandits = new List<GameObject>();
     private int currentScene;
 
@@ -20,8 +19,8 @@ public class Door : MonoBehaviour
             enemyBandits = value;
         }
     }
-
-    private void Start()
+    
+    private void Awake()
     {
         currentScene = SceneManager.GetActiveScene().buildIndex;
 
@@ -31,17 +30,12 @@ public class Door : MonoBehaviour
         }
     }
 
-    private void Awake()
-    {
-        box = GetComponent<BoxCollider2D>();
-    }
-
     private void OnTriggerStay2D(Collider2D other)
     {
         if ((Input.GetAxis("Vertical") > 0) && other.tag == "Player")
         {
             HaltEnemyMovement();
-
+            PlayerPrefs.SetInt("CurrentPlayerHealth", other.GetComponent<PlayerController>().CurrentPlayerHealth);
             SceneManager.LoadScene(currentScene + 1);
         }
     }

@@ -46,7 +46,9 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField]
     private AudioSource AudioSFX;
     [SerializeField]
-    private AudioClip attackSound, barkSound;
+    private AudioClip attackSound;
+    [SerializeField]
+    private AudioClip barkSound;
     #endregion
     #region Non-Serialized Fields
     private bool isHittingWall, isAtEdge, isPlayerInRange, isMovingRight, 
@@ -90,6 +92,8 @@ public class EnemyPatrol : MonoBehaviour
     /// </summary>
     void SetupObject()
     {
+        // Game Object References
+        whatIsPlayer = LayerMask.GetMask("Player");
         // Components
         anim = GetComponent<Animator>();
         enemyRigidBody = GetComponent<Rigidbody2D>();        
@@ -175,15 +179,14 @@ public class EnemyPatrol : MonoBehaviour
         //Detects melee attack from player
         if (collision.tag == "PlayerAttackPoint")
         {
-            AudioSFX.PlayOneShot(barkSound);
+            
             //Set current state to beingKnockedBack
             beingKnockedBack = true;
             canMove = false;
             //Keeps the Enemy from taking damage & adding to the player score multiple times from a single attack
             if (isDamagable)
             {
-                //Get PlayerController from player GameObject in order to access scoreCounter & SetScoreText()
-                playerController = collision.GetComponentInParent<PlayerController>();
+                AudioSFX.PlayOneShot(barkSound);
                 scoreCounter.ScoreCountKeeper++;
                 //Receive damage from player
                 enemyHealth--;

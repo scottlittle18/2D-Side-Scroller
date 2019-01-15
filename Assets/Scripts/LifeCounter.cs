@@ -46,11 +46,11 @@ public class LifeCounter : MonoBehaviour {
     {
         get
         {
-            return levelToRetry;
+            return PlayerPrefs.GetInt("LevelToRetry");
         }
         set
         {
-            levelToRetry = value;
+            PlayerPrefs.SetInt("LevelToRetry", value);
         }
     }
     #endregion
@@ -58,7 +58,12 @@ public class LifeCounter : MonoBehaviour {
     private void Awake()
     {
         lifeText = GetComponent<Text>();
-        LifeCountKeeper = playerLives;
+        if (0 < LifeCountKeeper && LifeCountKeeper < 6)
+        {
+            SetLifeCounterText();
+        }            
+        else
+            ResetLifeCount();
     }
 
     private void Start()
@@ -70,7 +75,7 @@ public class LifeCounter : MonoBehaviour {
     {
         if (GameOver == true)
         {
-            PlayerPrefs.SetInt("LevelToRetry", SceneManager.GetActiveScene().buildIndex);
+            LevelToRetry = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene("Game Over");
         }
     }
@@ -82,7 +87,7 @@ public class LifeCounter : MonoBehaviour {
             GameOver = true;
     }
 
-    private void ResetLifeCount()
+    public void ResetLifeCount()
     {
         LifeCountKeeper = playerLives;
     }

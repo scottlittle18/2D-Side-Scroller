@@ -34,4 +34,9 @@ public class ScoreCounter : MonoBehaviour {
     {
         scoreText.text = "Score: " + ScoreCountKeeper.ToString();
     }
+
+    public void ClearScore()
+    {
+        ScoreCountKeeper = 0;
+    }
 }

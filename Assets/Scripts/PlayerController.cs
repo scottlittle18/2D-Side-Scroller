@@ -32,8 +32,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Transform groundCheck, attackPoint;
     [SerializeField]
-    private LayerMask whatIsGround;
-    [SerializeField]
     [Tooltip("Active Physics Material While Player Is Moving")]
     private PhysicsMaterial2D playerMovingPhysicsMaterial;
     [SerializeField]
@@ -48,13 +46,13 @@ public class PlayerController : MonoBehaviour
     private AudioSource FootstepFX, SoundFX;
     #endregion
     #region Non-Serialized Fields
-    private short PlayerHealth;
     private float moveInput, respawnTimer;
     //Jump and Attack Inputs and Release variables
     private bool jumpInput, jumpRelease, attackInput, attackRelease, beingKnockedback, isAlive, canDoubleJump, canJump;  
     //Checks which side the player was hit on
     private bool hitOnRight;
     private bool grounded, doubleJumped, isDead, allowMoveInput, isDamagable;    
+    private LayerMask whatIsGround;
     private Checkpoint currentCheckpoint;
     private GameObject spawnPoint, HealthMeter;
     private Transform currentCheckpointLocation, spawnPointLocation;
@@ -88,7 +86,20 @@ public class PlayerController : MonoBehaviour
                 currentCheckpoint.IsActivated = true;
             }
         }
-    }    
+    }
+    
+    public int CurrentPlayerHealth
+    {
+        get
+        {
+            return PlayerPrefs.GetInt("CurrentPlayerHealth");
+        }
+        set
+        {
+            PlayerPrefs.SetInt("CurrentPlayerHealth", value);
+            UpdateHealth();
+        }
+    }
     #endregion
     #region Enumerators
     /// <summary>
@@ -138,9 +149,7 @@ public class PlayerController : MonoBehaviour
         playerGroundCollider = GetComponent<CapsuleCollider2D>();
         playerRend = GetComponent<Renderer>();
         playerColor = playerBody.color;
-        // Values
-        PlayerHealth = 6; // 1hp = half of a heart
-        // Game Objects
+        // Game Object References
         spawnPoint = GameObject.Find("SpawnPoint");
         spawnPointLocation = spawnPoint.transform;
         lifeCounter = FindObjectOfType<LifeCounter>();
@@ -148,6 +157,11 @@ public class PlayerController : MonoBehaviour
         HealthMeter = GameObject.Find("PlayerHealthMeter");
         HealthAnim = HealthMeter.GetComponent<Animator>();
         UpdateHealth();
+        whatIsGround = LayerMask.GetMask("Ground");
+        groundCheck = gameObject.transform.GetChild(0); //Retrieves the transform component from the child named GroundCheck
+        attackPoint = gameObject.transform.GetChild(1); //Retrieves the transform component from the child named AttackPoint
+        // Values
+            // [Initialize Values Here]
         // States
         attackPoint.gameObject.SetActive(false);
         allowMoveInput = true;
@@ -222,7 +236,6 @@ public class PlayerController : MonoBehaviour
         //Movement Variables
         moveInput = Input.GetAxisRaw("Horizontal");
         jumpInput = Input.GetButtonDown("Jump");
-        jumpRelease = Input.GetButtonUp("Jump");
         attackInput = Input.GetButtonDown("Submit");
         attackRelease = Input.GetButtonUp("Submit");
         //Enables Jumping
@@ -297,7 +310,6 @@ public class PlayerController : MonoBehaviour
 
     private void AddJumpForce()
     {
-        //myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, 0);
         myRigidBody.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
     }
 
@@ -315,7 +327,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateHealth()
     {
-        HealthAnim.SetInteger("PlayerHealth", PlayerHealth);
+        HealthAnim.SetInteger("PlayerHealth", PlayerPrefs.GetInt("CurrentPlayerHealth"));
     }
     //-------------------------------------------------------------------<<<<-------TRIGGER CHECKS-----------------------------
     private void OnTriggerEnter2D(Collider2D collision)
@@ -329,17 +341,12 @@ public class PlayerController : MonoBehaviour
                 scoreCounter.ScoreCountKeeper += 2;
                 break;    
             case "Hazards":
+                if (isDamagable)
+                {
                     SoundFX.PlayOneShot(SFXArray[3]);
                     playerMovingPhysicsMaterial.friction = playerStoppingPhysicsMaterial.friction;
                     scoreCounter.ScoreCountKeeper--;
                     SetIsDead(true);
-                if (isDamagable)
-                {
-                }
-                else
-                {
-                    //TODO: Debug.Log("Hazard Collision Failure; isDamagable = " + isDamagable);
-                    Debug.Log("Hazard Collision Failure;\nStatus:\n\tisDamagable = " + isDamagable + ";\n\tisDead = " + isDead);
                 }
                 break;
             case "Killzone":
@@ -365,17 +372,16 @@ public class PlayerController : MonoBehaviour
                 {
                     SoundFX.PlayOneShot(SFXArray[3]);
                     beingKnockedback = true;
-                    PlayerHealth--;
+                    CurrentPlayerHealth--;
                     if (collision.transform.position.x > transform.position.x)
                         hitOnRight = true;
                     else if (collision.transform.position.x < transform.position.x)
                         hitOnRight = false;
                     Kickback();
-                    UpdateHealth();
                     scoreCounter.ScoreCountKeeper--;
                     StartCoroutine(InvincibilityTimer());
                 }
-                if (PlayerHealth == 0)
+                if (CurrentPlayerHealth == 0)
                     SetIsDead(true);
                 break;
             //Default Case Handler
@@ -383,12 +389,6 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
-    // TODO: Prototype for a way to handle any kind of enemy attack
-   /* void CollisionWithEnemy(Collider2D collision)
-    {
-
-    }
-    */
 
     private void Kickback()
     {
