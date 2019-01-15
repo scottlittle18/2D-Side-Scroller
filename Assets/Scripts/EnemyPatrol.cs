@@ -31,8 +31,7 @@ public class EnemyPatrol : MonoBehaviour
     private Transform pathCheck;
     [SerializeField]
     [Tooltip("This is the Game Object that will check if the enemy is at an edge")]
-    private Transform edgeCheck;    
-    [SerializeField]
+    private Transform edgeCheck;
     private LayerMask whatIsWall, whatIsPlayer;
     [SerializeField]
     [Tooltip("Physics Material that will be active while being knocked back")]
@@ -94,6 +93,7 @@ public class EnemyPatrol : MonoBehaviour
     {
         // Game Object References
         whatIsPlayer = LayerMask.GetMask("Player");
+        whatIsWall = LayerMask.GetMask("Ground");
         // Components
         anim = GetComponent<Animator>();
         enemyRigidBody = GetComponent<Rigidbody2D>();        

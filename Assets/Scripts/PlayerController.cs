@@ -200,7 +200,8 @@ public class PlayerController : MonoBehaviour
     {
         if(allowMoveInput && !isDead)
             GetMovementInput();
-
+        if (CurrentPlayerHealth != PlayerPrefs.GetInt("CurrentPlayerHealth"))
+            CurrentPlayerHealth = PlayerPrefs.GetInt("CurrentPlayerHealth");
         CheckForRespawn();
         AudioHandler();
 
@@ -327,6 +328,8 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateHealth()
     {
+        //TODO: Current Health Display Debug
+        Debug.Log("Current Health is " + PlayerPrefs.GetInt("CurrentPlayerHealth"));
         HealthAnim.SetInteger("PlayerHealth", PlayerPrefs.GetInt("CurrentPlayerHealth"));
     }
     //-------------------------------------------------------------------<<<<-------TRIGGER CHECKS-----------------------------
