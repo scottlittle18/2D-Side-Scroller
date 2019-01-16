@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
     private bool hitOnRight;
     private bool grounded, doubleJumped, isDead, allowMoveInput, isDamagable;
     private short playerHealth;
+    private const short fullHealth = 6;
     private LayerMask whatIsGround;
     private Checkpoint currentCheckpoint;
     private GameObject spawnPoint, HealthMeter;
@@ -161,7 +162,7 @@ public class PlayerController : MonoBehaviour
         groundCheck = gameObject.transform.GetChild(0); //Retrieves the transform component from the child named GroundCheck
         attackPoint = gameObject.transform.GetChild(1); //Retrieves the transform component from the child named AttackPoint
         // Values
-        PlayerHealth = 6;
+        PlayerHealth = fullHealth;
         // States
         attackPoint.gameObject.SetActive(false);
         allowMoveInput = true;
@@ -452,6 +453,7 @@ public class PlayerController : MonoBehaviour
             transform.position = CurrentCheckpoint.transform.position;
         }
         //Reset variables for player Respawn
+        PlayerHealth = fullHealth;
         isDead = false;
         myRigidBody.transform.rotation = Quaternion.identity;
         myRigidBody.freezeRotation = true;
