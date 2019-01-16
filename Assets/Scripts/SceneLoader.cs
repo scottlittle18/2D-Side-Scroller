@@ -10,7 +10,6 @@ public class SceneLoader : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        PlayerPrefs.SetInt("FullHealth", 6);
         PlayerPrefs.SetInt("StartingNumberOfLives", 5);
         currentScene = SceneManager.GetActiveScene().buildIndex;
     }
@@ -51,7 +50,6 @@ public class SceneLoader : MonoBehaviour
     /// </summary>
     private void ResetScoreCounterAndHealth()
     {
-        PlayerPrefs.SetInt("CurrentPlayerHealth", PlayerPrefs.GetInt("FullHealth"));
         PlayerPrefs.SetInt("LifeCounter", PlayerPrefs.GetInt("StartingNumberOfLives"));
         PlayerPrefs.SetInt("ScoreCounter", 0);
     }

@@ -51,7 +51,8 @@ public class PlayerController : MonoBehaviour
     private bool jumpInput, jumpRelease, attackInput, attackRelease, beingKnockedback, isAlive, canDoubleJump, canJump;  
     //Checks which side the player was hit on
     private bool hitOnRight;
-    private bool grounded, doubleJumped, isDead, allowMoveInput, isDamagable;    
+    private bool grounded, doubleJumped, isDead, allowMoveInput, isDamagable;
+    private short playerHealth;
     private LayerMask whatIsGround;
     private Checkpoint currentCheckpoint;
     private GameObject spawnPoint, HealthMeter;
@@ -87,19 +88,19 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    
-    public int CurrentPlayerHealth
+    public short PlayerHealth
     {
         get
         {
-            return PlayerPrefs.GetInt("CurrentPlayerHealth");
+            return playerHealth;
         }
         set
         {
-            PlayerPrefs.SetInt("CurrentPlayerHealth", value);
+            playerHealth = value;
             UpdateHealth();
         }
     }
+
     #endregion
     #region Enumerators
     /// <summary>
@@ -156,12 +157,11 @@ public class PlayerController : MonoBehaviour
         scoreCounter = FindObjectOfType<ScoreCounter>();
         HealthMeter = GameObject.Find("PlayerHealthMeter");
         HealthAnim = HealthMeter.GetComponent<Animator>();
-        UpdateHealth();
         whatIsGround = LayerMask.GetMask("Ground");
         groundCheck = gameObject.transform.GetChild(0); //Retrieves the transform component from the child named GroundCheck
         attackPoint = gameObject.transform.GetChild(1); //Retrieves the transform component from the child named AttackPoint
         // Values
-            // [Initialize Values Here]
+        PlayerHealth = 6;
         // States
         attackPoint.gameObject.SetActive(false);
         allowMoveInput = true;
@@ -200,8 +200,6 @@ public class PlayerController : MonoBehaviour
     {
         if(allowMoveInput && !isDead)
             GetMovementInput();
-        if (CurrentPlayerHealth != PlayerPrefs.GetInt("CurrentPlayerHealth"))
-            CurrentPlayerHealth = PlayerPrefs.GetInt("CurrentPlayerHealth");
         CheckForRespawn();
         AudioHandler();
 
@@ -328,9 +326,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateHealth()
     {
-        //TODO: Current Health Display Debug
-        Debug.Log("Current Health is " + PlayerPrefs.GetInt("CurrentPlayerHealth"));
-        HealthAnim.SetInteger("PlayerHealth", PlayerPrefs.GetInt("CurrentPlayerHealth"));
+        HealthAnim.SetInteger("PlayerHealth", PlayerHealth);
     }
     //-------------------------------------------------------------------<<<<-------TRIGGER CHECKS-----------------------------
     private void OnTriggerEnter2D(Collider2D collision)
@@ -375,7 +371,7 @@ public class PlayerController : MonoBehaviour
                 {
                     SoundFX.PlayOneShot(SFXArray[3]);
                     beingKnockedback = true;
-                    CurrentPlayerHealth--;
+                    PlayerHealth--;
                     if (collision.transform.position.x > transform.position.x)
                         hitOnRight = true;
                     else if (collision.transform.position.x < transform.position.x)
@@ -384,7 +380,7 @@ public class PlayerController : MonoBehaviour
                     scoreCounter.ScoreCountKeeper--;
                     StartCoroutine(InvincibilityTimer());
                 }
-                if (CurrentPlayerHealth == 0)
+                if (PlayerHealth == 0)
                     SetIsDead(true);
                 break;
             //Default Case Handler
@@ -415,11 +411,10 @@ public class PlayerController : MonoBehaviour
         if (lifeCounter.LifeCountKeeper >= 0)
         {
             //TODO: *For Debugging Purposes* Set this to a reasonable # when going to build the project
-            lifeCounter.LifeCountKeeper -= 2;
+            lifeCounter.LifeCountKeeper --;
         }
         else if (lifeCounter.LifeCountKeeper < 0 || lifeCounter.GameOver == true)
         {
-            Debug.Log("LifeCounter < 0");
             allowMoveInput = false;
         }
         isDead = dead;
@@ -441,7 +436,6 @@ public class PlayerController : MonoBehaviour
         }
         if (isDead && Time.time > respawnTimer)
         {
-            //isDamagable = false;
             playerBody.color = Color.clear;
             SetRespawnTimer();
             Respawn();            
