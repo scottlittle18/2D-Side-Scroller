@@ -73,7 +73,7 @@ public class EnemyPatrol : MonoBehaviour
     IEnumerator DelayAttack()
     {
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Anim_Bandit_Attack"))
-            enemyRigidBody.constraints = RigidbodyConstraints2D.FreezePositionX; // Stop Enemy Movement        
+            enemyRigidBody.constraints = RigidbodyConstraints2D.FreezePositionX; // Stop Enemy Movement
         yield return new WaitForSeconds(attackDelay); //Delay Next Attack
         anim.ResetTrigger("AttackPlayer"); // Reset Attack Trigger
         //Reset Attack States to False

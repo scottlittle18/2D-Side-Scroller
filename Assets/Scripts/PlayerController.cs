@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
     private AudioSource FootstepFX, SoundFX;
     #endregion
     #region Non-Serialized Fields
-    private float moveInput, respawnTimer;
+    private float moveInput, respawnTimer, attackClipLength;
     //Jump and Attack Inputs and Release variables
     private bool jumpInput, jumpRelease, attackInput, attackRelease, beingKnockedback, isAlive, canDoubleJump, canJump;  
     //Checks which side the player was hit on
@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
     private Renderer playerRend;
     private LifeCounter lifeCounter;
     private ScoreCounter scoreCounter;
+    private AnimatorClipInfo[] animAttackClipInfo;
     #endregion
     #region Properties
     public Checkpoint CurrentCheckpoint
@@ -133,6 +134,26 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("beingKnockedback", beingKnockedback);
         allowMoveInput = true;
     }
+    /// <summary>
+    /// Stops Player movement and enables the AttackPoint while the character is attacking
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator StopMovementWhileAttacking()
+    {
+        anim.SetBool("isAttacking", true);
+        myRigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
+        allowMoveInput = false;
+        attackPoint.gameObject.SetActive(true);
+        //animAttackClipInfo = anim.GetCurrentAnimatorClipInfo(0);
+        //attackClipLength = animAttackClipInfo[0].clip.length;
+        
+        yield return new WaitForSeconds(attackClipLength);
+        myRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        anim.SetBool("isAttacking", false);
+        //anim.ResetTrigger("Attack");
+        attackPoint.gameObject.SetActive(false);
+        allowMoveInput = true;
+    }
     #endregion
     // Use this for initialization
     private void Start()
@@ -173,7 +194,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         UpdatePhysicsMaterial();
-        if(allowMoveInput && !isDead)
+        if (allowMoveInput && !isDead)
             Move();
         CheckIfOnGround();
         anim.SetFloat("jumpVelocity", myRigidBody.velocity.y);
@@ -181,11 +202,6 @@ public class PlayerController : MonoBehaviour
         {
             doubleJumped = false;
         }
-
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Samurai_Attack"))
-            attackPoint.gameObject.SetActive(true);
-        else
-            attackPoint.gameObject.SetActive(false);
     }
     /// <summary>
     /// Checks whether the player is on the ground
@@ -199,6 +215,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Samurai_Attack"))
+        {
+            //myRigidBody.constraints = RigidbodyConstraints2D.FreezePositionX;
+            //myRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+            //TODO: Player Animation Debug Logs
+            Debug.Log("The RigidBody Contraint status is " + myRigidBody.constraints);
+            Debug.Log("Player's RigidBody.Velocity.X = " + myRigidBody.velocity.x);
+            Debug.Log("The length of the " + anim.GetCurrentAnimatorStateInfo(0).ToString() + " animation is: " + attackClipLength + " seconds");
+        }
         if(allowMoveInput && !isDead)
             GetMovementInput();
         CheckForRespawn();
@@ -252,7 +277,12 @@ public class PlayerController : MonoBehaviour
         if (attackInput && grounded)
         {
             anim.SetTrigger("Attack");
-            SoundFX.PlayOneShot(SFXArray[0]);
+            //TODO: Debug.Log("The length of the animation is: " + anim.GetCurrentAnimatorStateInfo(0).length + " seconds");
+            SoundFX.PlayOneShot(SFXArray[0]);            
+            animAttackClipInfo = anim.GetCurrentAnimatorClipInfo(0);
+            attackClipLength = animAttackClipInfo[0].clip.length;
+            //TODO:Debug.Log("The length of the " + animAttackClipInfo[0].clip.name + " animation is: " + attackClipLength + " seconds");
+            StartCoroutine(StopMovementWhileAttacking());
         }
         if (attackRelease && grounded)
         {
@@ -299,7 +329,8 @@ public class PlayerController : MonoBehaviour
     
     private void Jump()
     {
-        SoundFX.PlayOneShot(SFXArray[1]);
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Samurai_Attack"))
+            SoundFX.PlayOneShot(SFXArray[1]);
         AddJumpForce();
         //DOUBLE JUMP CHECK
         if (jumpInput && !grounded && !doubleJumped)
